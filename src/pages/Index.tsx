@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Envelope } from 'lucide-react';
+import { Baby, Heart, Moon, Syringe, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -216,7 +216,7 @@ const Index = () => {
                 href="mailto:contato@drafernandapediatra.com.br"
                 className="flex items-center gap-2"
               >
-                <Envelope className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
                 Enviar um E-mail
               </a>
             </Button>
