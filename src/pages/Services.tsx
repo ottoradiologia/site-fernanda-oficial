@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,7 +7,6 @@ import { Clock, Heart, Shield, Stethoscope } from 'lucide-react';
 
 const Services = () => {
   const highlights = [
-    "Duração de 1 hora",
     "Atendimento humanizado e sem pressa",
     "Avaliação completa (crescimento, desenvolvimento, vacinas)"
   ];
@@ -21,11 +19,14 @@ const Services = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
               Cuidado Integral para Cada Fase da Infância
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Serviços especializados com foco no bem-estar e desenvolvimento saudável das crianças
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              <span className="font-semibold text-[#fdb4be]">Cuidar de crianças é um privilégio e uma missão!</span> Aqui, cada atendimento é feito com <span className="text-[#83b2ac] font-semibold">carinho</span>, <span className="text-[#83b2ac] font-semibold">atenção</span> e <span className="text-[#83b2ac] font-semibold">respeito ao tempo de cada família</span>.
+            </p>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Conheça os principais serviços oferecidos para garantir o <span className="text-[#83b2ac] font-semibold">bem-estar</span> e o <span className="text-[#fdb4be] font-semibold">desenvolvimento saudável</span> do seu filho.
             </p>
           </div>
         </div>
@@ -41,17 +42,21 @@ const Services = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Stethoscope className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl">Minha Prática Clínica: O que esperar da consulta</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">Minha Prática Clínica: O que esperar da consulta</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
+                <p className="text-gray-600 leading-relaxed text-lg mb-4">
+                  <span className="font-semibold text-[#83b2ac]">Consultas de rotina</span> para acompanhar o crescimento, desenvolvimento e saúde geral das crianças.
+                </p>
+                <p className="text-gray-600 leading-relaxed text-lg mb-4">
+                  Avaliação individualizada, atualização da carteira de vacinação, orientações sobre alimentação, sono e prevenção de doenças.
+                </p>
+                <p className="text-gray-600 leading-relaxed text-lg mb-4">
+                  <span className="text-[#fdb4be] font-semibold">Aqui, cada consulta é feita sem pressa</span>, com escuta ativa e acolhimento para toda a família.
+                </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Realizo consultas de rotina para monitorar o crescimento e desenvolvimento das crianças. 
-                  Nessa consulta são verificados os parâmetros individualizados de crescimento e desenvolvimento 
-                  da criança, sua carteira de vacinação e uso de medicações, além do cuidados das principais 
-                  doenças da infância. Essas visitas são essenciais para detectar precocemente possíveis 
-                  problemas de saúde e garantir que seus filhos estejam se desenvolvendo adequadamente. 
-                  Fique tranquilo sabendo que a saúde do seu filho está em boas mãos.
+                  <span className="font-semibold">Seu filho merece um cuidado completo e humanizado!</span> Estou aqui para ajudar em todas as fases da infância.
                 </p>
                 
                 <div className="bg-accent/50 p-6 rounded-lg">
@@ -78,15 +83,15 @@ const Services = () => {
                   <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
                     <Clock className="w-6 h-6 text-secondary" />
                   </div>
-                  <CardTitle className="text-2xl">Suporte Contínuo para sua Tranquilidade</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">Suporte Contínuo para sua Tranquilidade</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  As consultas não têm retorno presencial. Todos os pacientes terão acompanhamento por 30 dias 
-                  pelo WhatsApp para dúvidas e envio de resultados de exames. Orientações sobre resultados de 
-                  exames serão feitas por telemedicina. Em caso de necessidade de um novo exame físico, a 
-                  Dra. Fernanda irá solicitar sem custos adicionais, de forma individualizada.
+                  <span className="text-[#83b2ac] font-semibold">Acompanhamento pós-consulta</span> por 30 dias via WhatsApp para dúvidas e resultados de exames.
+                </p>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Orientações por telemedicina e, se necessário, retorno presencial sem custo adicional, sempre pensando no conforto e segurança da família.
                 </p>
               </CardContent>
             </Card>
@@ -99,7 +104,7 @@ const Services = () => {
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
                   <div className="flex items-center gap-3">
-                    <CardTitle className="text-2xl">Proteção Completa para Toda a Família</CardTitle>
+                    <CardTitle className="text-2xl text-[#83b2ac]">Proteção Completa para Toda a Família</CardTitle>
                     <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
                       EM BREVE
                     </Badge>
@@ -108,8 +113,7 @@ const Services = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Estamos finalizando nossa Sala de Vacinação para oferecer um serviço de imunização completo, 
-                  seguro e confortável, agregado ao consultório.
+                  <span className="text-[#fdb4be] font-semibold">Em breve:</span> Sala de Vacinação completa, segura e confortável, para proteger toda a família com as melhores vacinas.
                 </p>
               </CardContent>
             </Card>
@@ -120,11 +124,11 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-8">
             Pronta para cuidar do seu filho
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Agende uma consulta e experimente um atendimento pediátrico diferenciado
+            <span className="text-[#83b2ac] font-semibold">Agende uma consulta</span> e experimente um atendimento pediátrico <span className="text-[#fdb4be] font-semibold">diferenciado, acolhedor e humano</span>.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
             <a href="https://wa.me/5511994077447" target="_blank" rel="noopener noreferrer">

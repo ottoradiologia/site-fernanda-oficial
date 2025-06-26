@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import {
@@ -76,7 +75,7 @@ const FAQ = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
               Dúvidas Frequentes
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -92,7 +91,7 @@ const FAQ = () => {
           <div className="max-w-4xl mx-auto">
             {faqData.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                <h2 className="text-2xl font-bold text-[#83b2ac] mb-6 text-center">
                   {category.category}
                 </h2>
                 

@@ -1,16 +1,15 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { MapPin, Train, Car, Users } from 'lucide-react';
 
 const Clinic = () => {
   const clinicImages = [
-    { src: "/placeholder.svg", alt: "Recepção moderna e aconchegante" },
-    { src: "/placeholder.svg", alt: "Consultório com decoração infantil" },
-    { src: "/placeholder.svg", alt: "Espaço lúdico para as crianças" },
-    { src: "/placeholder.svg", alt: "Mesa de exames pediátricos" },
-    { src: "/placeholder.svg", alt: "Detalhes da decoração especial" },
-    { src: "/placeholder.svg", alt: "Ambiente seguro e confortável" }
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção moderna e aconchegante" },
+    { src: "/images/clinic/sala de espera2.jpg", alt: "Espaço de espera confortável" },
+    { src: "/images/clinic/consultorio principal (1).jpeg", alt: "Consultório principal" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório com decoração infantil" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Espaço lúdico para as crianças" },
+    { src: "/images/clinic/parede consultorio.jpg.jpeg", alt: "Detalhes da decoração especial" }
   ];
 
   return (
@@ -21,7 +20,7 @@ const Clinic = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
               Nosso Local
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -47,7 +46,7 @@ const Clinic = () => {
       {/* Photo Gallery */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
             Conheça Nosso Espaço
           </h2>
           
@@ -71,7 +70,7 @@ const Clinic = () => {
       {/* Location and Access */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
             Localização e Acesso
           </h2>
           

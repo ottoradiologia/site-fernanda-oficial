@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -20,17 +19,21 @@ const Header = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-[#f0f4e3] shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-semibold text-lg">DF</span>
+              <img 
+                src="/images/hero/logo-reduzido.png" 
+                alt="Logo Dra. Fernanda" 
+                className="w-10 h-10 object-contain filter invert brightness-0"
+              />
             </div>
             <div className="hidden sm:block">
-              <span className="font-semibold text-gray-900">Dra. Fernanda Kruger</span>
-              <p className="text-xs text-gray-600">Pediatra - CRM-SP 140.995</p>
+              <span className="font-bold text-[#83b2ac] text-lg">Dra. Fernanda Kruger</span>
+              <p className="text-xs font-semibold text-[#fdb4be]">Pediatra - CRM-SP 140.995</p>
             </div>
           </Link>
 
@@ -40,9 +43,11 @@ const Header = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) ? 'text-primary' : 'text-gray-700'
-                }`}
+                className={`text-sm font-semibold transition-colors px-2 py-1 rounded 
+                  ${item.href === '/' && isActive(item.href) ? 'bg-[#fdb4be] text-white shadow' : ''}
+                  ${isActive(item.href) && item.href !== '/' ? 'text-[#83b2ac]' : ''}
+                  ${!isActive(item.href) ? 'text-[#83b2ac]' : ''}
+                  hover:text-[#fdb4be] hover:bg-[#83b2ac]/10`}
               >
                 {item.label}
               </Link>
@@ -51,7 +56,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-primary hover:bg-primary/90">
+            <Button asChild className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold">
               <a 
                 href="https://wa.me/5511994077447" 
                 target="_blank" 

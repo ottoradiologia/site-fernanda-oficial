@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,7 +20,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
               Minha Trajetória: Da Medicina à Maternidade
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -37,59 +36,40 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <img 
-                src="/placeholder.svg" 
-                alt="Dra. Fernanda Kruger" 
+                src="/images/doctor/fernanda e filho.jpg.jpeg" 
+                alt="Dra. Fernanda Kruger com seu filho" 
                 className="w-full max-w-md mx-auto lg:mx-0 rounded-lg shadow-lg"
               />
             </div>
             
             <div className="space-y-6">
               <div className="prose prose-lg max-w-none">
-                <p className="text-gray-600 leading-relaxed">
-                  Olá! Sou Fernanda, médica pediatra apaixonada pela Saúde Infantil!
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  <span className="font-bold text-[#fdb4be]">Olá! Sou Fernanda, médica pediatra apaixonada pela <span className="text-[#83b2ac]">Saúde Infantil</span>!</span>
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Vou contar um pouquinho sobre a minha trajetória.
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  <span className="font-semibold">Vou contar um pouquinho sobre a minha trajetória:</span>
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Após minha graduação em Medicina pela Universidade São Francisco em 2009, decidi pelas 
-                  especializações em Pediatria e Terapia Intensiva Pediátrica, concluídas em 2012 e 2014 
-                  respectivamente.
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Após minha graduação em <span className="text-[#83b2ac] font-semibold">Medicina</span> pela Universidade São Francisco em 2009, decidi pelas especializações em <span className="text-[#83b2ac] font-semibold">Pediatria</span> e <span className="text-[#83b2ac] font-semibold">Terapia Intensiva Pediátrica</span>, concluídas em 2012 e 2014 respectivamente.
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Porém, sentia que faltava algo a mais na minha formação e busquei a Pneumologia Pediátrica, 
-                  concluída em 2016, como complementação das atividades hospitalares que já realizava.
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Porém, sentia que faltava algo a mais na minha formação e busquei a <span className="text-[#83b2ac] font-semibold">Pneumologia Pediátrica</span>, concluída em 2016, como complementação das atividades hospitalares que já realizava.
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Em 2020 ganhei o meu maior presente! Me tornei mãe de um menino lindo e saudável, que me 
-                  ensina todos os dias que a Maternidade não está sobre o nosso controle e que acolhimento 
-                  e paciência são fundamentais nessa caminhada!
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  <span className="font-bold text-[#fdb4be]">Em 2020 ganhei o meu maior presente!</span> Me tornei mãe de um menino lindo e saudável, que me ensina todos os dias que a <span className="text-[#fdb4be] font-semibold">Maternidade</span> não está sobre o nosso controle e que <span className="text-[#fdb4be] font-semibold">acolhimento e paciência</span> são fundamentais nessa caminhada!
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Com o desafio da Maternidade, veio também o interesse em me capacitar em uma das principais 
-                  demandas das famílias com bebês pequenos, o sono infantil. Em 2022 me tornei consultora de 
-                  Sono e Rotina do Bebê, visando agregar qualidade aos atendimentos em Pediatria.
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Com o desafio da maternidade, veio também o interesse em me capacitar em uma das principais demandas das famílias com bebês pequenos: o <span className="text-[#83b2ac] font-semibold">sono infantil</span>. Em 2022 me tornei <span className="text-[#83b2ac] font-semibold">consultora de Sono e Rotina do Bebê</span>, visando agregar qualidade aos atendimentos em Pediatria.
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Em 2024 realizei o sonho de ter meu próprio consultório, planejado com muito amor e carinho, 
-                  para atender a todos com a maior qualidade e conforto!
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  Em 2024 realizei o sonho de ter meu próprio consultório, planejado com muito <span className="text-[#fdb4be] font-semibold">amor e carinho</span>, para atender a todos com a maior qualidade e conforto!
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  E não parei por ai... também em 2024 conclui um MBA em Imunização Humana e em breve teremos 
-                  uma Sala de Vacinação agregada ao meu consultório, proporcionando mais proteção e saúde a 
-                  toda família!
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  E não parei por aí... também em 2024 conclui um <span className="text-[#83b2ac] font-semibold">MBA em Imunização Humana</span> e em breve teremos uma <span className="text-[#83b2ac] font-semibold">Sala de Vacinação</span> agregada ao meu consultório, proporcionando mais proteção e saúde a toda família!
                 </p>
-                
-                <p className="text-gray-600 leading-relaxed font-semibold">
-                  Agora que você já me conhece, estou aqui para oferecer cuidados de qualidade e atenção 
-                  especializada às crianças e suas famílias!
+                <p className="text-gray-600 leading-relaxed font-semibold mt-6">
+                  <span className="text-[#fdb4be]">Agora que você já me conhece, estou aqui para oferecer <span className="text-[#83b2ac]">cuidados de qualidade</span> e atenção especializada às crianças e suas famílias!</span>
                 </p>
               </div>
             </div>
@@ -100,7 +80,7 @@ const About = () => {
       {/* Qualifications Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
             Formação e Qualificações
           </h2>
           
@@ -127,7 +107,7 @@ const About = () => {
       {/* Philosophy Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
             Missão, Diferencial e Valores
           </h2>
           

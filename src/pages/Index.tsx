@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,8 +5,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Baby, Heart, Moon, Syringe, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Index = () => {
+  useEffect(() => {
+    // Carrega o script do Doctoralia
+    const script = document.createElement('script');
+    script.id = 'zl-widget-s';
+    script.src = '//platform.docplanner.com/js/widget.js';
+    document.body.appendChild(script);
+    return () => {
+      const s = document.getElementById('zl-widget-s');
+      if (s) s.remove();
+    };
+  }, []);
+
   const services = [
     {
       icon: Baby,
@@ -16,8 +28,8 @@ const Index = () => {
     },
     {
       icon: Heart,
-      title: "Consulta de 1 Hora",
-      description: "Um atendimento sem pressa, com duração de 1 hora, para conversar, orientar e examinar sua criança com todo o cuidado que ela merece."
+      title: "Consulta sem pressa",
+      description: "Um atendimento acolhedor, para conversar, orientar e examinar sua criança com todo o cuidado que ela merece, sem pressa."
     },
     {
       icon: Moon,
@@ -33,10 +45,10 @@ const Index = () => {
   ];
 
   const clinicImages = [
-    { src: "/placeholder.svg", alt: "Recepção Aconchegante" },
-    { src: "/placeholder.svg", alt: "Espaço Lúdico e Seguro" },
-    { src: "/placeholder.svg", alt: "Consultório Moderno" },
-    { src: "/placeholder.svg", alt: "Cuidado em cada detalhe" }
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante" },
+    { src: "/images/clinic/consultorio principal (1).jpeg", alt: "Espaço Lúdico e Seguro" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe" }
   ];
 
   return (
@@ -48,10 +60,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] leading-tight">
                 Cuidando do bem-estar do seu <span className="text-primary">maior tesouro</span>
               </h1>
-              <h2 className="text-xl lg:text-2xl text-gray-700 font-medium">
+              <h2 className="text-xl lg:text-2xl font-medium text-[#83b2ac]">
                 Dra. Fernanda Kruger: Pediatria com amor, ciência e acolhimento.
               </h2>
               <p className="text-lg text-gray-600">
@@ -73,11 +85,11 @@ const Index = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="w-80 h-80 bg-primary/10 rounded-full flex items-center justify-center">
+              <div className="w-80 h-80 bg-primary/10 rounded-full flex items-center justify-center mt-6">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/images/doctor/fer closeup.jpg.jpeg" 
                   alt="Dra. Fernanda Kruger" 
-                  className="w-72 h-72 rounded-full object-cover"
+                  className="w-72 h-72 rounded-full object-cover object-top"
                 />
               </div>
             </div>
@@ -91,21 +103,23 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <img 
-                src="/placeholder.svg" 
+                src="/images/doctor/fer estetoscopio.jpg.jpeg" 
                 alt="Dra. Fernanda" 
                 className="w-full max-w-md mx-auto rounded-lg shadow-lg"
               />
             </div>
             <div className="order-1 lg:order-2 space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#83b2ac] mb-2">
                 Olá! Sou a Dra. Fernanda
               </h2>
-              <p className="text-gray-600 leading-relaxed">
-                Sou médica pediatra apaixonada pela Saúde Infantil e mãe de um menino lindo que me ensina 
-                todos os dias sobre a jornada da maternidade. Minha missão é oferecer um cuidado completo, 
-                aliando minha formação em Pediatria, Terapia Intensiva e Pneumologia Pediátrica com a 
-                sensibilidade de quem entende os desafios das famílias. Acredito que acolhimento e paciência 
-                são fundamentais!
+              <p className="text-gray-600 leading-relaxed text-lg mb-2">
+                <span className="font-semibold text-[#fdb4be]">Médica pediatra apaixonada</span> pela <span className="text-[#83b2ac] font-semibold">Saúde Infantil</span> e <span className="font-semibold text-[#fdb4be]">mãe de um menino lindo</span> que me ensina todos os dias sobre a jornada da maternidade.
+              </p>
+              <p className="text-gray-600 leading-relaxed text-lg mb-2">
+                Minha missão é oferecer um <span className="text-[#83b2ac] font-semibold">cuidado completo</span>, aliando minha formação em <span className="text-[#83b2ac]">Pediatria</span>, <span className="text-[#83b2ac]">Terapia Intensiva</span> e <span className="text-[#83b2ac]">Pneumologia Pediátrica</span> com a sensibilidade de quem entende os desafios das famílias.
+              </p>
+              <p className="text-gray-600 leading-relaxed text-lg font-semibold">
+                Acredito que <span className="text-[#fdb4be]">acolhimento</span> e <span className="text-[#fdb4be]">paciência</span> são fundamentais!
               </p>
               <Button asChild className="bg-secondary hover:bg-secondary/90">
                 <Link to="/sobre-mim">Conheça minha história</Link>
@@ -119,7 +133,7 @@ const Index = () => {
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
               Nossos Serviços
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -154,11 +168,34 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Doctoralia Calendar Section */}
+      <section className="py-20 bg-[#f0f4e3]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+              Agende sua Consulta Online
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+              Escolha o melhor horário para sua consulta com a Dra. Fernanda Kruger pelo Doctoralia:
+            </p>
+            <div className="flex justify-center">
+              <div style={{maxWidth: 420, width: '100%'}}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: `<a id=\"zl-url\" class=\"zl-url\" href=\"https://www.doctoralia.com.br/fernanda-favali-kruger/pediatra-pneumologista-pediatrico/sao-paulo\" rel=\"nofollow\" data-zlw-doctor=\"fernanda-favali-kruger\" data-zlw-type=\"big_with_calendar\" data-zlw-opinion=\"false\" data-zlw-hide-branding=\"true\" data-zlw-saas-only=\"true\" data-zlw-a11y-title=\"Widget de marcação de consultas médicas\">Fernanda Favali Kruger - Doctoralia.com.br</a>`
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Clinic Preview Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
               Nosso Cantinho
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -192,7 +229,7 @@ const Index = () => {
       {/* Contact CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
             Pronta para cuidar do seu filho!
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -213,7 +250,7 @@ const Index = () => {
             </Button>
             <Button variant="outline" size="lg" asChild>
               <a 
-                href="mailto:contato@drafernandapediatra.com.br"
+                href="mailto:fernandafavalikruger@gmail.com"
                 className="flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
