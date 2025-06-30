@@ -63,10 +63,10 @@ const About = () => {
                   Com o desafio da maternidade, veio também o interesse em me capacitar em uma das principais demandas das famílias com bebês pequenos: o <span className="text-[#83b2ac] font-semibold">sono infantil</span>. Em 2022 me tornei <span className="text-[#83b2ac] font-semibold">consultora de Sono e Rotina do Bebê</span>, visando agregar qualidade aos atendimentos em Pediatria.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Em 2024 realizei o sonho de ter meu próprio consultório, planejado com muito <span className="text-[#fdb4be] font-semibold">amor e carinho</span>, para atender a todos com a maior qualidade e conforto!
+                  Em 2025 realizei o sonho de ter meu próprio consultório, planejado com muito <span className="text-[#fdb4be] font-semibold">amor e carinho</span>, para atender a todos com a maior qualidade e conforto!
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  E não parei por aí... também em 2024 conclui um <span className="text-[#83b2ac] font-semibold">MBA em Imunização Humana</span> e em breve teremos uma <span className="text-[#83b2ac] font-semibold">Sala de Vacinação</span> agregada ao meu consultório, proporcionando mais proteção e saúde a toda família!
+                  E não parei por aí... também em 2025 conclui um <span className="text-[#83b2ac] font-semibold">MBA em Imunização Humana</span> e em breve teremos uma <span className="text-[#83b2ac] font-semibold">Sala de Vacinação</span> agregada ao meu consultório, proporcionando mais proteção e saúde a toda família!
                 </p>
                 <p className="text-gray-600 leading-relaxed font-semibold mt-6">
                   <span className="text-[#fdb4be]">Agora que você já me conhece, estou aqui para oferecer <span className="text-[#83b2ac]">cuidados de qualidade</span> e atenção especializada às crianças e suas famílias!</span>

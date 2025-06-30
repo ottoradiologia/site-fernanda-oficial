@@ -4,12 +4,12 @@ import { MapPin, Train, Car, Users } from 'lucide-react';
 
 const Clinic = () => {
   const clinicImages = [
-    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção moderna e aconchegante" },
-    { src: "/images/clinic/sala de espera2.jpg", alt: "Espaço de espera confortável" },
-    { src: "/images/clinic/consultorio principal (1).jpeg", alt: "Consultório principal" },
-    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório com decoração infantil" },
-    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Espaço lúdico para as crianças" },
-    { src: "/images/clinic/parede consultorio.jpg.jpeg", alt: "Detalhes da decoração especial" }
+    { src: "/images/clinic/sala de espera2.jpg", alt: "Sala de espera" },
+    { src: "/images/clinic/maca.jpg.jpeg", alt: "Área de exame" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório principal" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Área de diversão" },
+    { src: "/images/clinic/parede consultorio.jpg.jpeg", alt: "Detalhes do consultório" },
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Sala de espera" }
   ];
 
   return (
@@ -52,11 +52,11 @@ const Clinic = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {clinicImages.map((image, index) => (
-              <div key={index} className="group overflow-hidden rounded-lg shadow-lg">
+              <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-white">
                 <img 
                   src={image.src} 
                   alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="p-4 bg-white">
                   <p className="text-gray-700 font-medium text-center">{image.alt}</p>
@@ -130,14 +130,18 @@ const Clinic = () => {
             </div>
 
             {/* Map */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="h-96 bg-gray-200 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <MapPin className="w-12 h-12 mx-auto mb-2" />
-                  <p>Mapa Interativo do Google Maps</p>
-                  <p className="text-sm">Rua Afonso de Freitas, 59 - Paraíso, SP</p>
-                </div>
-              </div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden h-96">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Rua+Afonso+de+Freitas,+59,+Paraíso,+São+Paulo,+SP,+04006-050"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização do Consultório - Dra. Fernanda Kruger"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>

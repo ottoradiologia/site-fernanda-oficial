@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Mail } from 'lucide-react';
+import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -46,7 +46,7 @@ const Index = () => {
 
   const clinicImages = [
     { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante" },
-    { src: "/images/clinic/consultorio principal (1).jpeg", alt: "Espaço Lúdico e Seguro" },
+    { src: "/images/clinic/maca.jpg.jpeg", alt: "Espaço Lúdico e Seguro" },
     { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno" },
     { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe" }
   ];
@@ -209,7 +209,7 @@ const Index = () => {
                 <img 
                   src={image.src} 
                   alt={image.alt}
-                  className="w-full h-48 object-cover transition-transform group-hover:scale-105"
+                  className="w-full h-64 object-cover transition-transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end">
                   <p className="text-white text-sm font-medium p-3">{image.alt}</p>
@@ -222,6 +222,63 @@ const Index = () => {
             <Button asChild className="bg-secondary hover:bg-secondary/90">
               <Link to="/consultorio">Conheça nosso espaço</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="py-20 bg-accent/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+              Onde Nos Encontrar
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Localizados no coração do Paraíso, com fácil acesso pelo metrô
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-primary" />
+                  Endereço
+                </h3>
+                <p className="text-gray-600">
+                  Rua Afonso de Freitas, nº 59, sala 94<br />
+                  Paraíso, São Paulo - SP<br />
+                  CEP 04.006-050<br />
+                  Edifício Upside Paraíso
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <Train className="w-5 h-5 text-secondary" />
+                  Como Chegar
+                </h3>
+                <p className="text-gray-600">
+                  <strong>🚇 Metrô:</strong> Estamos a 220m da estação Paraíso<br />
+                  (Linhas 1-Azul e 2-Verde)<br />
+                  <strong>⏱️ Tempo:</strong> Apenas 3 minutos caminhando
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Rua+Afonso+de+Freitas,+59,+Paraíso,+São+Paulo,+SP,+04006-050"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização do Consultório - Dra. Fernanda Kruger"
+                className="w-full h-80"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
