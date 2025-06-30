@@ -40,7 +40,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Como agendar uma consulta?",
-          answer: "Você pode agendar uma consulta enviando uma mensagem para nosso WhatsApp (11) 99407-7447, clicando no botão \"Agende uma consulta\", ou preenchendo o formulário de agendamento em nosso site. Se preferir, pode enviar um email para contato@drafernandapediatra.com.br."
+          answer: "Você pode agendar uma consulta enviando uma mensagem para nosso WhatsApp (11) 99407-7447, clicando no botão \"Agende uma consulta\", ou preenchendo o formulário de agendamento em nosso site."
         },
         {
           question: "Atende Convênio Médico?",
@@ -126,7 +126,7 @@ const FAQ = () => {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Entre em contato conosco e teremos prazer em esclarecer suas dúvidas
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <a 
               href="https://wa.me/5511994077447" 
               target="_blank" 
@@ -135,13 +135,6 @@ const FAQ = () => {
             >
               <span>📱</span>
               Conversar no WhatsApp
-            </a>
-            <a 
-              href="mailto:contato@drafernandapediatra.com.br"
-              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
-            >
-              <span>✉️</span>
-              Enviar E-mail
             </a>
           </div>
         </div>
