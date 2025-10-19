@@ -14,7 +14,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Quais serviços a Dra. Fernanda Kruger oferece?",
-          answer: "A Dra. Fernanda Kruger oferece uma ampla gama de serviços pediátricos, incluindo consulta médica particular para avaliação de rotina, vacinas (EM BREVE), tratamento de doenças e orientação sobre saúde infantil."
+          answer: "A Dra. Fernanda Kruger oferece uma ampla gama de serviços pediátricos, incluindo consulta médica particular para avaliação de rotina, vacinas através da sala de vacinas integrada Mil Vacinas, pacotes de consulta com vacinação, tratamento de doenças e orientação sobre saúde infantil."
         },
         {
           question: "Qual é a faixa etária atendida?",
@@ -28,10 +28,6 @@ const FAQ = () => {
         {
           question: "Qual o tempo de duração da consulta?",
           answer: "As consultas particulares duram cerca de 1 hora, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece."
-        },
-        {
-          question: "As consultas têm retorno?",
-          answer: "As consultas não têm retorno presencial. Todos os pacientes terão acompanhamento por 30 dias pelo WhatsApp para dúvidas e envio de resultados de exames. Orientações sobre resultados serão feitas por telemedicina. Em caso de necessidade de um novo exame físico, a Dra. Fernanda irá solicitar sem custos adicionais, conforme avaliação individualizada."
         }
       ]
     },
@@ -44,11 +40,24 @@ const FAQ = () => {
         },
         {
           question: "Atende Convênio Médico?",
-          answer: "Não, somente consultas particulares para proporcionar um atendimento humanizado e personalizado. Estamos em fase de credenciamento em alguns convênios. Em breve, mais informações."
+          answer: "Sim! Atendemos GoCare Saúde e Sepaco Autogestão. Para outros planos, consulte pelo WhatsApp (11) 99407-7447 para verificar se seu convênio está em processo de credenciamento."
         },
         {
           question: "Emite Nota Fiscal para reembolso?",
           answer: "Sim, emitimos nota fiscal para que você possa solicitar o reembolso pelo seu convênio médico."
+        }
+      ]
+    },
+    {
+      category: "Planos e Pacotes",
+      questions: [
+        {
+          question: "Quais planos de consulta estão disponíveis?",
+          answer: "Oferecemos diferentes planos de consulta: Consultoria do Sono e Rotina, Puericultura de 0 a 6 meses, Puericultura de 0 a 1 ano, e Pacotes de Consultas e Vacinação. Consulte pelo WhatsApp (11) 99407-7447 para mais informações sobre cada plano."
+        },
+        {
+          question: "Existem pacotes de consultas e vacinação?",
+          answer: "Sim! Temos pacotes especiais que combinam consultas pediátricas com vacinação através da nossa sala integrada Mil Vacinas. Consulte pelo WhatsApp para conhecer os pacotes disponíveis e valores."
         }
       ]
     },

@@ -46,18 +46,29 @@ const Services = () => {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-gray-600 leading-relaxed text-lg mb-4">
-                  <span className="font-semibold text-[#83b2ac]">Consultas de rotina</span> para acompanhar o crescimento, desenvolvimento e saúde geral das crianças.
-                </p>
-                <p className="text-gray-600 leading-relaxed text-lg mb-4">
-                  Avaliação individualizada, atualização da carteira de vacinação, orientações sobre alimentação, sono e prevenção de doenças.
-                </p>
-                <p className="text-gray-600 leading-relaxed text-lg mb-4">
-                  <span className="text-[#fdb4be] font-semibold">Aqui, cada consulta é feita sem pressa</span>, com escuta ativa e acolhimento para toda a família.
-                </p>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  <span className="font-semibold">Seu filho merece um cuidado completo e humanizado!</span> Estou aqui para ajudar em todas as fases da infância.
-                </p>
+                <div className="grid md:grid-cols-2 gap-6 items-center">
+                  <div className="space-y-4">
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      <span className="font-semibold text-[#83b2ac]">Consultas de rotina</span> para acompanhar o crescimento, desenvolvimento e saúde geral das crianças.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      Avaliação individualizada, atualização da carteira de vacinação, orientações sobre alimentação, sono e prevenção de doenças.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      <span className="text-[#fdb4be] font-semibold">Aqui, cada consulta é feita sem pressa</span>, com escuta ativa e acolhimento para toda a família.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      <span className="font-semibold">Seu filho merece um cuidado completo e humanizado!</span> Estou aqui para ajudar em todas as fases da infância.
+                    </p>
+                  </div>
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <img 
+                      src="/images/clinic/assinando.jpg" 
+                      alt="Dra. Fernanda atendendo paciente no consultório" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
                 
                 <div className="bg-accent/50 p-6 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
@@ -103,18 +114,37 @@ const Services = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <CardTitle className="text-2xl text-[#83b2ac]">Proteção Completa para Toda a Família</CardTitle>
-                    <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
-                      EM BREVE
-                    </Badge>
-                  </div>
+                  <CardTitle className="text-2xl text-[#83b2ac]">Proteção Completa para Toda a Família</CardTitle>
                 </div>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  <span className="text-[#fdb4be] font-semibold">Em breve:</span> Sala de Vacinação completa, segura e confortável, para proteger toda a família com as melhores vacinas.
-                </p>
+              <CardContent className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-6 items-center">
+                  <div className="space-y-4">
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      <span className="text-[#83b2ac] font-semibold">Sala de Vacinação completa, segura e confortável</span>, para proteger toda a família com as melhores vacinas disponíveis no mercado.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      Oferecemos vacinas para crianças, adolescentes e adultos, garantindo <span className="text-[#fdb4be] font-semibold">proteção e tranquilidade</span> em um ambiente acolhedor.
+                    </p>
+                    <Button 
+                      size="lg" 
+                      variant="outline" 
+                      className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac] hover:text-white" 
+                      asChild
+                    >
+                      <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
+                        Conheça Nossas Vacinas
+                      </a>
+                    </Button>
+                  </div>
+                  <div className="flex justify-center">
+                    <img 
+                      src="/images/milvacinas.png" 
+                      alt="Logo Mil Vacinas" 
+                      className="max-w-xs h-auto"
+                    />
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>

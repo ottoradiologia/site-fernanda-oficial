@@ -4,12 +4,19 @@ import { MapPin, Train, Car, Users } from 'lucide-react';
 
 const Clinic = () => {
   const clinicImages = [
-    { src: "/images/clinic/sala de espera2.jpg", alt: "Sala de espera" },
-    { src: "/images/clinic/maca.jpg.jpeg", alt: "Área de exame" },
-    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório principal" },
-    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Área de diversão" },
-    { src: "/images/clinic/parede consultorio.jpg.jpeg", alt: "Detalhes do consultório" },
-    { src: "/images/clinic/sala de espera3.jpg", alt: "Sala de espera" }
+    { src: "/images/clinic/assinando.jpg", alt: "Dra. Fernanda atendendo", type: "image" },
+    { src: "/images/clinic/cafe.jpg", alt: "Espaço de café", type: "image" },
+    { src: "/images/clinic/consultorio principal (1).jpeg", alt: "Consultório principal", type: "image" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório principal", type: "image" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Área de diversão", type: "image" },
+    { src: "/images/clinic/fercafe.jpg", alt: "Dra. Fernanda no café", type: "image" },
+    { src: "/images/clinic/maca.jpg", alt: "Área de exame", type: "image" },
+    { src: "/images/clinic/parede consultorio.jpg.jpeg", alt: "Detalhes do consultório", type: "image" },
+    { src: "/images/clinic/prédio.jpg.jpeg", alt: "Prédio do consultório", type: "image" },
+    { src: "/images/clinic/sala de espera2.jpg", alt: "Sala de espera", type: "image" },
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Sala de espera", type: "image" },
+    { src: "/images/clinic/sentadaconsultorio.jpg", alt: "Dra. Fernanda", type: "image" },
+    { src: "/images/clinic/video.mov", alt: "Tour virtual do consultório", type: "video" }
   ];
 
   return (
@@ -51,15 +58,32 @@ const Clinic = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {clinicImages.map((image, index) => (
+            {clinicImages.map((item, index) => (
               <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-white">
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  className="w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
+                {item.type === 'video' ? (
+                  <div className="relative">
+                    <video 
+                      className="w-full h-80 object-cover"
+                      controls
+                      poster="/images/clinic/maca.jpg"
+                    >
+                      <source src={item.src} type="video/mp4" />
+                      <source src={item.src} type="video/quicktime" />
+                      Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                      ▶️ Vídeo
+                    </div>
+                  </div>
+                ) : (
+                  <img 
+                    src={item.src} 
+                    alt={item.alt}
+                    className="w-full h-96 object-contain bg-gray-50 transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
                 <div className="p-4 bg-white">
-                  <p className="text-gray-700 font-medium text-center">{image.alt}</p>
+                  <p className="text-gray-700 font-medium text-center">{item.alt}</p>
                 </div>
               </div>
             ))}

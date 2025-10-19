@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train } from 'lucide-react';
+import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -18,6 +18,39 @@ const Index = () => {
       const s = document.getElementById('zl-widget-s');
       if (s) s.remove();
     };
+  }, []);
+
+  // Função para atualizar o carrossel
+  const updateCarousel = (index: number) => {
+    const wrapper = document.querySelector('.carousel-wrapper');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (wrapper && dots.length === 5) {
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+      
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-gray-300');
+          dot.classList.add('bg-[#83b2ac]');
+        } else {
+          dot.classList.remove('bg-[#83b2ac]');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    // Carrossel automático dos convênios
+    let currentIndex = 0;
+    const totalSlides = 5;
+    
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel(currentIndex);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const services = [
@@ -39,14 +72,18 @@ const Index = () => {
     {
       icon: Syringe,
       title: "Imunização para a Família",
-      description: "Com MBA em Imunização, em breve teremos um espaço completo para proteger toda a família com as melhores vacinas.",
-      badge: "EM BREVE"
+      description: "Com MBA em Imunização, oferecemos um espaço completo para proteger toda a família com as melhores vacinas."
+    },
+    {
+      icon: Package,
+      title: "Mil Cuidados",
+      description: "Pacotes de consulta com vacinação para cuidar da saúde do seu filho de forma completa e integrada."
     }
   ];
 
   const clinicImages = [
     { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante" },
-    { src: "/images/clinic/maca.jpg.jpeg", alt: "Espaço Lúdico e Seguro" },
+    { src: "/images/clinic/maca.jpg", alt: "Espaço Lúdico e Seguro" },
     { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno" },
     { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe" }
   ];
@@ -85,12 +122,14 @@ const Index = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="w-80 h-80 bg-primary/10 rounded-full flex items-center justify-center mt-6">
-                <img 
-                  src="/images/doctor/fer closeup.jpg.jpeg" 
-                  alt="Dra. Fernanda Kruger" 
-                  className="w-72 h-72 rounded-full object-cover object-top"
-                />
+              <div className="p-4 bg-gradient-to-br from-[#83b2ac]/20 to-[#fdb4be]/20 rounded-2xl shadow-xl">
+                <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
+                  <img 
+                    src="/images/doctor/fer_hero.jpg" 
+                    alt="Dra. Fernanda Kruger" 
+                    className="w-full max-w-md h-auto object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -102,11 +141,17 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <img 
-                src="/images/doctor/fer estetoscopio.jpg.jpeg" 
-                alt="Dra. Fernanda" 
-                className="w-full max-w-md mx-auto rounded-lg shadow-lg"
-              />
+              <div className="flex justify-center">
+                <div className="p-4 bg-gradient-to-br from-[#83b2ac]/20 to-[#fdb4be]/20 rounded-2xl shadow-xl">
+                  <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
+                    <img 
+                      src="/images/doctor/fer_mesa.jpg" 
+                      alt="Dra. Fernanda" 
+                      className="w-full max-w-md h-auto object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="order-1 lg:order-2 space-y-6">
               <h2 className="text-3xl lg:text-4xl font-extrabold text-[#83b2ac] mb-2">
@@ -137,11 +182,11 @@ const Index = () => {
               Nossos Serviços
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Cuidado integral e especializado para cada fase da infância
+              Cuidado integral e especializado para cada fase da infância. Pacotes de consulta com vacinação.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center">
@@ -168,12 +213,156 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Convênios Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+              Convênios Atendidos
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Atendemos os principais convênios médicos e oferecemos facilidades para reembolso
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="font-semibold text-gray-900 mb-4 text-xl text-[#83b2ac]">
+                  Convênios Ativos
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-[#83b2ac] rounded-full"></div>
+                    <span className="text-gray-700 font-medium">GoCare Saúde</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-[#83b2ac] rounded-full"></div>
+                    <span className="text-gray-700 font-medium">Sepaco Autogestão</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-accent/50 p-6 rounded-lg">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <span className="text-[#fdb4be]">💬</span>
+                  Novos Convênios
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Consulte pelo WhatsApp para novos convênios que estão em processo de credenciamento.
+                </p>
+                <Button 
+                  size="lg" 
+                  className="bg-green-600 hover:bg-green-700" 
+                  asChild
+                >
+                  <a href="https://wa.me/5511994077447" target="_blank" rel="noopener noreferrer">
+                    Consultar Convênios
+                  </a>
+                </Button>
+              </div>
+              
+              <div className="bg-primary/10 p-6 rounded-lg">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <span className="text-[#83b2ac]">📄</span>
+                  Reembolso
+                </h3>
+                <p className="text-gray-700">
+                  Emitimos nota fiscal para reembolso do seu convênio caso tenha essa modalidade.
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="carousel-container overflow-hidden rounded-lg shadow-xl">
+                <div className="carousel-wrapper flex transition-transform duration-500 ease-in-out">
+                  <div className="carousel-slide min-w-full relative">
+                    <img 
+                      src="/images/convenios/gocare.jpg" 
+                      alt="GoCare Saúde" 
+                      className="w-full h-96 object-contain bg-gray-50"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">GoCare Saúde</h3>
+                    </div>
+                  </div>
+                  <div className="carousel-slide min-w-full relative">
+                    <img 
+                      src="/images/convenios/sepaco.jpg" 
+                      alt="Sepaco Autogestão" 
+                      className="w-full h-96 object-contain bg-gray-50"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">Sepaco Autogestão</h3>
+                    </div>
+                  </div>
+                  <div className="carousel-slide min-w-full relative">
+                    <img 
+                      src="/images/convenios/comoencontrargocare.jpg" 
+                      alt="Como encontrar GoCare" 
+                      className="w-full h-96 object-contain bg-gray-50"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">Como encontrar GoCare</h3>
+                    </div>
+                  </div>
+                  <div className="carousel-slide min-w-full relative">
+                    <img 
+                      src="/images/convenios/comoencontrarsepaco.jpg" 
+                      alt="Como encontrar Sepaco" 
+                      className="w-full h-96 object-contain bg-gray-50"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">Como encontrar Sepaco</h3>
+                    </div>
+                  </div>
+                  <div className="carousel-slide min-w-full relative">
+                    <img 
+                      src="/images/convenios/comoencontrarsepaco2.jpg" 
+                      alt="Convênios Médicos" 
+                      className="w-full h-96 object-contain bg-gray-50"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold">Convênios Médicos</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Carousel Navigation */}
+              <div className="flex justify-center mt-4 space-x-2">
+                <button 
+                  className="carousel-dot w-3 h-3 rounded-full bg-[#83b2ac] transition-all duration-300"
+                  onClick={() => updateCarousel(0)}
+                ></button>
+                <button 
+                  className="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateCarousel(1)}
+                ></button>
+                <button 
+                  className="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateCarousel(2)}
+                ></button>
+                <button 
+                  className="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateCarousel(3)}
+                ></button>
+                <button 
+                  className="carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateCarousel(4)}
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Doctoralia Calendar Section */}
       <section className="py-20 bg-[#f0f4e3]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              Agende sua Consulta Online
+              Agende sua Consulta Particular
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
               Escolha o melhor horário para sua consulta com a Dra. Fernanda Kruger pelo Doctoralia:
