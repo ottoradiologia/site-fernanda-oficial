@@ -16,7 +16,7 @@ const Clinic = () => {
     { src: "/images/clinic/sala de espera2.jpg", alt: "Sala de espera", type: "image" },
     { src: "/images/clinic/sala de espera3.jpg", alt: "Sala de espera", type: "image" },
     { src: "/images/clinic/sentadaconsultorio.jpg", alt: "Dra. Fernanda", type: "image" },
-    { src: "/images/clinic/video.mov", alt: "Tour virtual do consultório", type: "video" }
+    { src: "/images/clinic/video_optimized.mp4", alt: "Tour virtual do consultório", type: "video" }
   ];
 
   return (
@@ -61,14 +61,13 @@ const Clinic = () => {
             {clinicImages.map((item, index) => (
               <div key={index} className="group overflow-hidden rounded-lg shadow-lg bg-white">
                 {item.type === 'video' ? (
-                  <div className="relative">
+                  <div className="relative bg-gray-50">
                     <video 
-                      className="w-full h-80 object-cover"
+                      className="w-full h-96 object-contain"
                       controls
                       poster="/images/clinic/maca.jpg"
                     >
                       <source src={item.src} type="video/mp4" />
-                      <source src={item.src} type="video/quicktime" />
                       Seu navegador não suporta vídeos HTML5.
                     </video>
                     <div className="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
