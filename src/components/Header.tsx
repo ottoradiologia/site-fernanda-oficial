@@ -96,7 +96,8 @@ const Header = () => {
               ))}
               <Button asChild className="bg-primary hover:bg-primary/90 w-fit">
                 <a 
-                  href="https://wa.me/5511994077447" 
+                  class="pht-whatsapp" data-widget="8469"
+                  href="" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
