@@ -112,7 +112,7 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                  <a href="https://wa.me/5511994077447" target="_blank" rel="noopener noreferrer">
+                  <a href="" target="_blank" rel="noopener noreferrer" class="pht-whatsapp" data-widget="8469">
                     Agende uma Consulta
                   </a>
                 </Button>
@@ -256,7 +256,7 @@ const Index = () => {
                   className="bg-green-600 hover:bg-green-700" 
                   asChild
                 >
-                  <a href="https://wa.me/5511994077447" target="_blank" rel="noopener noreferrer">
+                  <a href="" class="pht-whatsapp" data-widget="8469" target="_blank" rel="noopener noreferrer">
                     Consultar Convênios
                   </a>
                 </Button>
@@ -485,7 +485,8 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
               <a 
-                href="https://wa.me/5511994077447" 
+                href="" 
+                class="pht-whatsapp" data-widget="8469"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
