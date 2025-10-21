@@ -59,7 +59,8 @@ const Header = () => {
           <div className="hidden lg:block">
             <Button asChild className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold">
               <a 
-                href="https://wa.me/5511994077447" 
+                class="pht-whatsapp" data-widget="8469"
+                href="" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
