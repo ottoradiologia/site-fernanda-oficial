@@ -12,6 +12,7 @@ const Header = () => {
     { href: '/', label: 'Início' },
     { href: '/sobre-mim', label: 'Sobre Mim' },
     { href: '/servicos', label: 'Serviços' },
+    { href: '/vacinacao', label: 'Vacinação' },
     { href: '/consultorio', label: 'O Consultório' },
     { href: '/contato', label: 'Contato' },
     { href: '/duvidas-frequentes', label: 'Dúvidas Frequentes' },

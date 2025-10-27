@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Clinic from "./pages/Clinic";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import Vaccination from "./pages/Vaccination";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/sobre-mim" element={<About />} />
           <Route path="/servicos" element={<Services />} />
+          <Route path="/vacinacao" element={<Vaccination />} />
           <Route path="/consultorio" element={<Clinic />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/duvidas-frequentes" element={<FAQ />} />
