@@ -249,8 +249,54 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Vaccination Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="flex justify-center">
+                  <div className="p-6 bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10 rounded-2xl shadow-xl">
+                    <img 
+                      src="/images/milvacinas.png" 
+                      alt="Mil Vacinas" 
+                      className="w-full max-w-md h-auto object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 space-y-6">
+                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
+                  Mil Vacinas
+                </h2>
+                <h3 className="text-2xl font-semibold text-[#fdb4be]">
+                  Proteção Completa para Toda a Família
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Nossa clínica de vacinação está <span className="font-semibold text-[#83b2ac]">integrada ao consultório</span>, 
+                  oferecendo um serviço completo de imunização para <span className="font-semibold text-[#fdb4be]">todas as faixas etárias</span>. 
+                  Atendimento humanizado com equipe qualificada em ambiente acolhedor.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                    <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
+                      Conhecer Mil Vacinas
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <a href="https://wa.me/5511973139542?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20vacina." target="_blank" rel="noopener noreferrer">
+                      Agendar Vacina
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Convênios Section */}
-      <section className="py-20">
+      <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
