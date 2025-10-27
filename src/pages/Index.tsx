@@ -77,7 +77,7 @@ const Index = () => {
     {
       icon: Package,
       title: "Mil Cuidados",
-      description: "Pacotes de consulta com vacinação para cuidar da saúde do seu filho de forma completa e integrada."
+      description: "Programa de acompanhamento integral incluindo consultas e vacinação para cuidar da saúde de sua criança de forma completa."
     }
   ];
 
