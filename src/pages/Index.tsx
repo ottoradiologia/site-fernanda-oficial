@@ -144,7 +144,7 @@ const Index = () => {
                 Consultas sem pressa para garantir o cuidado que sua criança merece.
               </p>
               <p className="text-sm text-gray-500 font-medium">
-                Dra. Fernanda Favali Kruger - CRM-SP 140.995
+                Dra. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669
               </p>
                <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
@@ -574,6 +574,16 @@ const Index = () => {
                   <strong>🚇 Metrô:</strong> Estamos a 220m da estação Paraíso<br />
                   (Linhas 1-Azul e 2-Verde)<br />
                   <strong>⏱️ Tempo:</strong> Apenas 3 minutos caminhando
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <span className="text-yellow-600">🅿️</span>
+                  Estacionamento
+                </h3>
+                <p className="text-gray-600">
+                  Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores.
                 </p>
               </div>
             </div>

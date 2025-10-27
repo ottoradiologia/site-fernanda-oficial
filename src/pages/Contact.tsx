@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Stethoscope } from 'lucide-react';
 import { useEffect } from 'react';
 
 const Contact = () => {
@@ -120,13 +120,14 @@ const Contact = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <Clock className="w-6 h-6 text-yellow-600" />
-                    CRM
+                    <Stethoscope className="w-6 h-6 text-[#83b2ac]" />
+                    Informações Profissionais
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Dra. Fernanda Favali Kruger - CRM-SP 140.995
+                    Dra. Fernanda Favali Kruger<br />
+                    CRM-SP 140.995 | RQE 37669
                   </p>
                 </CardContent>
               </Card>

@@ -35,7 +35,7 @@ const Header = () => {
             </div>
             <div className="hidden sm:block">
               <span className="font-bold text-[#83b2ac] text-lg">Dra. Fernanda Kruger</span>
-              <p className="text-xs font-semibold text-[#fdb4be]">Pediatra - CRM-SP 140.995</p>
+              <p className="text-xs font-semibold text-[#fdb4be]">Pediatra - CRM-SP 140.995 | RQE 37669</p>
             </div>
           </Link>
 
