@@ -12,7 +12,6 @@ const Header = () => {
     { href: '/sobre-mim', label: 'Sobre Mim' },
     { href: '/servicos', label: 'Serviços' },
     { href: '/consultorio', label: 'O Consultório' },
-    { href: '/posts', label: 'Posts' },
     { href: '/contato', label: 'Contato' },
     { href: '/duvidas-frequentes', label: 'Dúvidas Frequentes' },
   ];

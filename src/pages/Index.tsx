@@ -20,10 +20,30 @@ const Index = () => {
     };
   }, []);
 
-  // Função para atualizar o carrossel
+  // Função para atualizar o carrossel de convênios
   const updateCarousel = (index: number) => {
     const wrapper = document.querySelector('.carousel-wrapper');
     const dots = document.querySelectorAll('.carousel-dot');
+    
+    if (wrapper && dots.length === 5) {
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+      
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-gray-300');
+          dot.classList.add('bg-[#83b2ac]');
+        } else {
+          dot.classList.remove('bg-[#83b2ac]');
+          dot.classList.add('bg-gray-300');
+        }
+      });
+    }
+  };
+
+  // Função para atualizar o carrossel da clínica
+  const updateClinicCarousel = (index: number) => {
+    const wrapper = document.querySelector('.clinic-carousel-wrapper');
+    const dots = document.querySelectorAll('.clinic-carousel-dot');
     
     if (wrapper && dots.length === 5) {
       wrapper.style.transform = `translateX(-${index * 100}%)`;
@@ -49,6 +69,19 @@ const Index = () => {
       currentIndex = (currentIndex + 1) % totalSlides;
       updateCarousel(currentIndex);
     }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Carrossel automático da clínica
+    let currentIndex = 0;
+    const totalSlides = 5;
+    
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateClinicCarousel(currentIndex);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -82,10 +115,11 @@ const Index = () => {
   ];
 
   const clinicImages = [
-    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante" },
-    { src: "/images/clinic/maca.jpg", alt: "Espaço Lúdico e Seguro" },
-    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno" },
-    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe" }
+    { src: "/images/clinic/video_optimized.mp4", alt: "Tour virtual do consultório", type: "video" },
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante", type: "image" },
+    { src: "/images/clinic/maca.jpg", alt: "Espaço Lúdico e Seguro", type: "image" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno", type: "image" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe", type: "image" }
   ];
 
   return (
@@ -392,19 +426,60 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {clinicImages.map((image, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-lg">
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  className="w-full h-64 object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-end">
-                  <p className="text-white text-sm font-medium p-3">{image.alt}</p>
+          <div className="flex justify-center mb-8">
+            <div className="relative max-w-md w-full">
+              <div className="clinic-carousel-container overflow-hidden rounded-lg shadow-xl">
+                <div className="clinic-carousel-wrapper flex transition-transform duration-500 ease-in-out">
+                  {clinicImages.map((item, index) => (
+                    <div key={index} className="clinic-carousel-slide min-w-full relative bg-gray-50">
+                      {item.type === 'video' ? (
+                        <video 
+                          className="w-full h-[600px] object-contain"
+                          controls
+                          poster="/images/clinic/maca.jpg"
+                        >
+                          <source src={item.src} type="video/mp4" />
+                          Seu navegador não suporta vídeos HTML5.
+                        </video>
+                      ) : (
+                        <img 
+                          src={item.src} 
+                          alt={item.alt}
+                          className="w-full h-[600px] object-contain"
+                        />
+                      )}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                        <h3 className="text-white text-lg font-semibold">{item.alt}</h3>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+              
+              {/* Carousel Navigation */}
+              <div className="flex justify-center mt-4 space-x-2">
+                <button 
+                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-[#83b2ac] transition-all duration-300"
+                  onClick={() => updateClinicCarousel(0)}
+                ></button>
+                <button 
+                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateClinicCarousel(1)}
+                ></button>
+                <button 
+                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateClinicCarousel(2)}
+                ></button>
+                <button 
+                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateClinicCarousel(3)}
+                ></button>
+                <button 
+                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+                  onClick={() => updateClinicCarousel(4)}
+                ></button>
+              </div>
+            </div>
           </div>
 
           <div className="text-center">
