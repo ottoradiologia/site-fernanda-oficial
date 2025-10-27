@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
 
   const menuItems = [
     { href: '/', label: 'Início' },
@@ -58,8 +59,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <Button asChild className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold">
               <a 
-                class="pht-whatsapp" data-widget="8469"
-                href="" 
+                href={whatsappUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -95,8 +95,7 @@ const Header = () => {
               ))}
               <Button asChild className="bg-primary hover:bg-primary/90 w-fit">
                 <a 
-                  class="pht-whatsapp" data-widget="8469"
-                  href="" 
+                  href={whatsappUrl}
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

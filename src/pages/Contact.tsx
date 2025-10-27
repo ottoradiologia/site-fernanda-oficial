@@ -6,6 +6,8 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { useEffect } from 'react';
 
 const Contact = () => {
+  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+
   useEffect(() => {
     // Carrega o script do Doctoralia
     const script = document.createElement('script');
@@ -72,7 +74,7 @@ const Contact = () => {
                   <p className="text-gray-600 mb-4">(11) 99407-7447</p>
                   <Button className="bg-green-600 hover:bg-green-700" asChild>
                     <a 
-                      href="https://wa.me/5511994077447" 
+                      href={whatsappUrl}
                       target="_blank" 
                       rel="noopener noreferrer"
                     >

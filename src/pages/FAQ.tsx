@@ -8,6 +8,8 @@ import {
 } from '@/components/ui/accordion';
 
 const FAQ = () => {
+  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+  
   const faqData = [
     {
       category: "Sobre os Serviços",
@@ -137,7 +139,7 @@ const FAQ = () => {
           </p>
           <div className="flex justify-center">
             <a 
-              href="https://wa.me/5511994077447" 
+              href={whatsappUrl}
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"

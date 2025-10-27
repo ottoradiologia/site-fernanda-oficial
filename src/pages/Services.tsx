@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Clock, Heart, Shield, Stethoscope } from 'lucide-react';
 
 const Services = () => {
+  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+  
   const highlights = [
     "Atendimento humanizado e sem pressa",
     "Avaliação completa (crescimento, desenvolvimento, vacinas)"
@@ -161,7 +163,7 @@ const Services = () => {
             <span className="text-[#83b2ac] font-semibold">Agende uma consulta</span> e experimente um atendimento pediátrico <span className="text-[#fdb4be] font-semibold">diferenciado, acolhedor e humano</span>.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-            <a href="https://wa.me/5511994077447" target="_blank" rel="noopener noreferrer">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               Agendar Consulta pelo WhatsApp
             </a>
           </Button>
