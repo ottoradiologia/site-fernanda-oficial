@@ -3,43 +3,49 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Heart, Users, Home, Syringe, Baby, Shield } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Vaccination = () => {
-  const whatsappUrl = "https://wa.me/5511973139542?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20vacina.";
+  const { t } = useLanguage();
+  
+  const getWhatsAppUrl = () => {
+    const message = encodeURIComponent(t.common.whatsapp.vaccination);
+    return `https://wa.me/5511973139542?text=${message}`;
+  };
 
   const features = [
     {
       icon: Heart,
-      title: "Atendimento Humanizado",
-      description: "Cuidado personalizado para cada paciente"
+      title: t.pages.vaccination.features.feature1.title,
+      description: t.pages.vaccination.features.feature1.description
     },
     {
       icon: Users,
-      title: "Equipe Qualificada",
-      description: "Profissionais especializados e experientes"
+      title: t.pages.vaccination.features.feature2.title,
+      description: t.pages.vaccination.features.feature2.description
     },
     {
       icon: Home,
-      title: "Ambiente Acolhedor",
-      description: "Espaço acolhedor para toda a família"
+      title: t.pages.vaccination.features.feature3.title,
+      description: t.pages.vaccination.features.feature3.description
     }
   ];
 
   const ageGroups = [
     {
       icon: Baby,
-      title: "Bebês e Crianças",
-      description: "Imunização completa desde o nascimento"
+      title: t.pages.vaccination.ageGroups.group1.title,
+      description: t.pages.vaccination.ageGroups.group1.description
     },
     {
       icon: Users,
-      title: "Adolescentes",
-      description: "Vacinas essenciais para a fase da adolescência"
+      title: t.pages.vaccination.ageGroups.group2.title,
+      description: t.pages.vaccination.ageGroups.group2.description
     },
     {
       icon: Shield,
-      title: "Adultos e Idosos",
-      description: "Proteção para todas as idades"
+      title: t.pages.vaccination.ageGroups.group3.title,
+      description: t.pages.vaccination.ageGroups.group3.description
     }
   ];
 
@@ -53,25 +59,23 @@ const Vaccination = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] leading-tight">
-                Mil Vacinas
+                {t.pages.vaccination.hero.title}
               </h1>
               <h2 className="text-2xl lg:text-3xl font-medium text-[#fdb4be]">
-                Proteção Completa para Toda a Família
+                {t.pages.vaccination.hero.subtitle}
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Nossa clínica de vacinação está integrada ao consultório, oferecendo um 
-                <span className="font-semibold text-[#83b2ac]"> serviço completo de imunização</span> para 
-                <span className="font-semibold text-[#fdb4be]"> todas as faixas etárias</span>.
+                {t.pages.vaccination.hero.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                   <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                    Acessar Mil Vacinas
+                    {t.pages.vaccination.hero.accessMilVacinas}
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    Agendar pelo WhatsApp
+                  <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                    {t.pages.vaccination.hero.scheduleByWhatsApp}
                   </a>
                 </Button>
               </div>
@@ -94,10 +98,10 @@ const Vaccination = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              Por Que Escolher a Mil Vacinas?
+              {t.pages.vaccination.features.title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Compromisso com a qualidade e segurança na imunização
+              {t.pages.vaccination.features.subtitle}
             </p>
           </div>
           
@@ -128,10 +132,10 @@ const Vaccination = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              Vacinas para Todas as Idades
+              {t.pages.vaccination.ageGroups.title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Proteção completa desde o nascimento até a terceira idade
+              {t.pages.vaccination.ageGroups.subtitle}
             </p>
           </div>
           
@@ -166,18 +170,15 @@ const Vaccination = () => {
                 <Syringe className="w-12 h-12 text-primary" />
               </div>
               <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-6">
-                Clínica Integrada ao Consultório
+                {t.pages.vaccination.integration.title}
               </h2>
               <p className="text-gray-600 text-center text-lg leading-relaxed mb-8">
-                A <span className="font-semibold text-[#83b2ac]">Mil Vacinas</span> funciona de forma 
-                integrada ao consultório da <span className="font-semibold text-[#fdb4be]">Dra. Fernanda Kruger</span>, 
-                oferecendo a praticidade de realizar consultas pediátricas e vacinação no mesmo local, 
-                com toda a segurança e qualidade que você merece.
+                {t.pages.vaccination.integration.description}
               </p>
               <div className="text-center">
                 <Button size="lg" className="bg-secondary hover:bg-secondary/90" asChild>
                   <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                    Conhecer Mil Vacinas
+                    {t.pages.vaccination.integration.button}
                   </a>
                 </Button>
               </div>
@@ -190,22 +191,22 @@ const Vaccination = () => {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-            Proteja Quem Você Ama
+            {t.pages.vaccination.cta.title}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Entre em contato e agende a vacinação para você e sua família
+            {t.pages.vaccination.cta.description}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
               <a 
-                href={whatsappUrl}
+                href={getWhatsAppUrl()}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
                 <span>📱</span>
-                Agendar pelo WhatsApp
+                {t.pages.vaccination.cta.scheduleButton}
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
@@ -214,7 +215,7 @@ const Vaccination = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Visitar Site Mil Vacinas
+                {t.pages.vaccination.cta.visitButton}
               </a>
             </Button>
           </div>

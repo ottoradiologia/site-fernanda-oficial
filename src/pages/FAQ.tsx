@@ -6,73 +6,80 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQ = () => {
-  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+  const { t } = useLanguage();
+  
+  const getWhatsAppUrl = () => {
+    const message = encodeURIComponent(t.common.whatsapp.consultation);
+    return `https://wa.me/5511994077447?text=${message}`;
+  };
   
   const faqData = [
     {
-      category: "Sobre os Serviços",
+      category: t.pages.faq.categories.services.title,
       questions: [
         {
-          question: "Quais serviços a Dra. Fernanda Kruger oferece?",
-          answer: "A Dra. Fernanda Kruger oferece uma ampla gama de serviços pediátricos, incluindo consulta médica particular para avaliação de rotina, vacinas através da sala de vacinas integrada Mil Vacinas, pacotes de consulta com vacinação, tratamento de doenças e orientação sobre saúde infantil."
+          question: t.pages.faq.categories.services.q1.question,
+          answer: t.pages.faq.categories.services.q1.answer
         },
         {
-          question: "Qual é a faixa etária atendida?",
-          answer: "A Dra. Fernanda atende crianças desde o nascimento até os 12 anos, garantindo cuidados adequados para cada fase do desenvolvimento."
+          question: t.pages.faq.categories.services.q2.question,
+          answer: t.pages.faq.categories.services.q2.answer
         }
       ]
     },
     {
-      category: "Sobre as Consultas",
+      category: t.pages.faq.categories.consultations.title,
       questions: [
         {
-          question: "Qual o tempo de duração da consulta?",
-          answer: "As consultas particulares duram cerca de 1 hora, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece."
+          question: t.pages.faq.categories.consultations.q1.question,
+          answer: t.pages.faq.categories.consultations.q1.answer
         }
       ]
     },
     {
-      category: "Agendamento e Pagamento",
+      category: t.pages.faq.categories.scheduling.title,
       questions: [
         {
-          question: "Como agendar uma consulta?",
-          answer: "Você pode agendar uma consulta enviando uma mensagem para nosso WhatsApp (11) 99407-7447, clicando no botão \"Agende uma consulta\", ou preenchendo o formulário de agendamento em nosso site."
+          question: t.pages.faq.categories.scheduling.q1.question,
+          answer: t.pages.faq.categories.scheduling.q1.answer
         },
         {
-          question: "Atende Convênio Médico?",
-          answer: "Sim! Atendemos GoCare Saúde e Sepaco Autogestão. Para outros planos, consulte pelo WhatsApp (11) 99407-7447 para verificar se seu convênio está em processo de credenciamento."
+          question: t.pages.faq.categories.scheduling.q2.question,
+          answer: t.pages.faq.categories.scheduling.q2.answer,
+          hasLink: true
         },
         {
-          question: "Emite Nota Fiscal para reembolso?",
-          answer: "Sim, emitimos nota fiscal para que você possa solicitar o reembolso pelo seu convênio médico."
+          question: t.pages.faq.categories.scheduling.q3.question,
+          answer: t.pages.faq.categories.scheduling.q3.answer
         }
       ]
     },
     {
-      category: "Planos e Pacotes",
+      category: t.pages.faq.categories.plans.title,
       questions: [
         {
-          question: "Quais planos de consulta estão disponíveis?",
-          answer: "Oferecemos diferentes planos de consulta: Consultoria do Sono e Rotina, Puericultura de 0 a 6 meses, Puericultura de 0 a 1 ano, e Pacotes de Consultas e Vacinação. Consulte pelo WhatsApp (11) 99407-7447 para mais informações sobre cada plano."
+          question: t.pages.faq.categories.plans.q1.question,
+          answer: t.pages.faq.categories.plans.q1.answer
         },
         {
-          question: "Existem pacotes de consultas e vacinação?",
-          answer: "Sim! Temos pacotes especiais que combinam consultas pediátricas com vacinação através da nossa sala integrada Mil Vacinas. Consulte pelo WhatsApp para conhecer os pacotes disponíveis e valores."
+          question: t.pages.faq.categories.plans.q2.question,
+          answer: t.pages.faq.categories.plans.q2.answer
         }
       ]
     },
     {
-      category: "Informações Locais",
+      category: t.pages.faq.categories.local.title,
       questions: [
         {
-          question: "O consultório possui estacionamento?",
-          answer: "Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores."
+          question: t.pages.faq.categories.local.q1.question,
+          answer: t.pages.faq.categories.local.q1.answer
         },
         {
-          question: "Qual a estação de Metrô mais próxima?",
-          answer: "Estamos localizados a 220m (cerca de 3 minutos caminhando) da estação Paraíso do Metrô (linhas 1-Azul e 2-Verde)."
+          question: t.pages.faq.categories.local.q2.question,
+          answer: t.pages.faq.categories.local.q2.answer
         }
       ]
     }
@@ -87,10 +94,10 @@ const FAQ = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Dúvidas Frequentes
+              {t.pages.faq.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Encontre respostas para as principais perguntas sobre nossos serviços e atendimento
+              {t.pages.faq.hero.subtitle}
             </p>
           </div>
         </div>
@@ -117,7 +124,22 @@ const FAQ = () => {
                         <span className="font-medium text-gray-900">{item.question}</span>
                       </AccordionTrigger>
                       <AccordionContent className="px-6 pb-4">
-                        <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.answer}
+                          {item.hasLink && (
+                            <span className="block mt-3">
+                              <a 
+                                href={getWhatsAppUrl()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-600 hover:text-green-700 font-semibold inline-flex items-center gap-2"
+                              >
+                                <span>📱</span>
+                                WhatsApp (11) 99407-7447
+                              </a>
+                            </span>
+                          )}
+                        </p>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -132,20 +154,20 @@ const FAQ = () => {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Não encontrou sua resposta?
+            {t.pages.faq.cta.title}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Entre em contato conosco e teremos prazer em esclarecer suas dúvidas
+            {t.pages.faq.cta.description}
           </p>
           <div className="flex justify-center">
             <a 
-              href={whatsappUrl}
+              href={getWhatsAppUrl()}
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2"
             >
               <span>📱</span>
-              Conversar no WhatsApp
+              {t.pages.faq.cta.button}
             </a>
           </div>
         </div>

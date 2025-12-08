@@ -4,9 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Stethoscope } from 'lucide-react';
 import { useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
-  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+  const { t } = useLanguage();
+  
+  const getWhatsAppUrl = () => {
+    const message = encodeURIComponent(t.common.whatsapp.consultation);
+    return `https://wa.me/5511994077447?text=${message}`;
+  };
 
   useEffect(() => {
     // Carrega o script do Doctoralia
@@ -42,10 +48,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Vamos Conversar?
+              {t.pages.contact.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Agende sua consulta ou entre em contato para tirar suas dúvidas
+              {t.pages.contact.hero.subtitle}
             </p>
           </div>
         </div>
@@ -59,7 +65,7 @@ const Contact = () => {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-[#83b2ac] mb-8">
-                  Informações de Contato
+                  {t.pages.contact.info.title}
                 </h2>
               </div>
 
@@ -67,18 +73,18 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Phone className="w-6 h-6 text-green-600" />
-                    WhatsApp (Agendamento)
+                    {t.pages.contact.info.whatsapp.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">(11) 99407-7447</p>
+                  <p className="text-gray-600 mb-4">{t.pages.contact.info.whatsapp.phone}</p>
                   <Button className="bg-green-600 hover:bg-green-700" asChild>
                     <a 
-                      href={whatsappUrl}
+                      href={getWhatsAppUrl()}
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      Enviar Mensagem
+                      {t.pages.contact.info.whatsapp.button}
                     </a>
                   </Button>
                 </CardContent>
@@ -88,14 +94,14 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Mail className="w-6 h-6 text-primary" />
-                    E-mail
+                    {t.pages.contact.info.email.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 mb-4">fernandafavalikruger@gmail.com</p>
+                  <p className="text-gray-600 mb-4">{t.pages.contact.info.email.address}</p>
                   <Button variant="outline" asChild>
                     <a href="mailto:fernandafavalikruger@gmail.com">
-                      Enviar E-mail
+                      {t.pages.contact.info.email.button}
                     </a>
                   </Button>
                 </CardContent>
@@ -105,14 +111,14 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <MapPin className="w-6 h-6 text-secondary" />
-                    Endereço
+                    {t.pages.contact.info.address.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Rua Afonso de Freitas, nº 59, sala 94<br />
-                    Paraíso, São Paulo - SP<br />
-                    CEP 04.006-050
+                    {t.pages.contact.info.address.street}<br />
+                    {t.pages.contact.info.address.city}<br />
+                    {t.pages.contact.info.address.zip}
                   </p>
                 </CardContent>
               </Card>
@@ -121,13 +127,13 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
                     <Stethoscope className="w-6 h-6 text-[#83b2ac]" />
-                    Informações Profissionais
+                    {t.pages.contact.info.professional.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Dra. Fernanda Favali Kruger<br />
-                    CRM-SP 140.995 | RQE 37669
+                    {t.pages.contact.info.professional.name}<br />
+                    {t.pages.contact.info.professional.credentials}
                   </p>
                 </CardContent>
               </Card>
@@ -137,7 +143,7 @@ const Contact = () => {
             <div>
               <Card>
                 <CardHeader>
-                  <CardTitle>Agende sua Consulta</CardTitle>
+                  <CardTitle>{t.pages.contact.schedule.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div
@@ -156,7 +162,7 @@ const Contact = () => {
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
-            Nossa Localização
+            {t.pages.contact.map.title}
           </h2>
           
           <div className="max-w-4xl mx-auto">
