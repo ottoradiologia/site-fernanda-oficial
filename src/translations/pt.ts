@@ -323,6 +323,10 @@ export const pt: Translations = {
             question: 'Emite Nota Fiscal para reembolso?',
             answer: 'Sim, emitimos nota fiscal para que você possa solicitar o reembolso pelo seu convênio médico.',
           },
+          q4: {
+            question: 'Quais formas de pagamento são aceitas?',
+            answer: 'Aceitamos dinheiro, PIX, cartão de crédito (com opções de parcelamento) e débito. Também disponibilizamos link de pagamento para maior comodidade.',
+          },
         },
         plans: {
           title: 'Planos e Pacotes',
@@ -412,4 +416,5 @@ export const pt: Translations = {
     },
   },
 };
+
 

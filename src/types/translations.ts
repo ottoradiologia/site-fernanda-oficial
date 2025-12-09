@@ -280,6 +280,7 @@ export interface Translations {
           q1: { question: string; answer: string };
           q2: { question: string; answer: string };
           q3: { question: string; answer: string };
+          q4: { question: string; answer: string };
         };
         plans: {
           title: string;
@@ -339,4 +340,5 @@ export interface Translations {
     };
   };
 }
+
 

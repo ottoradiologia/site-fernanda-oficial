@@ -54,6 +54,10 @@ const FAQ = () => {
         {
           question: t.pages.faq.categories.scheduling.q3.question,
           answer: t.pages.faq.categories.scheduling.q3.answer
+        },
+        {
+          question: t.pages.faq.categories.scheduling.q4.question,
+          answer: t.pages.faq.categories.scheduling.q4.answer
         }
       ]
     },

@@ -323,6 +323,10 @@ export const en: Translations = {
             question: 'Do you issue invoices for reimbursement?',
             answer: 'Yes, we issue invoices so you can request reimbursement from your health insurance.',
           },
+          q4: {
+            question: 'What payment methods are accepted?',
+            answer: 'We accept cash, PIX, credit card (with installment options) and debit card. We also provide a payment link for your convenience.',
+          },
         },
         plans: {
           title: 'Plans and Packages',
