@@ -31,7 +31,7 @@ const About = () => {
             <div className="space-y-6">
               <img 
                 src="/images/doctor/fernanda e filho.jpg.jpeg" 
-                alt="Dra. Fernanda Kruger com seu filho" 
+                alt="Dra. Fernanda Kruger - Pediatra e mãe, especialista em saúde infantil no Paraíso SP" 
                 className="w-full max-w-md mx-auto lg:mx-0 rounded-lg shadow-lg"
               />
             </div>

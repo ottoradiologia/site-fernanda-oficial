@@ -64,7 +64,7 @@ const Services = () => {
                   <div className="rounded-lg overflow-hidden shadow-lg">
                     <img 
                       src="/images/clinic/assinando.jpg" 
-                      alt="Dra. Fernanda atendendo paciente no consultório" 
+                      alt="Dra. Fernanda Kruger - Pediatra e Pneumopediatra atendendo paciente no consultório Paraíso SP" 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -140,7 +140,7 @@ const Services = () => {
                   <div className="flex justify-center">
                     <img 
                       src="/images/milvacinas.png" 
-                      alt="Logo Mil Vacinas" 
+                      alt="Mil Vacinas - Sala de Vacinação integrada ao consultório pediátrico no Paraíso SP" 
                       className="max-w-xs h-auto"
                     />
                   </div>

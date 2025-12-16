@@ -14,6 +14,10 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Vaccination from "./pages/Vaccination";
 import NotFound from "./pages/NotFound";
+import ThankYou from "./pages/ThankYou";
+
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import StructuredData from "@/components/StructuredData";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +27,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <StructuredData />
         <BrowserRouter>
           <LanguageRoute>
             <Routes>
@@ -34,6 +39,7 @@ const App = () => (
               <Route path="/consultorio" element={<Clinic />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/duvidas-frequentes" element={<FAQ />} />
+              <Route path="/obrigado" element={<ThankYou />} />
               
               {/* English routes */}
               <Route path="/en" element={<Index />} />
@@ -43,9 +49,11 @@ const App = () => (
               <Route path="/en/consultorio" element={<Clinic />} />
               <Route path="/en/contato" element={<Contact />} />
               <Route path="/en/duvidas-frequentes" element={<FAQ />} />
+              <Route path="/en/obrigado" element={<ThankYou />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <FloatingWhatsApp />
           </LanguageRoute>
         </BrowserRouter>
       </TooltipProvider>

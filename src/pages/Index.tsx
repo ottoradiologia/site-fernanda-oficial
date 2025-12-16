@@ -1,15 +1,18 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Testimonials from '@/components/Testimonials';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Index = () => {
   const { t, language } = useLanguage();
+  const [doctoraliaLoaded, setDoctoraliaLoaded] = useState(false);
+  const doctoraliaRef = useRef<HTMLDivElement>(null);
   
   const getWhatsAppUrl = () => {
     const message = encodeURIComponent(t.common.whatsapp.consultation);
@@ -28,17 +31,41 @@ const Index = () => {
     return path;
   };
 
-  useEffect(() => {
-    // Carrega o script do Doctoralia
+  // Carrega o script do Doctoralia com lazy loading via Intersection Observer
+  const loadDoctoralia = useCallback(() => {
+    if (doctoraliaLoaded || document.getElementById('zl-widget-s')) return;
+    
     const script = document.createElement('script');
     script.id = 'zl-widget-s';
     script.src = '//platform.docplanner.com/js/widget.js';
+    script.async = true;
     document.body.appendChild(script);
+    setDoctoraliaLoaded(true);
+  }, [doctoraliaLoaded]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadDoctoralia();
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' } // Carrega quando estiver a 200px de ficar visível
+    );
+
+    if (doctoraliaRef.current) {
+      observer.observe(doctoraliaRef.current);
+    }
+
     return () => {
+      observer.disconnect();
       const s = document.getElementById('zl-widget-s');
       if (s) s.remove();
     };
-  }, []);
+  }, [loadDoctoralia]);
 
   // Função para atualizar o carrossel da clínica
   const updateClinicCarousel = (index: number) => {
@@ -146,8 +173,10 @@ const Index = () => {
                 <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                   <img 
                     src="/images/doctor/fer_hero.jpg" 
-                    alt="Dra. Fernanda Kruger" 
+                    alt="Dra. Fernanda Kruger - Pediatra e Pneumopediatra no Paraíso SP, Responsável Técnica Mil Vacinas" 
                     className="w-full max-w-md h-auto object-cover"
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
               </div>
@@ -166,8 +195,9 @@ const Index = () => {
                   <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                     <img 
                       src="/images/doctor/fer_mesa.jpg" 
-                      alt="Dra. Fernanda" 
+                      alt="Dra. Fernanda Kruger - Pediatra especializada em atendimento humanizado no Paraíso SP" 
                       className="w-full max-w-md h-auto object-cover"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -243,8 +273,9 @@ const Index = () => {
                   <div className="p-6 bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10 rounded-2xl shadow-xl">
                     <img 
                       src="/images/milvacinas.png" 
-                      alt="Mil Vacinas" 
+                      alt="Mil Vacinas - Clínica de Vacinação integrada ao consultório da Dra. Fernanda Kruger no Paraíso SP" 
                       className="w-full max-w-md h-auto object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -278,7 +309,7 @@ const Index = () => {
       </section>
 
       {/* Doctoralia Calendar Section */}
-      <section className="py-20 bg-[#f0f4e3]">
+      <section ref={doctoraliaRef} className="py-20 bg-[#f0f4e3]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
@@ -375,6 +406,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* Location Section */}
       <section className="py-20 bg-accent/30">
