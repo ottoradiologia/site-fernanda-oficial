@@ -26,6 +26,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.drafernandakruger.com.br/consultoria-do-sono</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.drafernandakruger.com.br/pneumopediatria</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.drafernandakruger.com.br/consultorio</loc>
     <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -68,6 +80,18 @@
     <lastmod>2024-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.drafernandakruger.com.br/en/consultoria-do-sono</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.drafernandakruger.com.br/en/pneumopediatria</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.drafernandakruger.com.br/en/consultorio</loc>

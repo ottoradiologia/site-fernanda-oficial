@@ -3,15 +3,102 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Clock, Heart, Shield, Stethoscope } from 'lucide-react';
+import { Clock, Heart, Shield, Stethoscope, Moon, Wind } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
-  const getWhatsAppUrl = () => {
-    const message = encodeURIComponent(t.common.whatsapp.consultation);
-    return `https://wa.me/5511994077447?text=${message}`;
+  const getWhatsAppUrl = (type?: 'general' | 'sleep' | 'pneumo' | 'vaccine') => {
+    let message = t.common.whatsapp.consultation;
+    
+    if (language === 'pt') {
+      switch (type) {
+        case 'sleep':
+          message = "Olá! Gostaria de agendar uma consultoria do sono para meu filho(a).";
+          break;
+        case 'pneumo':
+          message = "Olá! Gostaria de agendar uma consulta de pneumopediatria para meu filho(a).";
+          break;
+        case 'vaccine':
+          message = "Olá! Gostaria de informações sobre vacinação.";
+          break;
+      }
+    } else {
+      switch (type) {
+        case 'sleep':
+          message = "Hello! I would like to schedule a sleep consultation for my child.";
+          break;
+        case 'pneumo':
+          message = "Hello! I would like to schedule a pediatric pulmonology appointment for my child.";
+          break;
+        case 'vaccine':
+          message = "Hello! I would like information about vaccination.";
+          break;
+      }
+    }
+    
+    return `https://wa.me/5511994077447?text=${encodeURIComponent(message)}`;
+  };
+
+  const getLocalizedPath = (path: string) => {
+    if (language === 'en') {
+      return `/en${path === '/' ? '' : path}`;
+    }
+    return path;
+  };
+
+  const specializedServices = language === 'pt' ? {
+    sleep: {
+      title: "Consultoria do Sono Infantil",
+      description: "Seu bebê não dorme bem? A consultoria do sono ajuda a estabelecer uma rotina saudável, com métodos gentis e respeitosos que promovem noites tranquilas para toda a família.",
+      highlights: [
+        "Avaliação personalizada do sono",
+        "Métodos gentis e respeitosos",
+        "Acompanhamento durante todo o processo",
+        "Para bebês a partir de 0 meses até crianças de 5 anos"
+      ],
+      ctaText: "Agendar Consultoria do Sono",
+      learnMore: "Saiba mais"
+    },
+    pneumo: {
+      title: "Pneumopediatria",
+      description: "Como pneumopediatra, ofereço atendimento especializado para doenças respiratórias infantis: asma, bronquite, bronquiolite, pneumonias de repetição e chiado no peito.",
+      highlights: [
+        "Especialista em doenças respiratórias",
+        "Diagnóstico e tratamento de asma infantil",
+        "Acompanhamento de bronquites de repetição",
+        "Cuidado integrado pediatra + pneumopediatra"
+      ],
+      ctaText: "Agendar Consulta de Pneumopediatria",
+      learnMore: "Saiba mais"
+    }
+  } : {
+    sleep: {
+      title: "Pediatric Sleep Consulting",
+      description: "Is your baby not sleeping well? Sleep consulting helps establish a healthy routine with gentle and respectful methods that promote peaceful nights for the whole family.",
+      highlights: [
+        "Personalized sleep assessment",
+        "Gentle and respectful methods",
+        "Support throughout the process",
+        "For babies from 0 months to children up to 5 years"
+      ],
+      ctaText: "Schedule Sleep Consultation",
+      learnMore: "Learn more"
+    },
+    pneumo: {
+      title: "Pediatric Pulmonology",
+      description: "As a pediatric pulmonologist, I offer specialized care for childhood respiratory diseases: asthma, bronchitis, bronchiolitis, recurrent pneumonia and wheezing.",
+      highlights: [
+        "Specialist in respiratory diseases",
+        "Diagnosis and treatment of childhood asthma",
+        "Follow-up of recurrent bronchitis",
+        "Integrated pediatrician + pulmonologist care"
+      ],
+      ctaText: "Schedule Pulmonology Appointment",
+      learnMore: "Learn more"
+    }
   };
 
   return (
@@ -107,6 +194,90 @@ const Services = () => {
               </CardContent>
             </Card>
 
+            {/* Sleep Consulting Section */}
+            <Card className="mb-12 border-2 border-[#1a1a2e]/10">
+              <CardHeader className="bg-gradient-to-r from-[#1a1a2e]/5 to-transparent">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-[#1a1a2e]/10 rounded-full flex items-center justify-center">
+                    <Moon className="w-6 h-6 text-[#1a1a2e]" />
+                  </div>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{specializedServices.sleep.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {specializedServices.sleep.description}
+                </p>
+                
+                <div className="bg-accent/50 p-4 rounded-lg">
+                  <ul className="grid md:grid-cols-2 gap-2">
+                    {specializedServices.sleep.highlights.map((item, index) => (
+                      <li key={index} className="flex items-center gap-2 text-gray-700">
+                        <Moon className="w-4 h-4 text-[#fdb4be]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Button className="bg-green-600 hover:bg-green-700" asChild>
+                    <a href={getWhatsAppUrl('sleep')} target="_blank" rel="noopener noreferrer">
+                      <span>📱</span>
+                      {specializedServices.sleep.ctaText}
+                    </a>
+                  </Button>
+                  <Button variant="outline" className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac] hover:text-white" asChild>
+                    <Link to={getLocalizedPath('/consultoria-do-sono')}>
+                      {specializedServices.sleep.learnMore} →
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Pneumopediatrics Section */}
+            <Card className="mb-12 border-2 border-[#83b2ac]/20">
+              <CardHeader className="bg-gradient-to-r from-[#83b2ac]/10 to-transparent">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-[#83b2ac]/10 rounded-full flex items-center justify-center">
+                    <Wind className="w-6 h-6 text-[#83b2ac]" />
+                  </div>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{specializedServices.pneumo.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {specializedServices.pneumo.description}
+                </p>
+                
+                <div className="bg-[#83b2ac]/10 p-4 rounded-lg">
+                  <ul className="grid md:grid-cols-2 gap-2">
+                    {specializedServices.pneumo.highlights.map((item, index) => (
+                      <li key={index} className="flex items-center gap-2 text-gray-700">
+                        <Stethoscope className="w-4 h-4 text-[#83b2ac]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Button className="bg-green-600 hover:bg-green-700" asChild>
+                    <a href={getWhatsAppUrl('pneumo')} target="_blank" rel="noopener noreferrer">
+                      <span>📱</span>
+                      {specializedServices.pneumo.ctaText}
+                    </a>
+                  </Button>
+                  <Button variant="outline" className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac] hover:text-white" asChild>
+                    <Link to={getLocalizedPath('/pneumopediatria')}>
+                      {specializedServices.pneumo.learnMore} →
+                    </Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Vaccination Section */}
             <Card>
               <CardHeader>
@@ -126,16 +297,26 @@ const Services = () => {
                     <p className="text-gray-600 leading-relaxed text-lg">
                       {t.pages.services.vaccination.paragraph2}
                     </p>
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
-                      className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac] hover:text-white" 
-                      asChild
-                    >
-                      <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                        {t.pages.services.vaccination.knowOurVaccines}
-                      </a>
-                    </Button>
+                    <div className="flex flex-wrap gap-3">
+                      <Button 
+                        className="bg-green-600 hover:bg-green-700" 
+                        asChild
+                      >
+                        <a href={getWhatsAppUrl('vaccine')} target="_blank" rel="noopener noreferrer">
+                          <span>📱</span>
+                          {language === 'pt' ? 'Agendar Vacinação' : 'Schedule Vaccination'}
+                        </a>
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac] hover:text-white" 
+                        asChild
+                      >
+                        <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
+                          {t.pages.services.vaccination.knowOurVaccines}
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                   <div className="flex justify-center">
                     <img 

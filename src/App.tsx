@@ -13,10 +13,11 @@ import Clinic from "./pages/Clinic";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import Vaccination from "./pages/Vaccination";
+import SleepConsulting from "./pages/SleepConsulting";
+import Pneumopediatrics from "./pages/Pneumopediatrics";
 import NotFound from "./pages/NotFound";
 import ThankYou from "./pages/ThankYou";
 
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import StructuredData from "@/components/StructuredData";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,8 @@ const App = () => (
               <Route path="/sobre-mim" element={<About />} />
               <Route path="/servicos" element={<Services />} />
               <Route path="/vacinacao" element={<Vaccination />} />
+              <Route path="/consultoria-do-sono" element={<SleepConsulting />} />
+              <Route path="/pneumopediatria" element={<Pneumopediatrics />} />
               <Route path="/consultorio" element={<Clinic />} />
               <Route path="/contato" element={<Contact />} />
               <Route path="/duvidas-frequentes" element={<FAQ />} />
@@ -46,6 +49,8 @@ const App = () => (
               <Route path="/en/sobre-mim" element={<About />} />
               <Route path="/en/servicos" element={<Services />} />
               <Route path="/en/vacinacao" element={<Vaccination />} />
+              <Route path="/en/consultoria-do-sono" element={<SleepConsulting />} />
+              <Route path="/en/pneumopediatria" element={<Pneumopediatrics />} />
               <Route path="/en/consultorio" element={<Clinic />} />
               <Route path="/en/contato" element={<Contact />} />
               <Route path="/en/duvidas-frequentes" element={<FAQ />} />
@@ -53,7 +58,6 @@ const App = () => (
               
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <FloatingWhatsApp />
           </LanguageRoute>
         </BrowserRouter>
       </TooltipProvider>
