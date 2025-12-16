@@ -5,12 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run copy-config",
-    "build:dev": "vite build --mode development && npm run copy-config",
-    "copy-config": "node -e \"const fs = require('fs'); if (fs.existsSync('public/.htaccess')) fs.copyFileSync('public/.htaccess', 'dist/.htaccess');\"",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "serve": "vite preview --port 8080 --host"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

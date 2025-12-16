@@ -1,17 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
-  const { t, language } = useLanguage();
-
-  const getLocalizedPath = (path: string) => {
-    if (language === 'en') {
-      return `/en${path === '/' ? '' : path}`;
-    }
-    return path;
-  };
-
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -32,26 +22,26 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 text-sm">
-              {t.common.footer.tagline}
+              Cuidando do bem-estar do seu maior tesouro com amor, ciência e acolhimento.
             </p>
           </div>
 
           {/* Links Rápidos */}
           <div>
-            <h3 className="font-semibold mb-4">{t.common.footer.quickLinks}</h3>
+            <h3 className="font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2">
-              <li><Link to={getLocalizedPath('/')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.home}</Link></li>
-              <li><Link to={getLocalizedPath('/sobre-mim')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.about}</Link></li>
-              <li><Link to={getLocalizedPath('/servicos')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.services}</Link></li>
-              <li><Link to={getLocalizedPath('/consultorio')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.clinic}</Link></li>
-              <li><Link to={getLocalizedPath('/contato')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.contact}</Link></li>
-              <li><Link to={getLocalizedPath('/duvidas-frequentes')} className="text-gray-300 hover:text-primary transition-colors">{t.common.header.faq}</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-primary transition-colors">Início</Link></li>
+              <li><Link to="/sobre-mim" className="text-gray-300 hover:text-primary transition-colors">Sobre Mim</Link></li>
+              <li><Link to="/servicos" className="text-gray-300 hover:text-primary transition-colors">Serviços</Link></li>
+              <li><Link to="/consultorio" className="text-gray-300 hover:text-primary transition-colors">O Consultório</Link></li>
+              <li><Link to="/contato" className="text-gray-300 hover:text-primary transition-colors">Contato</Link></li>
+              <li><Link to="/duvidas-frequentes" className="text-gray-300 hover:text-primary transition-colors">Dúvidas Frequentes</Link></li>
             </ul>
           </div>
 
           {/* Contato */}
           <div>
-            <h3 className="font-semibold mb-4">{t.common.footer.contact}</h3>
+            <h3 className="font-semibold mb-4">Contato</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <p>📱 WhatsApp: (11) 99407-7447</p>
               <p>✉️ fernandafavalikruger@gmail.com</p>
@@ -69,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>{t.common.footer.allRightsReserved}</p>
+          <p>Dra. Fernanda Kruger. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

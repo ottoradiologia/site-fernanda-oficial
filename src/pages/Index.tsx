@@ -1,72 +1,26 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Testimonials from '@/components/Testimonials';
-import ServiceHighlight from '@/components/ServiceHighlight';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Package } from 'lucide-react';
+import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Package, Wind, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useEffect } from 'react';
 
 const Index = () => {
-  const { t, language } = useLanguage();
-  const [doctoraliaLoaded, setDoctoraliaLoaded] = useState(false);
-  const doctoraliaRef = useRef<HTMLDivElement>(null);
-  
-  const getWhatsAppUrl = () => {
-    const message = encodeURIComponent(t.common.whatsapp.consultation);
-    return `https://wa.me/5511994077447?text=${message}`;
-  };
+  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
 
-  const getVaccinationWhatsAppUrl = () => {
-    const message = encodeURIComponent(t.common.whatsapp.vaccination);
-    return `https://wa.me/5511973139542?text=${message}`;
-  };
-
-  const getLocalizedPath = (path: string) => {
-    if (language === 'en') {
-      return `/en${path === '/' ? '' : path}`;
-    }
-    return path;
-  };
-
-  // Carrega o script do Doctoralia com lazy loading via Intersection Observer
-  const loadDoctoralia = useCallback(() => {
-    if (doctoraliaLoaded || document.getElementById('zl-widget-s')) return;
-    
+  useEffect(() => {
+    // Carrega o script do Doctoralia
     const script = document.createElement('script');
     script.id = 'zl-widget-s';
     script.src = '//platform.docplanner.com/js/widget.js';
-    script.async = true;
     document.body.appendChild(script);
-    setDoctoraliaLoaded(true);
-  }, [doctoraliaLoaded]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadDoctoralia();
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: '200px' } // Carrega quando estiver a 200px de ficar visível
-    );
-
-    if (doctoraliaRef.current) {
-      observer.observe(doctoraliaRef.current);
-    }
-
     return () => {
-      observer.disconnect();
       const s = document.getElementById('zl-widget-s');
       if (s) s.remove();
     };
-  }, [loadDoctoralia]);
+  }, []);
 
   // Função para atualizar o carrossel da clínica
   const updateClinicCarousel = (index: number) => {
@@ -103,72 +57,88 @@ const Index = () => {
 
   const services = [
     {
+      icon: Sparkles,
+      title: "Consulta Pediátrica Pré-Natal",
+      description: "Acompanhamento durante a gestação para orientar sobre os cuidados com o bebê, preparação para o parto e primeiros dias de vida.",
+      link: "/consulta-pre-natal"
+    },
+    {
       icon: Baby,
-      title: t.pages.index.services.service1.title,
-      description: t.pages.index.services.service1.description
+      title: "Consulta Pediátrica Completa",
+      description: "Avaliação de rotina (puericultura), acompanhamento do crescimento e desenvolvimento, e tratamento das principais doenças da infância.",
+      link: "/servicos"
     },
     {
       icon: Heart,
-      title: t.pages.index.services.service2.title,
-      description: t.pages.index.services.service2.description
+      title: "Consulta sem pressa",
+      description: "Um atendimento acolhedor, para conversar, orientar e examinar sua criança com todo o cuidado que ela merece, sem pressa.",
+      link: "/servicos"
+    },
+    {
+      icon: Wind,
+      title: "Consulta em Pneumologia Pediátrica",
+      description: "Avaliação especializada em doenças respiratórias da infância, incluindo asma, bronquiolite, pneumonias e outras condições pulmonares.",
+      link: "/pneumologia"
     },
     {
       icon: Moon,
-      title: t.pages.index.services.service3.title,
-      description: t.pages.index.services.service3.description
+      title: "Sono e Rotina do Bebê",
+      description: "Capacitação para orientar e agregar qualidade de vida às famílias, estabelecendo rotinas de sono mais saudáveis e tranquilas.",
+      link: "/consultoria-sono"
     },
     {
       icon: Syringe,
-      title: t.pages.index.services.service4.title,
-      description: t.pages.index.services.service4.description
+      title: "Imunização para a Família",
+      description: "Com MBA em Imunização, oferecemos um espaço completo para proteger toda a família com as melhores vacinas.",
+      link: "https://www.milvacinas.com.br/",
+      external: true
     },
     {
       icon: Package,
-      title: t.pages.index.services.service5.title,
-      description: t.pages.index.services.service5.description
+      title: "Mil Cuidados",
+      description: "Programa de acompanhamento integral incluindo consultas e vacinação para cuidar da saúde de sua criança de forma completa.",
+      link: "/mil-cuidados"
     }
   ];
 
   const clinicImages = [
-    { src: "/images/clinic/video_optimized.mp4", alt: t.pages.index.clinic.clinicImages.video, type: "video" },
-    { src: "/images/clinic/sala de espera3.jpg", alt: t.pages.index.clinic.clinicImages.reception, type: "image" },
-    { src: "/images/clinic/maca.jpg", alt: t.pages.index.clinic.clinicImages.playful, type: "image" },
-    { src: "/images/clinic/consultorio principal (2).jpeg", alt: t.pages.index.clinic.clinicImages.modern, type: "image" },
-    { src: "/images/clinic/diversao.jpg.jpeg", alt: t.pages.index.clinic.clinicImages.care, type: "image" }
+    { src: "/images/clinic/video_optimized.mp4", alt: "Tour virtual do consultório", type: "video" },
+    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante", type: "image" },
+    { src: "/images/clinic/maca.jpg", alt: "Espaço Lúdico e Seguro", type: "image" },
+    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno", type: "image" },
+    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe", type: "image" }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* Service Highlight Banner */}
-      <ServiceHighlight type="seasonal" dismissible={true} />
-
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-accent to-white py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
               <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] leading-tight">
-                {t.pages.index.hero.title} <span className="text-primary">{t.pages.index.hero.titleHighlight}</span>
+                Cuidando do bem-estar do seu <span className="text-primary">maior tesouro</span>
               </h1>
               <h2 className="text-xl lg:text-2xl font-medium text-[#83b2ac]">
-                {t.pages.index.hero.subtitle}
+                Dra. Fernanda Kruger: Pediatria com amor, ciência e acolhimento.
               </h2>
               <p className="text-lg text-gray-600">
-                {t.pages.index.hero.description}
+                Atendimento humanizado e personalizado no coração do Paraíso, em São Paulo. 
+                Consultas sem pressa para garantir o cuidado que sua criança merece.
               </p>
               <p className="text-sm text-gray-500 font-medium">
-                {t.pages.index.hero.credentials}
+                Dra. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669
               </p>
                <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                  <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                    {t.pages.index.hero.scheduleButton}
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                    Agende uma Consulta
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <Link to={getLocalizedPath('/sobre-mim')}>{t.pages.index.hero.knowMyStory}</Link>
+                  <Link to="/sobre-mim">Conheça minha história</Link>
                 </Button>
               </div>
             </div>
@@ -177,9 +147,8 @@ const Index = () => {
                 <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                   <img 
                     src="/images/doctor/fer_hero.jpg" 
-                    alt="Dra. Fernanda Kruger - Pediatra e Pneumopediatra no Paraíso SP, Responsável Técnica Mil Vacinas" 
+                    alt="Dra. Fernanda Kruger" 
                     className="w-full max-w-md h-auto object-cover"
-                    loading="eager"
                   />
                 </div>
               </div>
@@ -198,9 +167,8 @@ const Index = () => {
                   <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                     <img 
                       src="/images/doctor/fer_mesa.jpg" 
-                      alt="Dra. Fernanda Kruger - Pediatra especializada em atendimento humanizado no Paraíso SP" 
+                      alt="Dra. Fernanda" 
                       className="w-full max-w-md h-auto object-cover"
-                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -208,19 +176,19 @@ const Index = () => {
             </div>
             <div className="order-1 lg:order-2 space-y-6">
               <h2 className="text-3xl lg:text-4xl font-extrabold text-[#83b2ac] mb-2">
-                {t.pages.index.about.title}
+                Olá! Sou a Dra. Fernanda
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg mb-2">
-                {t.pages.index.about.paragraph1}
+                <span className="font-semibold text-[#fdb4be]">Médica pediatra apaixonada</span> pela <span className="text-[#83b2ac] font-semibold">Saúde Infantil</span> e <span className="font-semibold text-[#fdb4be]">mãe de um menino lindo</span> que me ensina todos os dias sobre a jornada da maternidade.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg mb-2">
-                {t.pages.index.about.paragraph2}
+                Minha missão é oferecer um <span className="text-[#83b2ac] font-semibold">cuidado completo</span>, aliando minha formação em <span className="text-[#83b2ac]">Pediatria</span>, <span className="text-[#83b2ac]">Terapia Intensiva</span> e <span className="text-[#83b2ac]">Pneumologia Pediátrica</span> com a sensibilidade de quem entende os desafios das famílias.
               </p>
               <p className="text-gray-600 leading-relaxed text-lg font-semibold">
-                {t.pages.index.about.paragraph3}
+                Acredito que <span className="text-[#fdb4be]">acolhimento</span> e <span className="text-[#fdb4be]">paciência</span> são fundamentais!
               </p>
               <Button asChild className="bg-secondary hover:bg-secondary/90">
-                <Link to={getLocalizedPath('/sobre-mim')}>{t.pages.index.about.knowMyStory}</Link>
+                <Link to="/sobre-mim">Conheça minha história</Link>
               </Button>
             </div>
           </div>
@@ -232,36 +200,58 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.services.title}
+              Nossos Serviços
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.services.description}
+              Cuidado integral e especializado para cada fase da infância. Pacotes de consulta com vacinação.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader className="text-center">
-                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <service.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">
-                    {service.title}
-                    {service.badge && (
-                      <Badge variant="secondary" className="ml-2 bg-secondary text-white">
-                        {service.badge}
-                      </Badge>
-                    )}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            {services.map((service, index) => {
+              const CardWrapper = service.link ? (service.external ? 'a' : Link) : 'div';
+              const cardProps = service.link 
+                ? (service.external 
+                    ? { href: service.link, target: '_blank', rel: 'noopener noreferrer', className: 'block h-full' }
+                    : { to: service.link, className: 'block h-full' })
+                : { className: 'block h-full' };
+              
+              return (
+                <CardWrapper key={index} {...cardProps}>
+                  <Card className="h-full hover:shadow-xl hover:scale-105 hover:border-primary/50 transition-all duration-300 cursor-pointer border-2 border-transparent group">
+                    <CardHeader className="text-center">
+                      <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <service.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                      </div>
+                      <CardTitle className="text-lg flex items-center justify-center gap-2">
+                        {service.title}
+                        {service.badge && (
+                          <Badge variant="secondary" className="ml-2 bg-secondary text-white">
+                            {service.badge}
+                          </Badge>
+                        )}
+                        {service.link && (
+                          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                        )}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-center mb-4">
+                        {service.description}
+                      </CardDescription>
+                      {service.link && (
+                        <div className="text-center mt-4">
+                          <span className="text-sm font-semibold text-primary flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
+                            {service.external ? 'Abrir site' : 'Saiba mais'}
+                            <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </CardWrapper>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -276,32 +266,82 @@ const Index = () => {
                   <div className="p-6 bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10 rounded-2xl shadow-xl">
                     <img 
                       src="/images/milvacinas.png" 
-                      alt="Mil Vacinas - Clínica de Vacinação integrada ao consultório da Dra. Fernanda Kruger no Paraíso SP" 
+                      alt="Mil Vacinas" 
                       className="w-full max-w-md h-auto object-contain"
-                      loading="lazy"
                     />
                   </div>
                 </div>
               </div>
               <div className="order-1 lg:order-2 space-y-6">
                 <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
-                  {t.pages.index.vaccination.title}
+                  Mil Vacinas
                 </h2>
                 <h3 className="text-2xl font-semibold text-[#fdb4be]">
-                  {t.pages.index.vaccination.subtitle}
+                  Proteção Completa para Toda a Família
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.index.vaccination.description}
+                  Nossa clínica de vacinação está <span className="font-semibold text-[#83b2ac]">integrada ao consultório</span>, 
+                  oferecendo um serviço completo de imunização para <span className="font-semibold text-[#fdb4be]">todas as faixas etárias</span>. 
+                  Atendimento humanizado com equipe qualificada em ambiente acolhedor.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                     <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.vaccination.knowMilVacinas}
+                      Conhecer Mil Vacinas
                     </a>
                   </Button>
                   <Button variant="outline" size="lg" asChild>
-                    <a href={getVaccinationWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.vaccination.scheduleVaccine}
+                    <a href="https://wa.me/5511973139542?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20vacina." target="_blank" rel="noopener noreferrer">
+                      Agendar Vacina
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mil Cuidados Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="flex justify-center">
+                  <div className="rounded-lg overflow-hidden shadow-xl">
+                    <video 
+                      className="w-full h-auto max-w-md"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      poster="/images/clinic/maca.jpg"
+                    >
+                      <source src="/images/clinic/milcuidados.mp4" type="video/mp4" />
+                      Seu navegador não suporta vídeos HTML5.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 space-y-6">
+                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
+                  Programa Mil Cuidados
+                </h2>
+                <h3 className="text-2xl font-semibold text-[#fdb4be]">
+                  Acompanhamento Completo para Todas as Fases
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Um programa especial de <span className="font-semibold text-[#83b2ac]">acompanhamento pediátrico</span> desenvolvido para <span className="font-semibold text-[#fdb4be]">todas as fases da infância</span> da sua criança. 
+                  Inclui consultas regulares, monitoramento do crescimento e desenvolvimento, e pode incluir também <span className="font-semibold text-[#83b2ac]">vacinas incluídas no Programa Mil Cuidados</span>.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                    <Link to="/mil-cuidados">Conhecer o Programa</Link>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      Falar no WhatsApp
                     </a>
                   </Button>
                 </div>
@@ -312,14 +352,14 @@ const Index = () => {
       </section>
 
       {/* Doctoralia Calendar Section */}
-      <section ref={doctoraliaRef} className="py-20 bg-[#f0f4e3]">
+      <section className="py-20 bg-[#f0f4e3]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.doctoralia.title}
+              Agende sua Consulta Particular
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-              {t.pages.index.doctoralia.description}
+              Escolha o melhor horário para sua consulta com a Dra. Fernanda Kruger pelo Doctoralia:
             </p>
             <div className="flex justify-center">
               <div style={{maxWidth: 420, width: '100%'}}>
@@ -339,10 +379,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.clinic.title}
+              Nosso Cantinho
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.clinic.description}
+              Um espaço planejado com amor para acolher sua família.
             </p>
           </div>
 
@@ -359,7 +399,7 @@ const Index = () => {
                           poster="/images/clinic/maca.jpg"
                         >
                           <source src={item.src} type="video/mp4" />
-                          {language === 'pt' ? 'Seu navegador não suporta vídeos HTML5.' : 'Your browser does not support HTML5 videos.'}
+                          Seu navegador não suporta vídeos HTML5.
                         </video>
                       ) : (
                         <img 
@@ -404,24 +444,21 @@ const Index = () => {
 
           <div className="text-center">
             <Button asChild className="bg-secondary hover:bg-secondary/90">
-              <Link to={getLocalizedPath('/consultorio')}>{t.pages.index.clinic.knowOurSpace}</Link>
+              <Link to="/consultorio">Conheça nosso espaço</Link>
             </Button>
           </div>
         </div>
       </section>
-
-      {/* Testimonials Section */}
-      <Testimonials />
 
       {/* Location Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.location.title}
+              Onde Nos Encontrar
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.location.description}
+              Localizados no coração do Paraíso, com fácil acesso pelo metrô
             </p>
           </div>
           
@@ -430,34 +467,35 @@ const Index = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary" />
-                  {t.pages.index.location.address.title}
+                  Endereço
                 </h3>
                 <p className="text-gray-600">
-                  {t.pages.index.location.address.street}<br />
-                  {t.pages.index.location.address.city}<br />
-                  {t.pages.index.location.address.zip}<br />
-                  {t.pages.index.location.address.building}
+                  Rua Afonso de Freitas, nº 59, sala 94<br />
+                  Paraíso, São Paulo - SP<br />
+                  CEP 04.006-050<br />
+                  Edifício Upside Paraíso
                 </p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                   <Train className="w-5 h-5 text-secondary" />
-                  {t.pages.index.location.howToGet.title}
+                  Como Chegar
                 </h3>
                 <p className="text-gray-600">
-                  <strong>{t.pages.index.location.howToGet.metro}</strong><br />
-                  <strong>{t.pages.index.location.howToGet.time}</strong>
+                  <strong>🚇 Metrô:</strong> Estamos a 220m da estação Paraíso<br />
+                  (Linhas 1-Azul e 2-Verde)<br />
+                  <strong>⏱️ Tempo:</strong> Apenas 3 minutos caminhando
                 </p>
               </div>
 
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                   <span className="text-yellow-600">🅿️</span>
-                  {t.pages.index.location.parking.title}
+                  Estacionamento
                 </h3>
                 <p className="text-gray-600">
-                  {t.pages.index.location.parking.description}
+                  Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores.
                 </p>
               </div>
             </div>
@@ -483,22 +521,22 @@ const Index = () => {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-            {t.pages.index.cta.title}
+            Pronta para cuidar do seu filho!
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            {t.pages.index.cta.description}
+            Vamos conversar? Agende uma consulta ou tire suas dúvidas de forma rápida e fácil.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
               <a 
-                href={getWhatsAppUrl()}
+                href={whatsappUrl}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
                 <span>📱</span>
-                {t.pages.index.cta.scheduleByWhatsApp}
+                Agendar pelo WhatsApp
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
@@ -507,7 +545,7 @@ const Index = () => {
                 className="flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
-                {t.pages.index.cta.sendEmail}
+                Enviar um E-mail
               </a>
             </Button>
           </div>
