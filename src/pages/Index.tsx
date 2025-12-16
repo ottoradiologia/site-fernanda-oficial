@@ -180,7 +180,6 @@ const Index = () => {
                     alt="Dra. Fernanda Kruger - Pediatra e Pneumopediatra no Paraíso SP, Responsável Técnica Mil Vacinas" 
                     className="w-full max-w-md h-auto object-cover"
                     loading="eager"
-                    fetchPriority="high"
                   />
                 </div>
               </div>

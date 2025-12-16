@@ -19,13 +19,26 @@ const translations: Record<Language, Translations> = {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     // Tenta recuperar do localStorage, ou usa 'pt' como padrão
-    const saved = localStorage.getItem('language') as Language;
-    return saved && (saved === 'pt' || saved === 'en') ? saved : 'pt';
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const saved = localStorage.getItem('language') as Language;
+        return saved && (saved === 'pt' || saved === 'en') ? saved : 'pt';
+      }
+    } catch (error) {
+      console.warn('Error accessing localStorage:', error);
+    }
+    return 'pt';
   });
 
   useEffect(() => {
     // Salva no localStorage quando o idioma muda
-    localStorage.setItem('language', language);
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('language', language);
+      }
+    } catch (error) {
+      console.warn('Error saving to localStorage:', error);
+    }
   }, [language]);
 
   const setLanguage = (lang: Language) => {

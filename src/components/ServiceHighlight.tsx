@@ -14,47 +14,64 @@ interface ServiceHighlightProps {
 const ServiceHighlight = ({ type = 'seasonal', dismissible = true }: ServiceHighlightProps) => {
   const { language } = useLanguage();
   const [isDismissed, setIsDismissed] = useState(false);
-  const [currentHighlight, setCurrentHighlight] = useState<HighlightType>(type);
   
-  // Seasonal logic: determine what to highlight based on the month
-  useEffect(() => {
-    if (type === 'seasonal') {
+  // Função para determinar o highlight baseado no tipo
+  const getHighlightType = (t: HighlightType): 'sleep' | 'pneumo' | 'vaccine' => {
+    if (t === 'seasonal') {
       const month = new Date().getMonth();
-      
       // Winter months (May-Aug in Brazil) = respiratory focus
       if (month >= 4 && month <= 7) {
-        setCurrentHighlight('pneumo');
+        return 'pneumo';
       }
       // Back to school (Jan-Feb) = vaccines
       else if (month <= 1) {
-        setCurrentHighlight('vaccine');
+        return 'vaccine';
       }
       // Rest of the year = sleep consulting
       else {
-        setCurrentHighlight('sleep');
+        return 'sleep';
       }
-    } else {
-      setCurrentHighlight(type);
     }
+    return t as 'sleep' | 'pneumo' | 'vaccine';
+  };
+  
+  const [currentHighlight, setCurrentHighlight] = useState<'sleep' | 'pneumo' | 'vaccine'>(() => getHighlightType(type));
+  
+  // Seasonal logic: determine what to highlight based on the month
+  useEffect(() => {
+    const newHighlight = getHighlightType(type);
+    setCurrentHighlight(newHighlight);
   }, [type]);
 
   // Check localStorage to see if user dismissed this highlight today
   useEffect(() => {
-    const dismissedDate = localStorage.getItem('highlight_dismissed');
-    if (dismissedDate) {
-      const today = new Date().toDateString();
-      if (dismissedDate === today) {
-        setIsDismissed(true);
-      } else {
-        localStorage.removeItem('highlight_dismissed');
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const dismissedDate = localStorage.getItem('highlight_dismissed');
+        if (dismissedDate) {
+          const today = new Date().toDateString();
+          if (dismissedDate === today) {
+            setIsDismissed(true);
+          } else {
+            localStorage.removeItem('highlight_dismissed');
+          }
+        }
       }
+    } catch (error) {
+      console.warn('Error accessing localStorage:', error);
     }
   }, []);
 
   const handleDismiss = () => {
     setIsDismissed(true);
     if (dismissible) {
-      localStorage.setItem('highlight_dismissed', new Date().toDateString());
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          localStorage.setItem('highlight_dismissed', new Date().toDateString());
+        }
+      } catch (error) {
+        console.warn('Error saving to localStorage:', error);
+      }
     }
   };
 
@@ -147,7 +164,7 @@ const ServiceHighlight = ({ type = 'seasonal', dismissible = true }: ServiceHigh
 
   const highlight = highlights[currentHighlight];
 
-  if (isDismissed) {
+  if (isDismissed || !highlight) {
     return null;
   }
 
