@@ -51,7 +51,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden lg:flex space-x-8">
+          <nav className="hidden lg:flex space-x-4">
             {menuItems.map((item) => (
               item.hasDropdown ? (
                 <div 
@@ -61,7 +61,7 @@ const Header = () => {
                   onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   <button
-                    className={`text-sm font-semibold transition-colors px-2 py-1 rounded flex items-center gap-1
+                    className={`text-xs font-semibold transition-colors px-1 py-1 rounded flex items-center gap-1
                       ${isServicesActive() ? 'text-[#83b2ac]' : 'text-[#83b2ac]'}
                       hover:text-[#fdb4be] hover:bg-[#83b2ac]/10`}
                   >
@@ -90,7 +90,7 @@ const Header = () => {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`text-sm font-semibold transition-colors px-2 py-1 rounded 
+                  className={`text-xs font-semibold transition-colors px-1 py-1 rounded 
                     ${item.href === '/' && isActive(item.href) ? 'bg-[#fdb4be] text-white shadow' : ''}
                     ${isActive(item.href) && item.href !== '/' ? 'text-[#83b2ac]' : ''}
                     ${!isActive(item.href) ? 'text-[#83b2ac]' : ''}
@@ -105,7 +105,7 @@ const Header = () => {
           {/* CTA Button and Language Selector */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSelector />
-            <Button asChild className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold">
+            <Button asChild size="sm" className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold text-xs">
               <a 
                 href={whatsappUrl}
                 target="_blank" 
