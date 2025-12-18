@@ -11,6 +11,11 @@ export interface Translations {
       contact: string;
       faq: string;
       scheduleAppointment: string;
+      milCuidados?: string;
+      pneumopediatria?: string;
+      sleepConsulting?: string;
+      prenatalConsultation?: string;
+      viewAllServices?: string;
     };
     footer: {
       tagline: string;

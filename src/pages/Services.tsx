@@ -4,14 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Clock, Heart, Shield, Stethoscope, Wind } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
   
-  const highlights = [
-    "Atendimento humanizado e sem pressa",
-    "Avaliação completa (crescimento, desenvolvimento, vacinas)"
-  ];
+  const highlights = t.pages.services.practice.highlights.items;
 
   return (
     <div className="min-h-screen bg-white">
@@ -22,13 +21,13 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Cuidado Integral para Cada Fase da Infância
+              {t.pages.services.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              <span className="font-semibold text-[#fdb4be]">Cuidar de crianças é um privilégio e uma missão!</span> Aqui, cada atendimento é feito com <span className="text-[#83b2ac] font-semibold">carinho</span>, <span className="text-[#83b2ac] font-semibold">atenção</span> e <span className="text-[#83b2ac] font-semibold">respeito ao tempo de cada família</span>.
+              {t.pages.services.hero.subtitle1}
             </p>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Conheça os principais serviços oferecidos para garantir o <span className="text-[#83b2ac] font-semibold">bem-estar</span> e o <span className="text-[#fdb4be] font-semibold">desenvolvimento saudável</span> do seu filho.
+              {t.pages.services.hero.subtitle2}
             </p>
           </div>
         </div>
@@ -44,26 +43,23 @@ const Services = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Stethoscope className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">Minha Prática Clínica: O que esperar da consulta</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.services.practice.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6 items-center">
                   <div className="space-y-4">
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      <span className="font-semibold text-[#83b2ac]">Consultas de rotina</span> para acompanhar o crescimento, desenvolvimento e saúde geral das crianças.
+                      {t.pages.services.practice.paragraph1}
                     </p>
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      Avaliação individualizada, atualização da carteira de vacinação, orientações sobre alimentação, sono e prevenção de doenças.
+                      {t.pages.services.practice.paragraph2}
                     </p>
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      <span className="text-[#83b2ac] font-semibold">Seu filho será examinado completamente</span>, da cabeça aos pés, garantindo uma avaliação detalhada de todos os aspectos da saúde.
+                      {t.pages.services.practice.paragraph3}
                     </p>
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      <span className="text-[#fdb4be] font-semibold">Aqui, cada consulta é feita sem pressa</span>, com escuta ativa e acolhimento para toda a família.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed text-lg">
-                      <span className="font-semibold">Seu filho merece um cuidado completo e humanizado!</span> Estou aqui para ajudar em todas as fases da infância.
+                      {t.pages.services.practice.paragraph4}
                     </p>
                   </div>
                   <div className="rounded-lg overflow-hidden shadow-lg">
@@ -78,7 +74,7 @@ const Services = () => {
                 <div className="bg-accent/50 p-6 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                     <Heart className="w-5 h-5 text-primary" />
-                    Destaques do Atendimento
+                    {t.pages.services.practice.highlights.title}
                   </h3>
                   <ul className="space-y-3">
                     {highlights.map((highlight, index) => (
@@ -119,15 +115,15 @@ const Services = () => {
                   <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
                     <Clock className="w-6 h-6 text-secondary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">Suporte Contínuo para sua Tranquilidade</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.services.followup.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  <span className="text-[#83b2ac] font-semibold">Acompanhamento pós-consulta</span> via WhatsApp para dúvidas e resultados de exames.
+                  {t.pages.services.followup.paragraph1}
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Orientações por telemedicina e, se necessário, retorno presencial sem custo adicional, sempre pensando no conforto e segurança da família.
+                  {t.pages.services.followup.paragraph2}
                 </p>
               </CardContent>
             </Card>
@@ -139,17 +135,17 @@ const Services = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">Proteção Completa para Toda a Família</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.services.vaccination.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-6 items-center">
                   <div className="space-y-4">
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      <span className="text-[#83b2ac] font-semibold">Sala de Vacinação completa, segura e confortável</span>, para proteger toda a família com as melhores vacinas disponíveis no mercado.
+                      {t.pages.services.vaccination.paragraph1}
                     </p>
                     <p className="text-gray-600 leading-relaxed text-lg">
-                      Oferecemos vacinas para crianças, adolescentes e adultos, garantindo <span className="text-[#fdb4be] font-semibold">proteção e tranquilidade</span> em um ambiente acolhedor.
+                      {t.pages.services.vaccination.paragraph2}
                     </p>
                     <Button 
                       size="lg" 
@@ -158,7 +154,7 @@ const Services = () => {
                       asChild
                     >
                       <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                        Conheça Nossas Vacinas
+                        {t.pages.services.vaccination.knowOurVaccines}
                       </a>
                     </Button>
                   </div>
@@ -180,14 +176,14 @@ const Services = () => {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-8">
-            Pronta para cuidar do seu filho
+            {t.pages.services.cta.title}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            <span className="text-[#83b2ac] font-semibold">Agende uma consulta</span> e experimente um atendimento pediátrico <span className="text-[#fdb4be] font-semibold">diferenciado, acolhedor e humano</span>.
+            {t.pages.services.cta.description}
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              Agendar Consulta pelo WhatsApp
+              {t.pages.services.cta.button}
             </a>
           </Button>
         </div>

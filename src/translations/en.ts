@@ -11,6 +11,11 @@ export const en: Translations = {
       contact: 'Contact',
       faq: 'FAQ',
       scheduleAppointment: 'Schedule Appointment',
+      milCuidados: 'Mil Cuidados Program',
+      pneumopediatria: 'Pediatric Pulmonology',
+      sleepConsulting: 'Sleep Consulting',
+      prenatalConsultation: 'Prenatal Consultation',
+      viewAllServices: 'View All Services',
     },
     footer: {
       tagline: 'Caring for your greatest treasure with love, science, and warmth.',

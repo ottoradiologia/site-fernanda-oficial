@@ -3,29 +3,31 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
 
   const menuItems = [
-    { href: '/', label: 'Início' },
-    { href: '/sobre-mim', label: 'Sobre Mim' },
-    { href: '/servicos', label: 'Serviços', hasDropdown: true },
-    { href: '/vacinacao', label: 'Vacinação' },
-    { href: '/consultorio', label: 'O Consultório' },
-    { href: '/contato', label: 'Contato' },
-    { href: '/duvidas-frequentes', label: 'Dúvidas Frequentes' },
+    { href: '/', label: t.common.header.home },
+    { href: '/sobre-mim', label: t.common.header.about },
+    { href: '/servicos', label: t.common.header.services, hasDropdown: true },
+    { href: '/vacinacao', label: t.common.header.vaccination },
+    { href: '/consultorio', label: t.common.header.clinic },
+    { href: '/contato', label: t.common.header.contact },
+    { href: '/duvidas-frequentes', label: t.common.header.faq },
   ];
 
   const servicesDropdown = [
-    { href: '/mil-cuidados', label: 'Programa Mil Cuidados' },
-    { href: '/pneumologia', label: 'Pneumopediatria' },
-    { href: '/consultoria-sono', label: 'Consultoria do Sono' },
-    { href: '/consulta-pre-natal', label: 'Consulta Pré-Natal' },
-    { href: '/servicos', label: 'Ver Todos os Serviços' },
+    { href: '/mil-cuidados', label: t.common.header.milCuidados || 'Programa Mil Cuidados' },
+    { href: '/pneumologia', label: t.common.header.pneumopediatria || 'Pneumopediatria' },
+    { href: '/consultoria-sono', label: t.common.header.sleepConsulting || 'Consultoria do Sono' },
+    { href: '/consulta-pre-natal', label: t.common.header.prenatalConsultation || 'Consulta Pré-Natal' },
+    { href: '/servicos', label: t.common.header.viewAllServices || 'Ver Todos os Serviços' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -111,7 +113,7 @@ const Header = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Agendar Consulta
+                {t.common.header.scheduleAppointment}
               </a>
             </Button>
           </div>
@@ -183,7 +185,7 @@ const Header = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  Agendar Consulta
+                  {t.common.header.scheduleAppointment}
                 </a>
               </Button>
             </nav>

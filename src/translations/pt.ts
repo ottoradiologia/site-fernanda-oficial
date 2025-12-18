@@ -11,6 +11,11 @@ export const pt: Translations = {
       contact: 'Contato',
       faq: 'Dúvidas Frequentes',
       scheduleAppointment: 'Agendar Consulta',
+      milCuidados: 'Programa Mil Cuidados',
+      pneumopediatria: 'Pneumopediatria',
+      sleepConsulting: 'Consultoria do Sono',
+      prenatalConsultation: 'Consulta Pré-Natal',
+      viewAllServices: 'Ver Todos os Serviços',
     },
     footer: {
       tagline: 'Cuidando do bem-estar do seu maior tesouro com amor, ciência e acolhimento.',
