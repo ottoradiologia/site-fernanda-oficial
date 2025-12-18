@@ -58,6 +58,15 @@ export interface Translations {
         service3: { title: string; description: string };
         service4: { title: string; description: string };
         service5: { title: string; description: string };
+        service6?: { title: string; description: string };
+        service7?: { title: string; description: string };
+      };
+      milCuidados?: {
+        title: string;
+        subtitle: string;
+        description: string;
+        knowProgram: string;
+        talkWhatsApp: string;
       };
       vaccination: {
         title: string;

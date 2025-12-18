@@ -73,6 +73,21 @@ export const en: Translations = {
           title: 'Mil Cuidados',
           description: 'Comprehensive follow-up program including consultations and vaccination to care for your child\'s health completely.',
         },
+        service6: {
+          title: 'Prenatal Pediatric Consultation',
+          description: 'Support during pregnancy to guide about baby care, birth preparation, and first days of life.',
+        },
+        service7: {
+          title: 'Pediatric Pulmonology Consultation',
+          description: 'Specialized evaluation of childhood respiratory diseases, including asthma, bronchiolitis, pneumonia, and other pulmonary conditions.',
+        },
+      },
+      milCuidados: {
+        title: 'Mil Cuidados Program',
+        subtitle: 'Complete Follow-up for All Phases',
+        description: 'A special pediatric follow-up program developed for all phases of your child\'s childhood. Includes regular consultations, growth and development monitoring, and may also include vaccines.',
+        knowProgram: 'Learn about the Program',
+        talkWhatsApp: 'Talk on WhatsApp',
       },
       vaccination: {
         title: 'Mil Vacinas',

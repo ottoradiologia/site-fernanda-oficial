@@ -73,6 +73,21 @@ export const pt: Translations = {
           title: 'Mil Cuidados',
           description: 'Programa de acompanhamento integral incluindo consultas e vacinação para cuidar da saúde de sua criança de forma completa.',
         },
+        service6: {
+          title: 'Consulta Pediátrica Pré-Natal',
+          description: 'Acompanhamento durante a gestação para orientar sobre os cuidados com o bebê, preparação para o parto e primeiros dias de vida.',
+        },
+        service7: {
+          title: 'Consulta em Pneumologia Pediátrica',
+          description: 'Avaliação especializada em doenças respiratórias da infância, incluindo asma, bronquiolite, pneumonias e outras condições pulmonares.',
+        },
+      },
+      milCuidados: {
+        title: 'Programa Mil Cuidados',
+        subtitle: 'Acompanhamento Completo para Todas as Fases',
+        description: 'Um programa especial de acompanhamento pediátrico desenvolvido para todas as fases da infância da sua criança. Inclui consultas regulares, monitoramento do crescimento e desenvolvimento, e pode incluir também vacinas.',
+        knowProgram: 'Conhecer o Programa',
+        talkWhatsApp: 'Falar no WhatsApp',
       },
       vaccination: {
         title: 'Mil Vacinas',
