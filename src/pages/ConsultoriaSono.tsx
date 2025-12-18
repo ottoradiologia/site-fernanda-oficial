@@ -3,39 +3,33 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Moon, Heart, Clock, Baby, CheckCircle, Star } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ConsultoriaSono = () => {
+  const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20saber%20mais%20sobre%20a%20Consultoria%20de%20Sono.";
 
   const benefits = [
     {
       icon: Moon,
-      title: "Noites Mais Tranquilas",
-      description: "Orientações personalizadas para ajudar seu bebê a dormir melhor e por mais tempo."
+      title: t.pages.consultoriaSono.benefits.benefit1.title,
+      description: t.pages.consultoriaSono.benefits.benefit1.description
     },
     {
       icon: Heart,
-      title: "Abordagem Acolhedora",
-      description: "Métodos gentis e respeitosos, sem deixar o bebê chorar sozinho."
+      title: t.pages.consultoriaSono.benefits.benefit2.title,
+      description: t.pages.consultoriaSono.benefits.benefit2.description
     },
     {
       icon: Clock,
-      title: "Rotina Estruturada",
-      description: "Criação de uma rotina de sono saudável e adaptada à realidade da sua família."
+      title: t.pages.consultoriaSono.benefits.benefit3.title,
+      description: t.pages.consultoriaSono.benefits.benefit3.description
     },
     {
       icon: Baby,
-      title: "Para Todas as Idades",
-      description: "Atendimento para bebês e crianças em diferentes fases do desenvolvimento."
+      title: t.pages.consultoriaSono.benefits.benefit4.title,
+      description: t.pages.consultoriaSono.benefits.benefit4.description
     }
-  ];
-
-  const includes = [
-    "Avaliação completa da rotina atual de sono da criança",
-    "Orientações personalizadas para estabelecer hábitos saudáveis",
-    "Estratégias gentis para melhorar a qualidade do sono",
-    "Acompanhamento via WhatsApp durante o processo",
-    "Mentoria online para tirar dúvidas e ajustar a rotina"
   ];
 
   return (
@@ -47,13 +41,13 @@ const ConsultoriaSono = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Consultoria de Sono e Rotina
+              {t.pages.consultoriaSono.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              <span className="font-semibold text-[#fdb4be]">Noites tranquilas para toda a família</span>
+              <span className="font-semibold text-[#fdb4be]">{t.pages.consultoriaSono.hero.subtitle}</span>
             </p>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Orientações personalizadas para ajudar seu bebê a <span className="text-[#83b2ac] font-semibold">dormir melhor</span> e estabelecer uma <span className="text-[#83b2ac] font-semibold">rotina saudável</span>.
+              {t.pages.consultoriaSono.hero.description}
             </p>
           </div>
         </div>
@@ -69,18 +63,18 @@ const ConsultoriaSono = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Moon className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">Como Funciona a Consultoria?</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.consultoriaSono.howItWorks.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  A <span className="text-[#83b2ac] font-semibold">Consultoria de Sono e Rotina</span> é um serviço especializado para ajudar famílias a estabelecerem <span className="text-[#fdb4be] font-semibold">hábitos de sono saudáveis</span> para seus bebês e crianças.
+                  {t.pages.consultoriaSono.howItWorks.paragraph1}
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Com formação em <span className="text-[#83b2ac] font-semibold">Sono e Rotina do Bebê</span> pela Faculdade Brasília, ofereço uma abordagem <span className="text-[#fdb4be] font-semibold">gentil e respeitosa</span>, adaptada às necessidades específicas de cada família.
+                  {t.pages.consultoriaSono.howItWorks.paragraph2}
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Entendo os desafios da maternidade e sei como é difícil lidar com noites mal dormidas. Por isso, meu objetivo é <span className="text-[#83b2ac] font-semibold">agregar qualidade de vida</span> a todos, promovendo um sono mais tranquilo para a criança e descanso para os pais.
+                  {t.pages.consultoriaSono.howItWorks.paragraph3}
                 </p>
               </CardContent>
             </Card>
@@ -88,7 +82,7 @@ const ConsultoriaSono = () => {
             {/* Benefits Section */}
             <div className="mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
-                Benefícios da Consultoria
+                {t.pages.consultoriaSono.benefits.title}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {benefits.map((benefit, index) => (
@@ -118,12 +112,12 @@ const ConsultoriaSono = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Star className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">O que está incluído?</CardTitle>
+                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.consultoriaSono.includes.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
-                  {includes.map((item, index) => (
+                  {t.pages.consultoriaSono.includes.items.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-6 h-6 text-[#83b2ac] flex-shrink-0 mt-1" />
                       <span className="text-gray-600 text-lg">{item}</span>
@@ -138,14 +132,14 @@ const ConsultoriaSono = () => {
               <CardContent className="pt-6">
                 <div className="text-center space-y-6">
                   <h3 className="text-2xl font-bold text-[#83b2ac]">
-                    Quer saber mais sobre a Consultoria de Sono?
+                    {t.pages.consultoriaSono.cta.title}
                   </h3>
                   <p className="text-gray-600 text-lg">
-                    Entre em contato pelo WhatsApp para conhecer os detalhes, valores e como posso ajudar sua família a ter noites mais tranquilas.
+                    {t.pages.consultoriaSono.cta.description}
                   </p>
                   <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      Falar no WhatsApp
+                      {t.pages.consultoriaSono.cta.button}
                     </a>
                   </Button>
                 </div>
@@ -159,14 +153,14 @@ const ConsultoriaSono = () => {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-8">
-            Noites tranquilas para toda a família
+            {t.pages.consultoriaSono.cta.finalTitle}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            A <span className="text-[#83b2ac] font-semibold">Consultoria de Sono</span> pode transformar a rotina da sua família, proporcionando <span className="text-[#fdb4be] font-semibold">mais qualidade de vida</span> e descanso para todos.
+            {t.pages.consultoriaSono.cta.finalDescription}
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              Agendar Consultoria pelo WhatsApp
+              {t.pages.consultoriaSono.cta.finalButton}
             </a>
           </Button>
         </div>
