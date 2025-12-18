@@ -6,8 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQ = () => {
+  const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
   
   const faqData = [
@@ -87,10 +89,10 @@ const FAQ = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Dúvidas Frequentes
+              {t.pages.faq.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Encontre respostas para as principais perguntas sobre nossos serviços e atendimento
+              {t.pages.faq.hero.subtitle}
             </p>
           </div>
         </div>

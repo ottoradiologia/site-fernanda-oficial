@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Stethoscope } from 'lucide-react';
 import { useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
 
   useEffect(() => {
@@ -42,10 +44,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
-              Vamos Conversar?
+              {t.pages.contact.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Agende sua consulta ou entre em contato para tirar suas dúvidas
+              {t.pages.contact.hero.subtitle}
             </p>
           </div>
         </div>
