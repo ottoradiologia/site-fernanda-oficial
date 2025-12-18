@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -101,8 +102,9 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Button and Language Selector */}
+          <div className="hidden lg:flex items-center gap-4">
+            <LanguageSelector />
             <Button asChild className="bg-[#fdb4be] hover:bg-[#83b2ac] text-white font-bold">
               <a 
                 href={whatsappUrl}
@@ -172,6 +174,9 @@ const Header = () => {
                   </Link>
                 )
               ))}
+              <div className="pt-4 border-t border-gray-200">
+                <LanguageSelector />
+              </div>
               <Button asChild className="bg-primary hover:bg-primary/90 w-fit">
                 <a 
                   href={whatsappUrl}
