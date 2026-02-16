@@ -45,6 +45,13 @@ const StructuredData = () => {
         "name": "Mil Vacinas - Clínica de Vacinação",
         "image": "https://www.drafernandakruger.com.br/images/milvacinas.png",
         "description": "Clínica de Vacinação Integrada e Consultoria em Imunização"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "30",
+        "bestRating": "5",
+        "worstRating": "1"
       }
     },
     {

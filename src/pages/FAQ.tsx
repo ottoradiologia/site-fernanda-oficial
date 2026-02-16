@@ -31,7 +31,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Qual o tempo de duração da consulta?",
-          answer: "As consultas particulares duram cerca de 1 hora, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece."
+          answer: "As consultas particulares duram até 1 hora e meia, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece."
         }
       ]
     },
@@ -44,7 +44,7 @@ const FAQ = () => {
         },
         {
           question: "Atende Convênio Médico?",
-          answer: "Sim! Atendemos GoCare Saúde e Sepaco Autogestão. Para outros planos, consulte pelo WhatsApp (11) 99407-7447 para verificar se seu convênio está em processo de credenciamento."
+          answer: "Não, atualmente atendemos apenas consultas particulares."
         },
         {
           question: "Emite Nota Fiscal para reembolso?",

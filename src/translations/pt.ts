@@ -6,6 +6,7 @@ export const pt: Translations = {
       home: 'Início',
       about: 'Sobre Mim',
       services: 'Serviços',
+      atendimento: 'Atendimento',
       vaccination: 'Vacinação',
       clinic: 'O Consultório',
       contact: 'Contato',
@@ -53,10 +54,11 @@ export const pt: Translations = {
         paragraph1: 'Médica pediatra apaixonada pela Saúde Infantil e mãe de um menino lindo que me ensina todos os dias sobre a jornada da maternidade.',
         paragraph2: 'Minha missão é oferecer um cuidado completo, aliando minha formação em Pediatria, Terapia Intensiva e Pneumologia Pediátrica com a sensibilidade de quem entende os desafios das famílias.',
         paragraph3: 'Acredito que acolhimento e paciência são fundamentais!',
+        paragraph4: 'Atualmente atendo apenas consultas particulares, pois isso permite oferecer um atendimento mais personalizado e de qualidade, dedicando tempo e atenção a cada paciente.',
         knowMyStory: 'Conheça minha história',
       },
       services: {
-        title: 'Nossos Serviços',
+        title: 'Cuidados Especializados',
         description: 'Cuidado integral e especializado para cada fase da infância. Pacotes de consulta com vacinação.',
         service1: {
           title: 'Consulta Pediátrica Completa',
@@ -100,6 +102,19 @@ export const pt: Translations = {
         description: 'Nossa clínica de vacinação está integrada ao consultório, oferecendo um serviço completo de imunização para todas as faixas etárias. Atendimento humanizado com equipe qualificada em ambiente acolhedor.',
         knowMilVacinas: 'Conhecer Mil Vacinas',
         scheduleVaccine: 'Agendar Vacina',
+      },
+      reviews: {
+        title: 'O que dizem os pacientes',
+        subtitle: 'Avaliações reais no Google',
+        seeAllReviews: 'Ver todas as avaliações no Google',
+        items: [
+          { text: 'Minha filha foi atendida pela Dra. Fernanda e fiquei impressionada com o cuidado e a atenção em cada detalhe. Ela explica tudo com clareza e transmite muita confiança. O atendimento foi pontual, o consultório é acolhedor e saí de lá tranquila e bem orientada. Super recomendo!', author: 'Marilia C.' },
+          { text: 'Simplesmente incrível! A Dra. Fernanda é muito atenciosa e se interessa pela sua criança, diferente de médicos que só seguem o script. Tem uma pequena parte no consultório para a criança brincar enquanto a família conversa. Super recomendo!', author: 'Thais A.' },
+          { text: 'A melhor experiência que eu tive na vida com pediatria e vacinas. Excelente médica! Atendimento humanizado, acolhedora, experiente, ambiente acolhedor. 5 estrelas é pouco para a Dra. Fernanda Kruger.', author: 'Sandra S.' },
+          { text: 'Atendimento maravilhoso! Dra. Fernanda é uma profissional excelente, atenciosa, dedicada e acolhedora. Amei o atendimento com os meus bebês.', author: 'Suelen F.' },
+          { text: 'Primeira vez que meu filho passou em consulta com a Dra. Fernanda e não largo mais. Muito atenciosa, me explicou com clareza e paciência, foi delicada e muito paciente com meu bebê. Simplesmente perfeita! Profissional que ama o que faz.', author: 'Cleidiana B.' },
+          { text: 'Eu não tenho palavras para descrever e agradecer o trabalho da Dra. Fernanda. Ela olha para as crianças com carinho, calma, paciência e amor, sem deixar de lado todo o conhecimento técnico e experiência.', author: 'Luisa A.' },
+        ],
       },
       doctoralia: {
         title: 'Agende sua Consulta Particular',
@@ -157,7 +172,7 @@ export const pt: Translations = {
         paragraph5: 'Em 2020 ganhei o meu maior presente! Me tornei mãe de um menino lindo e saudável, que me ensina todos os dias que a Maternidade não está sobre o nosso controle e que acolhimento e paciência são fundamentais nessa caminhada!',
         paragraph6: 'Com o desafio da maternidade, veio também o interesse em me capacitar em uma das principais demandas das famílias com bebês pequenos: o sono infantil. Em 2022 me tornei consultora de Sono e Rotina do Bebê, visando agregar qualidade aos atendimentos em Pediatria.',
         paragraph7: 'Em 2025 realizei o sonho de ter meu próprio consultório, planejado com muito amor e carinho, para atender a todos com a maior qualidade e conforto!',
-        paragraph8: 'E não parei por aí... também em 2025 conclui um MBA em Imunização Humana e em breve teremos uma Sala de Vacinação agregada ao meu consultório, proporcionando mais proteção e saúde a toda família!',
+        paragraph8: 'E não parei por aí... também em 2025 conclui um MBA em Imunização Humana e inauguramos nossa Sala de Vacinação agregada ao consultório, proporcionando mais proteção e saúde a toda família!',
       },
       qualifications: {
         title: 'Formação e Qualificações',
@@ -326,7 +341,7 @@ export const pt: Translations = {
           title: 'Sobre as Consultas',
           q1: {
             question: 'Qual o tempo de duração da consulta?',
-            answer: 'As consultas particulares duram cerca de 1 hora, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece.',
+            answer: 'As consultas particulares duram até 1 hora e meia, para conversar, orientar e examinar sua criança sem pressa e com todo o cuidado que ela merece.',
           },
         },
         scheduling: {
@@ -337,7 +352,7 @@ export const pt: Translations = {
           },
           q2: {
             question: 'Atende Convênio Médico?',
-            answer: 'Consulte pelo WhatsApp para saber se seu convênio é atendido.',
+            answer: 'Não, atualmente atendemos apenas consultas particulares.',
           },
           q3: {
             question: 'Emite Nota Fiscal para reembolso?',

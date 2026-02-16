@@ -6,6 +6,7 @@ export interface Translations {
       home: string;
       about: string;
       services: string;
+      atendimento?: string;
       vaccination: string;
       clinic: string;
       contact: string;
@@ -53,6 +54,7 @@ export interface Translations {
         paragraph1: string;
         paragraph2: string;
         paragraph3: string;
+        paragraph4?: string;
         knowMyStory: string;
       };
       services: {
@@ -79,6 +81,12 @@ export interface Translations {
         description: string;
         knowMilVacinas: string;
         scheduleVaccine: string;
+      };
+      reviews?: {
+        title: string;
+        subtitle: string;
+        seeAllReviews: string;
+        items?: Array<{ text: string; author: string }>;
       };
       doctoralia: {
         title: string;

@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Package, Wind, ArrowRight, Sparkles } from 'lucide-react';
+import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Wind, ArrowRight, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -94,14 +94,12 @@ const Index = () => {
       description: t.pages.index.services.service4.description,
       link: "https://www.milvacinas.com.br/",
       external: true
-    },
-    {
-      icon: Package,
-      title: t.pages.index.services.service5.title,
-      description: t.pages.index.services.service5.description,
-      link: "/mil-cuidados"
     }
   ];
+
+  const googleReviewsUrl = "https://www.google.com/search?q=Dra+Fernanda+Kruger+Pediatra+Para%C3%ADso+avalia%C3%A7%C3%B5es";
+
+  const reviews = (t.pages.index.reviews?.items || []).map((item) => ({ ...item, rating: 5 }));
 
   const clinicImages = [
     { src: "/images/clinic/video_optimized.mp4", alt: "Tour virtual do consultório", type: "video" },
@@ -188,6 +186,11 @@ const Index = () => {
               <p className="text-gray-600 leading-relaxed text-lg font-semibold">
                 {t.pages.index.about.paragraph3}
               </p>
+              {t.pages.index.about.paragraph4 && (
+                <p className="text-gray-600 leading-relaxed text-lg border-l-4 border-[#83b2ac] pl-4 py-1">
+                  {t.pages.index.about.paragraph4}
+                </p>
+              )}
               <Button asChild className="bg-secondary hover:bg-secondary/90">
                 <Link to="/sobre-mim">{t.pages.index.about.knowMyStory}</Link>
               </Button>
@@ -196,19 +199,67 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-accent/30">
+      {/* Mil Cuidados Section - Destaque */}
+      <section className="py-20 bg-gradient-to-br from-[#83b2ac]/15 via-white to-[#fdb4be]/15">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="flex justify-center">
+                  <div className="rounded-lg overflow-hidden shadow-xl">
+                    <video 
+                      className="w-full h-auto max-w-md"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      poster="/images/clinic/maca.jpg"
+                    >
+                      <source src="/images/clinic/milcuidados.mp4" type="video/mp4" />
+                      Seu navegador não suporta vídeos HTML5.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 space-y-6">
+                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
+                  {t.pages.index.milCuidados?.title || "Programa Mil Cuidados"}
+                </h2>
+                <h3 className="text-2xl font-semibold text-[#fdb4be]">
+                  {t.pages.index.milCuidados?.subtitle || "Acompanhamento Completo para Todas as Fases"}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {t.pages.index.milCuidados?.description || "Um programa especial de acompanhamento pediátrico desenvolvido para todas as fases da infância da sua criança. Inclui consultas regulares, monitoramento do crescimento e desenvolvimento, e pode incluir também vacinas incluídas no Programa Mil Cuidados."}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                    <Link to="/mil-cuidados">{t.pages.index.milCuidados?.knowProgram || "Conhecer o Programa"}</Link>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      {t.pages.index.milCuidados?.talkWhatsApp || "Falar no WhatsApp"}
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-4 tracking-tight">
               {t.pages.index.services.title}
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
               {t.pages.index.services.description}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => {
               const CardWrapper = service.link ? (service.external ? 'a' : Link) : 'div';
               const cardProps = service.link 
@@ -219,34 +270,29 @@ const Index = () => {
               
               return (
                 <CardWrapper key={index} {...cardProps}>
-                  <Card className="h-full hover:shadow-xl hover:scale-105 hover:border-primary/50 transition-all duration-300 cursor-pointer border-2 border-transparent group">
-                    <CardHeader className="text-center">
-                      <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                        <service.icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                  <Card className="h-full bg-white/80 backdrop-blur border border-gray-100 hover:border-[#83b2ac]/30 hover:shadow-lg hover:shadow-[#83b2ac]/5 transition-all duration-300 cursor-pointer group overflow-hidden">
+                    <CardHeader className="pb-2">
+                      <div className="w-12 h-12 rounded-full bg-[#83b2ac]/10 flex items-center justify-center mb-4 group-hover:bg-[#83b2ac]/15 transition-colors">
+                        <service.icon className="w-6 h-6 text-[#83b2ac]" />
                       </div>
-                      <CardTitle className="text-lg flex items-center justify-center gap-2">
+                      <CardTitle className="text-base font-semibold text-gray-800 group-hover:text-[#83b2ac] transition-colors">
                         {service.title}
                         {service.badge && (
-                          <Badge variant="secondary" className="ml-2 bg-secondary text-white">
+                          <Badge variant="secondary" className="ml-2 bg-[#fdb4be]/20 text-[#83b2ac] border-0">
                             {service.badge}
                           </Badge>
-                        )}
-                        {service.link && (
-                          <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                         )}
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-center mb-4">
+                      <CardDescription className="text-gray-500 text-sm leading-relaxed">
                         {service.description}
                       </CardDescription>
                       {service.link && (
-                        <div className="text-center mt-4">
-                          <span className="text-sm font-semibold text-primary flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
-                            {service.external ? 'Abrir site' : 'Saiba mais'}
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
+                        <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#83b2ac] group-hover:gap-2 transition-all">
+                          {service.external ? 'Abrir site' : 'Saiba mais'}
+                          <ArrowRight className="w-4 h-4" />
+                        </span>
                       )}
                     </CardContent>
                   </Card>
@@ -301,50 +347,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Mil Cuidados Section */}
-      <section className="py-20 bg-white">
+      {/* Google Reviews Section */}
+      <section className="py-20 bg-accent/10">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex justify-center">
-                  <div className="rounded-lg overflow-hidden shadow-xl">
-                    <video 
-                      className="w-full h-auto max-w-md"
-                      controls
-                      autoPlay
-                      muted
-                      loop
-                      poster="/images/clinic/maca.jpg"
-                    >
-                      <source src="/images/clinic/milcuidados.mp4" type="video/mp4" />
-                      Seu navegador não suporta vídeos HTML5.
-                    </video>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+              {t.pages.index.reviews?.title || 'O que dizem os pacientes'}
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {t.pages.index.reviews?.subtitle || 'Avaliações reais no Google'}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
+            {reviews.map((review, index) => (
+              <Card key={index} className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="pt-6">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                    ))}
                   </div>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2 space-y-6">
-                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
-                  {t.pages.index.milCuidados?.title || "Programa Mil Cuidados"}
-                </h2>
-                <h3 className="text-2xl font-semibold text-[#fdb4be]">
-                  {t.pages.index.milCuidados?.subtitle || "Acompanhamento Completo para Todas as Fases"}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.index.milCuidados?.description || "Um programa especial de acompanhamento pediátrico desenvolvido para todas as fases da infância da sua criança. Inclui consultas regulares, monitoramento do crescimento e desenvolvimento, e pode incluir também vacinas incluídas no Programa Mil Cuidados."}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                    <Link to="/mil-cuidados">{t.pages.index.milCuidados?.knowProgram || "Conhecer o Programa"}</Link>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.milCuidados?.talkWhatsApp || "Falar no WhatsApp"}
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    "{review.text}"
+                  </p>
+                  <p className="text-sm font-medium text-[#83b2ac]">— {review.author}</p>
+                  <p className="text-xs text-gray-400 mt-1">Google</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center">
+            <Button asChild size="lg" variant="outline" className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac]/10">
+              <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+                {t.pages.index.reviews?.seeAllReviews || 'Ver todas as avaliações no Google'}
+              </a>
+            </Button>
           </div>
         </div>
       </section>

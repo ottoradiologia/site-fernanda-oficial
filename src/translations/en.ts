@@ -6,6 +6,7 @@ export const en: Translations = {
       home: 'Home',
       about: 'About Me',
       services: 'Services',
+      atendimento: 'Care',
       vaccination: 'Vaccination',
       clinic: 'The Clinic',
       contact: 'Contact',
@@ -53,10 +54,11 @@ export const en: Translations = {
         paragraph1: 'Pediatrician passionate about Children\'s Health and mother of a beautiful boy who teaches me every day about the journey of motherhood.',
         paragraph2: 'My mission is to provide complete care, combining my training in Pediatrics, Intensive Care, and Pediatric Pulmonology with the sensitivity of someone who understands the challenges of families.',
         paragraph3: 'I believe that warmth and patience are fundamental!',
+        paragraph4: 'I currently only attend private consultations, as this allows for more personalized and quality care, dedicating time and attention to each patient.',
         knowMyStory: 'Get to Know Me',
       },
       services: {
-        title: 'Our Services',
+        title: 'Specialized Care',
         description: 'Comprehensive and specialized care for each phase of childhood. Consultation packages with vaccination.',
         service1: {
           title: 'Complete Pediatric Consultation',
@@ -100,6 +102,19 @@ export const en: Translations = {
         description: 'Our vaccination clinic is integrated with the office, offering a complete immunization service for all age groups. Humanized care with a qualified team in a welcoming environment.',
         knowMilVacinas: 'Learn about Mil Vacinas',
         scheduleVaccine: 'Schedule Vaccination',
+      },
+      reviews: {
+        title: 'What patients say',
+        subtitle: 'Real reviews on Google',
+        seeAllReviews: 'See all reviews on Google',
+        items: [
+          { text: 'My daughter was seen by Dr. Fernanda and I was impressed with the care and attention to every detail. She explains everything clearly and conveys great confidence. The appointment was on time, the office is welcoming, and I left feeling calm and well guided. Highly recommend!', author: 'Marilia C.' },
+          { text: 'Simply amazing! Dr. Fernanda is very attentive and takes a real interest in your child, unlike doctors who just follow a script. There\'s a small area in the office for children to play while the family talks. Highly recommend!', author: 'Thais A.' },
+          { text: 'The best experience I\'ve ever had with pediatrics and vaccines. Excellent doctor! Humanized care, welcoming, experienced, cozy environment. 5 stars is not enough for Dr. Fernanda Kruger.', author: 'Sandra S.' },
+          { text: 'Wonderful care! Dr. Fernanda is an excellent professional—attentive, dedicated, and welcoming. I loved the care she provided for my babies.', author: 'Suelen F.' },
+          { text: 'First time my son had a consultation with Dr. Fernanda and I\'m never leaving. Very attentive, she explained everything clearly and patiently, was gentle and very patient with my baby. Simply perfect! A professional who loves what she does.', author: 'Cleidiana B.' },
+          { text: 'I have no words to describe and thank Dr. Fernanda\'s work. She looks at children with care, calm, patience, and love, without ever setting aside her technical knowledge and experience.', author: 'Luisa A.' },
+        ],
       },
       doctoralia: {
         title: 'Schedule Your Private Consultation',
@@ -157,7 +172,7 @@ export const en: Translations = {
         paragraph5: 'In 2020 I received my greatest gift! I became a mother to a beautiful and healthy boy, who teaches me every day that Motherhood is not under our control and that warmth and patience are fundamental on this journey!',
         paragraph6: 'With the challenge of motherhood came the interest in training in one of the main demands of families with small babies: infant sleep. In 2022 I became a Baby Sleep and Routine Consultant, aiming to add quality to Pediatric care.',
         paragraph7: 'In 2025 I fulfilled the dream of having my own office, planned with much love and care, to serve everyone with the highest quality and comfort!',
-        paragraph8: 'And I didn\'t stop there... also in 2025 I completed an MBA in Human Immunization and soon we will have a Vaccination Room added to my office, providing more protection and health to the whole family!',
+        paragraph8: 'And I didn\'t stop there... also in 2025 I completed an MBA in Human Immunization and we inaugurated our Vaccination Room integrated with the office, providing more protection and health to the whole family!',
       },
       qualifications: {
         title: 'Education and Qualifications',
@@ -326,7 +341,7 @@ export const en: Translations = {
           title: 'About Consultations',
           q1: {
             question: 'How long does the consultation last?',
-            answer: 'Private consultations last about 1 hour, to talk, guide, and examine your child without rushing and with all the care they deserve.',
+            answer: 'Private consultations last up to 1.5 hours, to talk, guide, and examine your child without rushing and with all the care they deserve.',
           },
         },
         scheduling: {
@@ -337,7 +352,7 @@ export const en: Translations = {
           },
           q2: {
             question: 'Do you accept health insurance?',
-            answer: 'Contact us via WhatsApp to find out if your insurance is accepted.',
+            answer: 'No, we currently only attend private consultations.',
           },
           q3: {
             question: 'Do you issue invoices for reimbursement?',
