@@ -80,7 +80,8 @@ const Vaccination = () => {
               <div className="p-6 bg-white rounded-2xl shadow-xl">
                 <img 
                   src="/images/milvacinas.png" 
-                  alt="Mil Vacinas" 
+                  alt="Mil Vacinas"
+                  loading="lazy" 
                   className="w-full max-w-md h-auto object-contain"
                 />
               </div>

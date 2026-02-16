@@ -49,6 +49,16 @@ npm run build
 
 O resultado fica na pasta dist/
 
+## Otimização de imagens
+
+Para reduzir o tamanho das fotos e melhorar o carregamento:
+
+```bash
+npm run optimize-images
+```
+
+Redimensiona para até 1920px e comprime JPEG/PNG. Use antes de fazer deploy após adicionar novas imagens.
+
 ## Deploy
 
 O projeto está configurado para Netlify e Vercel (netlify.toml, vercel.json).

@@ -146,7 +146,8 @@ const Index = () => {
                 <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                   <img 
                     src="/images/doctor/fer_hero.jpg" 
-                    alt="Dra. Fernanda Kruger" 
+                    alt="Dra. Fernanda Kruger"
+                    fetchPriority="high" 
                     className="w-full max-w-md h-auto object-cover"
                   />
                 </div>
@@ -166,7 +167,8 @@ const Index = () => {
                   <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
                     <img 
                       src="/images/doctor/fer_mesa.jpg" 
-                      alt="Dra. Fernanda" 
+                      alt="Dra. Fernanda"
+                      loading="lazy" 
                       className="w-full max-w-md h-auto object-cover"
                     />
                   </div>
@@ -313,7 +315,8 @@ const Index = () => {
                   <div className="p-6 bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10 rounded-2xl shadow-xl">
                     <img 
                       src="/images/milvacinas.png" 
-                      alt="Mil Vacinas" 
+                      alt="Mil Vacinas"
+                      loading="lazy" 
                       className="w-full max-w-md h-auto object-contain"
                     />
                   </div>
@@ -440,6 +443,7 @@ const Index = () => {
                         <img 
                           src={item.src} 
                           alt={item.alt}
+                          loading="lazy"
                           className="w-full h-[600px] object-contain"
                         />
                       )}

@@ -78,6 +78,7 @@ const Clinic = () => {
                   <img 
                     src={item.src} 
                     alt={item.alt}
+                    loading="lazy"
                     className="w-full h-96 object-contain bg-gray-50 transition-transform duration-300 group-hover:scale-105"
                   />
                 )}

@@ -18,13 +18,13 @@ const Posts = () => {
       content: `
         <div class="space-y-6">
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/3.jpg" alt="Momento certo para receber visitas" class="w-full h-full object-cover" />
+            <img src="/images/posts/3.jpg" loading="lazy" alt="Momento certo para receber visitas" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/4.jpg" alt="Saúde dos visitantes" class="w-full h-full object-cover" />
+            <img src="/images/posts/4.jpg" loading="lazy" alt="Saúde dos visitantes" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/5.jpg" alt="Dicas práticas para visitantes" class="w-full h-full object-cover" />
+            <img src="/images/posts/5.jpg" loading="lazy" alt="Dicas práticas para visitantes" class="w-full h-full object-cover" />
           </div>
         </div>
       `
@@ -40,13 +40,13 @@ const Posts = () => {
       content: `
         <div class="space-y-6">
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/8.jpg" alt="Método BLW" class="w-full h-full object-cover" />
+            <img src="/images/posts/8.jpg" loading="lazy" alt="Método BLW" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/9.jpg" alt="Método BLISS" class="w-full h-full object-cover" />
+            <img src="/images/posts/9.jpg" loading="lazy" alt="Método BLISS" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/10.jpg" alt="Método Misto" class="w-full h-full object-cover" />
+            <img src="/images/posts/10.jpg" loading="lazy" alt="Método Misto" class="w-full h-full object-cover" />
           </div>
         </div>
       `
@@ -62,13 +62,13 @@ const Posts = () => {
       content: `
         <div class="space-y-6">
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/13.jpg" alt="Segurança no banho" class="w-full h-full object-cover" />
+            <img src="/images/posts/13.jpg" loading="lazy" alt="Segurança no banho" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/14.jpg" alt="Temperatura da água" class="w-full h-full object-cover" />
+            <img src="/images/posts/14.jpg" loading="lazy" alt="Temperatura da água" class="w-full h-full object-cover" />
           </div>
           <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/posts/15.jpg" alt="Cuidados após o banho" class="w-full h-full object-cover" />
+            <img src="/images/posts/15.jpg" loading="lazy" alt="Cuidados após o banho" class="w-full h-full object-cover" />
           </div>
         </div>
       `
@@ -102,6 +102,7 @@ const Posts = () => {
                 <img 
                   src={post.coverImage} 
                   alt={post.title}
+                  loading="lazy"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>

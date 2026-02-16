@@ -65,7 +65,8 @@ const Services = () => {
                   <div className="rounded-lg overflow-hidden shadow-lg">
                     <img 
                       src="/images/clinic/assinando.jpg" 
-                      alt="Dra. Fernanda atendendo paciente no consultório" 
+                      alt="Dra. Fernanda atendendo paciente no consultório"
+                      loading="lazy" 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -161,7 +162,8 @@ const Services = () => {
                   <div className="flex justify-center">
                     <img 
                       src="/images/milvacinas.png" 
-                      alt="Logo Mil Vacinas" 
+                      alt="Logo Mil Vacinas"
+                      loading="lazy" 
                       className="max-w-xs h-auto"
                     />
                   </div>
