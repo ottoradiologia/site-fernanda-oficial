@@ -325,6 +325,21 @@ const Index = () => {
               </div>
             </dl>
           </div>
+          <div className="container mx-auto mt-10 px-4 lg:px-12">
+            <div className="overflow-hidden rounded-2xl border border-[#D6E0D5] bg-white shadow-sm">
+              <iframe
+                src={`https://www.google.com/maps?q=${encodeURIComponent('Rua Afonso de Freitas, 59, Paraíso, São Paulo - SP, 04006-050')}&z=17&output=embed`}
+                width="100%"
+                height="380"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização do consultório da Dra. Fernanda Kruger"
+                className="block h-80 w-full lg:h-[380px]"
+              ></iframe>
+            </div>
+          </div>
         </section>
       </main>
 
