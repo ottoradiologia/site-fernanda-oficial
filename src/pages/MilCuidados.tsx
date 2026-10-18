@@ -69,11 +69,11 @@ const MilCuidados = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               {t.pages.milcuidados.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              <span className="font-semibold text-[#fdb4be]">{t.pages.milcuidados.hero.subtitle}</span>
+              <span className="font-semibold text-[#C77486]">{t.pages.milcuidados.hero.subtitle}</span>
             </p>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               {t.pages.milcuidados.hero.description}
@@ -109,7 +109,7 @@ const MilCuidados = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Heart className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.milcuidados.whatIs.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.milcuidados.whatIs.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -130,7 +130,7 @@ const MilCuidados = () => {
 
             {/* Benefits Section */}
             <div className="mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
                 {t.pages.milcuidados.benefits.title}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -140,7 +140,7 @@ const MilCuidados = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <benefit.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <CardTitle className="text-lg text-[#83b2ac]">
+                      <CardTitle className="text-lg text-[#4A7570]">
                         {benefit.title}
                       </CardTitle>
                     </CardHeader>
@@ -161,7 +161,7 @@ const MilCuidados = () => {
                   <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
                     <Calendar className="w-6 h-6 text-secondary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.milcuidados.areas.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.milcuidados.areas.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
@@ -175,7 +175,7 @@ const MilCuidados = () => {
                         <CheckCircle className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-[#83b2ac] mb-2 text-lg">
+                        <h3 className="font-semibold text-[#4A7570] mb-2 text-lg">
                           {area.title}
                         </h3>
                         <p className="text-gray-600">
@@ -195,14 +195,14 @@ const MilCuidados = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <CardTitle className="text-2xl text-[#83b2ac]">{t.pages.milcuidados.includes.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.milcuidados.includes.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
                   {t.pages.milcuidados.includes.items.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-[#83b2ac] flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#4A7570] flex-shrink-0 mt-1" />
                       <span className="text-gray-600 text-lg">{item}</span>
                     </li>
                   ))}
@@ -214,7 +214,7 @@ const MilCuidados = () => {
             <Card className="bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10">
               <CardContent className="pt-6">
                 <div className="text-center space-y-6">
-                  <h3 className="text-2xl font-bold text-[#83b2ac]">
+                  <h3 className="text-2xl font-bold text-[#4A7570]">
                     {t.pages.milcuidados.cta.title}
                   </h3>
                   <p className="text-gray-600 text-lg">
@@ -235,7 +235,7 @@ const MilCuidados = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-8">
             {t.pages.milcuidados.cta.finalTitle}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..650,0..100;1,9..144,300..650,0..100&family=Montserrat:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -102,5 +102,64 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  }
+}
+
+/* ---------- Refinamento visual (paleta suave + Fraunces nos títulos) ---------- */
+@layer base {
+  body {
+    color: #34413E;
+  }
+
+  /* Títulos em serifada suave em todo o site */
+  h1, h2 {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-variation-settings: "SOFT" 100, "WONK" 0;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* As páginas usam font-bold nos títulos; na Fraunces o peso médio fica mais elegante */
+  h1.font-bold, h1.font-extrabold, h1.font-semibold,
+  h2.font-bold, h2.font-extrabold, h2.font-semibold {
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #4A7570;
+  }
+
+  .font-display-soft {
+    font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    font-variation-settings: "SOFT" 100, "WONK" 0;
+    font-weight: 400;
+  }
+
+  .link-underline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #4A7570;
+    border-bottom: 1.5px solid #FDB4BE;
+    padding-bottom: 2px;
+  }
+}
+
+@layer utilities {
+  /* Rosa da marca como texto tem contraste baixo: usar o rosa suave escuro */
+  .text-primary {
+    color: #C77486;
   }
 }

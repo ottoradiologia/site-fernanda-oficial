@@ -48,6 +48,7 @@ export const pt: Translations = {
         credentials: 'Dra. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669',
         scheduleButton: 'Agende uma Consulta',
         knowMyStory: 'Conheça minha história',
+        privateOnly: 'Não atendemos convênio, somente consulta particular',
       },
       about: {
         title: 'Olá! Sou a Dra. Fernanda',
@@ -148,8 +149,8 @@ export const pt: Translations = {
           time: 'Tempo: Apenas 3 minutos caminhando',
         },
         parking: {
-          title: 'Estacionamento',
-          description: 'Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores.',
+          title: 'Sugestão de estacionamento',
+          description: 'Não possuímos estacionamento próprio. Como sugestão, recomendamos dois estacionamentos privados (pagos) próximos: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) e o estacionamento em frente ao prédio (Rua Afonso de Freitas, 40). São apenas sugestões: o consultório não possui convênio com esses estacionamentos.',
         },
       },
       cta: {
@@ -275,8 +276,8 @@ export const pt: Translations = {
           metro: 'Metrô: Estamos a 220m (cerca de 3 minutos caminhando) da estação Paraíso (Linhas 1-Azul e 2-Verde).',
         },
         parking: {
-          title: 'Estacionamento',
-          description: 'Não possuímos estacionamento próprio, porém há estacionamento pago em frente ao prédio e nos arredores.',
+          title: 'Sugestão de estacionamento',
+          description: 'Não possuímos estacionamento próprio. Como sugestão, recomendamos dois estacionamentos privados (pagos) próximos: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) e o estacionamento em frente ao prédio (Rua Afonso de Freitas, 40). São apenas sugestões: o consultório não possui convênio com esses estacionamentos.',
         },
         accessibility: {
           title: 'Acessibilidade',
@@ -287,7 +288,7 @@ export const pt: Translations = {
     contact: {
       hero: {
         title: 'Vamos Conversar?',
-        subtitle: 'Agende sua consulta ou entre em contato para tirar suas dúvidas',
+        subtitle: 'Agendamento de consultas exclusivamente pelo WhatsApp',
       },
       info: {
         title: 'Informações de Contato',
@@ -319,6 +320,20 @@ export const pt: Translations = {
       map: {
         title: 'Nossa Localização',
       },
+      scheduling: {
+        title: 'Agendamento exclusivamente por WhatsApp',
+        description: 'Todas as consultas são agendadas somente pelo WhatsApp. Envie sua mensagem e nossa equipe responde com os horários disponíveis.',
+        button: 'Agendar pelo WhatsApp',
+        privateOnly: 'Não atendemos convênio, somente consulta particular. Emitimos nota fiscal para reembolso.',
+      },
+      parking: {
+        title: 'Sugestão de estacionamentos privados (pagos)',
+        items: [
+          'Hotel Tryp Paraíso — Rua Afonso de Freitas, 148',
+          'Em frente ao prédio comercial — Rua Afonso de Freitas, 40',
+        ],
+        note: 'São apenas sugestões: o consultório não possui convênio com esses estacionamentos.',
+      },
     },
     faq: {
       hero: {
@@ -348,7 +363,7 @@ export const pt: Translations = {
           title: 'Agendamento e Pagamento',
           q1: {
             question: 'Como agendar uma consulta?',
-            answer: 'Você pode agendar uma consulta enviando uma mensagem para nosso WhatsApp (11) 99407-7447, clicando no botão "Agende uma consulta", ou preenchendo o formulário de agendamento em nosso site.',
+            answer: 'Os agendamentos são feitos exclusivamente pelo WhatsApp (11) 99407-7447. É só clicar no botão "Agendar Consulta" e enviar sua mensagem.',
           },
           q2: {
             question: 'Atende Convênio Médico?',
@@ -374,7 +389,7 @@ export const pt: Translations = {
           title: 'Informações Locais',
           q1: {
             question: 'O consultório possui estacionamento?',
-            answer: 'Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores.',
+            answer: 'Não possuímos estacionamento próprio. Como sugestão, recomendamos dois estacionamentos privados (pagos) próximos: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) e o estacionamento em frente ao prédio (Rua Afonso de Freitas, 40). São apenas sugestões: o consultório não possui convênio com esses estacionamentos.',
           },
           q2: {
             question: 'Qual a estação de Metrô mais próxima?',

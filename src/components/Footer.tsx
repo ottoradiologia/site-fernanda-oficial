@@ -4,65 +4,78 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
   const { t } = useLanguage();
-  
+  const h = t.common.header;
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo e Informações */}
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <img 
-                  src="/images/hero/logo-reduzido.png" 
-                  alt="Logo Dra. Fernanda" 
-                  className="w-7 h-7 object-contain filter invert brightness-0"
-                />
-              </div>
-              <div>
-                <span className="font-semibold">Dra. Fernanda Kruger</span>
-                <p className="text-sm text-gray-400">Pediatra - CRM-SP 140.995</p>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm">
-              {t.common.footer.tagline}
-            </p>
-          </div>
-
-          {/* Links Rápidos */}
-          <div>
-            <h3 className="font-semibold mb-4">{t.common.footer.quickLinks}</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.home}</Link></li>
-              <li><Link to="/sobre-mim" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.about}</Link></li>
-              <li><Link to="/servicos" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.services}</Link></li>
-              <li><Link to="/consultorio" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.clinic}</Link></li>
-              <li><Link to="/contato" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.contact}</Link></li>
-              <li><Link to="/duvidas-frequentes" className="text-gray-300 hover:text-primary transition-colors">{t.common.header.faq}</Link></li>
-            </ul>
-          </div>
-
-          {/* Contato */}
-          <div>
-            <h3 className="font-semibold mb-4">{t.common.footer.contact}</h3>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>📱 WhatsApp: (11) 99407-7447</p>
-              <p>✉️ fernandafavalikruger@gmail.com</p>
-              <p>📍 Rua Afonso de Freitas, nº 59, sala 94</p>
-              <p>Paraíso, São Paulo - SP</p>
-              <p>CEP 04.006-050</p>
-              <p>
-                <a href="https://www.instagram.com/drafernandakruger/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#fdb4be] transition-colors">
-                  <Instagram size={22} />
-                  <span className="font-semibold">@drafernandakruger</span>
-                </a>
-              </p>
-            </div>
-          </div>
+    <footer className="border-t border-brand-line bg-brand-paper text-sm text-brand-muted">
+      <div className="container mx-auto grid gap-10 px-4 pb-10 pt-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr] lg:px-12 lg:pb-7">
+        <div>
+          <p className="font-display-soft text-[22px] leading-tight text-brand-tealDeep">Dra. Fernanda Favali Kruger</p>
+          <p className="mt-2">
+            Pediatra · CRM-SP 140.995 · RQE 37669<br />
+            Pneumopediatra · RQE 37669-1
+          </p>
+          <p className="mt-3 max-w-[22em]">{t.common.footer.tagline}</p>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>{t.common.footer.allRightsReserved}</p>
+        <div>
+          <h4 className="eyebrow mb-3.5 text-[11px]">{h.atendimento || h.services}</h4>
+          <ul className="grid gap-2">
+            <li><Link to="/mil-cuidados" className="hover:text-brand-tealDeep">{h.milCuidados}</Link></li>
+            <li><Link to="/consulta-pre-natal" className="hover:text-brand-tealDeep">{h.prenatalConsultation}</Link></li>
+            <li><Link to="/pneumologia" className="hover:text-brand-tealDeep">{h.pneumopediatria}</Link></li>
+            <li><Link to="/consultoria-sono" className="hover:text-brand-tealDeep">{h.sleepConsulting}</Link></li>
+            <li><Link to="/servicos" className="hover:text-brand-tealDeep">{h.viewAllServices}</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="eyebrow mb-3.5 text-[11px]">{t.common.footer.quickLinks}</h4>
+          <ul className="grid gap-2">
+            <li><Link to="/sobre-mim" className="hover:text-brand-tealDeep">{h.about}</Link></li>
+            <li><Link to="/consultorio" className="hover:text-brand-tealDeep">{h.clinic}</Link></li>
+            <li><Link to="/duvidas-frequentes" className="hover:text-brand-tealDeep">{h.faq}</Link></li>
+            <li><Link to="/contato" className="hover:text-brand-tealDeep">{h.contact}</Link></li>
+            <li>
+              <a
+                href="https://www.instagram.com/drafernandakruger/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-brand-tealDeep"
+              >
+                <Instagram size={16} /> @drafernandakruger
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="eyebrow mb-3.5 text-[11px]">{t.common.footer.contact}</h4>
+          <p>
+            WhatsApp (11) 99407-7447<br />
+            fernandafavalikruger@gmail.com
+          </p>
+          <p className="mt-2">
+            Rua Afonso de Freitas, 59, sala 94<br />
+            Paraíso, São Paulo – SP · CEP 04006-050
+          </p>
+          <a
+            href="https://www.milvacinas.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex items-center gap-3 rounded-[14px] bg-brand-sage p-3 transition-colors hover:bg-brand-mist"
+          >
+            <img src="/images/milvacinas-simbolo.webp" alt="" width="40" height="40" className="h-10 w-10 rounded-[10px] bg-white p-1" />
+            <span>
+              <b className="block font-semibold text-brand-tealDeep">Mil Vacinas</b>
+              Vacinação no mesmo endereço ↗
+            </span>
+          </a>
+        </div>
+
+        <div className="flex flex-wrap justify-between gap-2 border-t border-brand-line pt-5 text-xs md:col-span-2 lg:col-span-4">
+          <span>© {t.common.footer.allRightsReserved}</span>
+          <span>CRM-SP 140.995 · RQE 37669</span>
         </div>
       </div>
     </footer>

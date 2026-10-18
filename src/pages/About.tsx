@@ -15,7 +15,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               {t.pages.about.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -41,7 +41,7 @@ const About = () => {
             <div className="space-y-6">
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  <span className="font-bold text-[#fdb4be]">{t.pages.about.content.paragraph1}</span>
+                  <span className="font-bold text-[#C77486]">{t.pages.about.content.paragraph1}</span>
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   <span className="font-semibold">{t.pages.about.content.paragraph2}</span>
@@ -73,7 +73,7 @@ const About = () => {
       {/* Qualifications Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
             {t.pages.about.qualifications.title}
           </h2>
           
@@ -100,7 +100,7 @@ const About = () => {
       {/* Philosophy Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
             {t.pages.about.philosophy.title}
           </h2>
           

@@ -38,7 +38,7 @@ const ThankYou = () => {
               <CheckCircle className="w-20 h-20 text-green-500" />
             </div>
             
-            <h1 className="text-3xl md:text-4xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#4A7570] mb-4">
               {language === 'pt' ? 'Obrigado pelo Contato!' : 'Thank You for Contacting Us!'}
             </h1>
             

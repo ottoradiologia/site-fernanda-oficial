@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { MapPin, Train, Car, Users } from 'lucide-react';
+import ParkingList from '@/components/ParkingList';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Clinic = () => {
@@ -29,7 +30,7 @@ const Clinic = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               {t.pages.clinic.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -53,7 +54,7 @@ const Clinic = () => {
       {/* Photo Gallery */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#4A7570] text-center mb-12">
             {t.pages.clinic.gallery.title}
           </h2>
           
@@ -94,7 +95,7 @@ const Clinic = () => {
       {/* Location and Access */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#4A7570] text-center mb-12">
             {t.pages.clinic.location.title}
           </h2>
           
@@ -133,9 +134,7 @@ const Clinic = () => {
                   <Car className="w-6 h-6 text-yellow-600 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">{t.pages.clinic.location.parking.title}</h3>
-                    <p className="text-gray-600">
-                      {t.pages.clinic.location.parking.description}
-                    </p>
+                    <ParkingList />
                   </div>
                 </div>
               </div>

@@ -83,7 +83,7 @@ const Posts = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               Posts e Artigos
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -130,7 +130,7 @@ const Posts = () => {
 
               {/* Post Header */}
               <div className="mb-12">
-                <h1 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+                <h1 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-4">
                   {post.title}
                 </h1>
                 <div className="flex items-center gap-6 text-gray-600 mb-6">

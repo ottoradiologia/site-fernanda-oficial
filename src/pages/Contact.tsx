@@ -2,38 +2,15 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MapPin, Phone, Mail, Stethoscope } from 'lucide-react';
-import { useEffect } from 'react';
+import { MapPin, Phone, Mail, Stethoscope, MessageCircle, Info, Car } from 'lucide-react';
+import ParkingList from '@/components/ParkingList';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
   const { t } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
-
-  useEffect(() => {
-    // Carrega o script do Doctoralia
-    const script = document.createElement('script');
-    script.innerHTML = `
-      !function($_x,_s,id){
-        var js,fjs=$_x.getElementsByTagName(_s)[0];
-        if(!$_x.getElementById(id)){
-          js = $_x.createElement(_s);
-          js.id = id;
-          js.src = "//platform.docplanner.com/js/widget.js";
-          fjs.parentNode.insertBefore(js,fjs);
-        }
-      }(document,"script","zl-widget-s");
-    `;
-    document.head.appendChild(script);
-
-    return () => {
-      // Remove o script quando o componente for desmontado
-      const existingScript = document.getElementById('zl-widget-s');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
+  const scheduling = t.pages.contact.scheduling;
+  const parking = t.pages.contact.parking;
 
   return (
     <div className="min-h-screen bg-white">
@@ -43,7 +20,7 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               {t.pages.contact.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -60,7 +37,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-[#83b2ac] mb-8">
+                <h2 className="text-3xl font-bold text-[#4A7570] mb-8">
                   Informações de Contato
                 </h2>
               </div>
@@ -122,7 +99,7 @@ const Contact = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <Stethoscope className="w-6 h-6 text-[#83b2ac]" />
+                    <Stethoscope className="w-6 h-6 text-[#4A7570]" />
                     Informações Profissionais
                   </CardTitle>
                 </CardHeader>
@@ -135,21 +112,34 @@ const Contact = () => {
               </Card>
             </div>
 
-            {/* Doctoralia Widget */}
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Agende sua Consulta</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: `<a id="zl-url" class="zl-url" href="https://www.doctoralia.com.br/fernanda-favali-kruger/pediatra-pneumologista-pediatrico/sao-paulo" rel="nofollow" data-zlw-doctor="fernanda-favali-kruger" data-zlw-type="big_with_calendar" data-zlw-opinion="false" data-zlw-hide-branding="true" data-zlw-saas-only="true" data-zlw-a11y-title="Widget de marcação de consultas médicas">Fernanda Favali Kruger - Doctoralia.com.br</a><script>!function($_x,_s,id){var js,fjs=$_x.getElementsByTagName(_s)[0];if(!$_x.getElementById(id)){js = $_x.createElement(_s);js.id = id;js.src = "//platform.docplanner.com/js/widget.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","zl-widget-s");</script>`
-                    }}
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            {/* Agendamento exclusivo por WhatsApp */}
+            {scheduling && (
+              <div>
+                <Card className="border-2 border-green-600/30 bg-green-50 lg:sticky lg:top-24">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-3 text-2xl text-green-700">
+                      <MessageCircle className="w-7 h-7" />
+                      {scheduling.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      {scheduling.description}
+                    </p>
+                    <p className="text-3xl font-bold text-gray-800">(11) 99407-7447</p>
+                    <Button size="lg" className="bg-green-600 hover:bg-green-700 w-full sm:w-auto" asChild>
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                        {scheduling.button}
+                      </a>
+                    </Button>
+                    <div className="flex items-start gap-3 rounded-lg bg-white border border-[#fdb4be] p-4">
+                      <Info className="w-5 h-5 text-[#C77486] flex-shrink-0 mt-0.5" />
+                      <p className="text-gray-700 font-medium">{scheduling.privateOnly}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -157,11 +147,20 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#4A7570] text-center mb-12">
             Nossa Localização
           </h2>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
+            {parking && (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <Car className="w-5 h-5 text-[#4A7570]" />
+                  {parking.title}
+                </h3>
+                <ParkingList />
+              </div>
+            )}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <iframe
                 title="Mapa do Google"
