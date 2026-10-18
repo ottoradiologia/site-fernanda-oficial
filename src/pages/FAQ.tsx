@@ -40,7 +40,7 @@ const FAQ = () => {
       questions: [
         {
           question: "Como agendar uma consulta?",
-          answer: "Você pode agendar uma consulta enviando uma mensagem para nosso WhatsApp (11) 99407-7447, clicando no botão \"Agende uma consulta\", ou preenchendo o formulário de agendamento em nosso site."
+          answer: "Os agendamentos são feitos exclusivamente pelo WhatsApp (11) 99407-7447. É só clicar no botão \"Agendar Consulta\" e enviar sua mensagem."
         },
         {
           question: "Atende Convênio Médico?",
@@ -70,7 +70,7 @@ const FAQ = () => {
       questions: [
         {
           question: "O consultório possui estacionamento?",
-          answer: "Não possuímos estacionamento próprio, porém há estacionamentos pagos em frente ao prédio e nos arredores."
+          answer: "Não possuímos estacionamento próprio. Como sugestão, recomendamos dois estacionamentos privados (pagos) próximos: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) e o estacionamento em frente ao prédio (Rua Afonso de Freitas, 40). São apenas sugestões: o consultório não possui convênio com esses estacionamentos."
         },
         {
           question: "Qual a estação de Metrô mais próxima?",
@@ -88,7 +88,7 @@ const FAQ = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
               {t.pages.faq.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -104,7 +104,7 @@ const FAQ = () => {
           <div className="max-w-4xl mx-auto">
             {faqData.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12">
-                <h2 className="text-2xl font-bold text-[#83b2ac] mb-6 text-center">
+                <h2 className="text-2xl font-bold text-[#4A7570] mb-6 text-center">
                   {category.category}
                 </h2>
                 

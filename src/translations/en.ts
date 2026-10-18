@@ -48,6 +48,7 @@ export const en: Translations = {
         credentials: 'Dr. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669',
         scheduleButton: 'Schedule an Appointment',
         knowMyStory: 'Get to Know Me',
+        privateOnly: 'We do not accept health insurance, private consultations only',
       },
       about: {
         title: 'Hello! I\'m Dr. Fernanda',
@@ -148,8 +149,8 @@ export const en: Translations = {
           time: 'Time: Just 3 minutes walking',
         },
         parking: {
-          title: 'Parking',
-          description: 'We do not have our own parking, but there are paid parking lots in front of the building and in the surrounding area.',
+          title: 'Parking suggestion',
+          description: 'We do not have our own parking. As a suggestion, we recommend two nearby private (paid) parking lots: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) and the parking lot across from the building (Rua Afonso de Freitas, 40). These are only suggestions: the office has no partnership with these parking lots.',
         },
       },
       cta: {
@@ -275,8 +276,8 @@ export const en: Translations = {
           metro: 'Metro: We are 220m (about 3 minutes walking) from Paraiso station (Lines 1-Blue and 2-Green).',
         },
         parking: {
-          title: 'Parking',
-          description: 'We do not have our own parking, but there is paid parking in front of the building and in the surrounding area.',
+          title: 'Parking suggestion',
+          description: 'We do not have our own parking. As a suggestion, we recommend two nearby private (paid) parking lots: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) and the parking lot across from the building (Rua Afonso de Freitas, 40). These are only suggestions: the office has no partnership with these parking lots.',
         },
         accessibility: {
           title: 'Accessibility',
@@ -319,6 +320,20 @@ export const en: Translations = {
       map: {
         title: 'Our Location',
       },
+      scheduling: {
+        title: 'Appointments via WhatsApp only',
+        description: 'All consultations are scheduled exclusively via WhatsApp. Send us a message and our team will reply with available times.',
+        button: 'Schedule via WhatsApp',
+        privateOnly: 'We do not accept health insurance, private consultations only. We issue invoices for reimbursement.',
+      },
+      parking: {
+        title: 'Suggested private parking (paid)',
+        items: [
+          'Hotel Tryp Paraíso — Rua Afonso de Freitas, 148',
+          'Across from the office building — Rua Afonso de Freitas, 40',
+        ],
+        note: 'These are only suggestions: the office has no partnership with these parking lots.',
+      },
     },
     faq: {
       hero: {
@@ -348,7 +363,7 @@ export const en: Translations = {
           title: 'Scheduling and Payment',
           q1: {
             question: 'How to schedule a consultation?',
-            answer: 'You can schedule a consultation by sending a message to our WhatsApp (11) 99407-7447, clicking the "Schedule a consultation" button, or filling out the scheduling form on our website.',
+            answer: 'Appointments are scheduled exclusively via WhatsApp (11) 99407-7447. Just click the "Schedule Appointment" button and send us a message.',
           },
           q2: {
             question: 'Do you accept health insurance?',
@@ -374,7 +389,7 @@ export const en: Translations = {
           title: 'Local Information',
           q1: {
             question: 'Does the office have parking?',
-            answer: 'We do not have our own parking, but there are paid parking lots in front of the building and in the surrounding area.',
+            answer: 'We do not have our own parking. As a suggestion, we recommend two nearby private (paid) parking lots: Hotel Tryp Paraíso (Rua Afonso de Freitas, 148) and the parking lot across from the building (Rua Afonso de Freitas, 40). These are only suggestions: the office has no partnership with these parking lots.',
           },
           q2: {
             question: 'What is the nearest Metro station?',

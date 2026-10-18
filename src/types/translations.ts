@@ -48,6 +48,7 @@ export interface Translations {
         credentials: string;
         scheduleButton: string;
         knowMyStory: string;
+        privateOnly?: string;
       };
       about: {
         title: string;
@@ -281,6 +282,17 @@ export interface Translations {
       map: {
         title: string;
       };
+      scheduling?: {
+        title: string;
+        description: string;
+        button: string;
+        privateOnly: string;
+      };
+      parking?: {
+        title: string;
+        items: string[];
+        note: string;
+      };
     };
     faq: {
       hero: {
@@ -505,4 +517,3 @@ export interface Translations {
     };
   };
 }
-

@@ -1,594 +1,332 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Baby, Heart, Moon, Syringe, Mail, MapPin, Train, Wind, ArrowRight, Sparkles, Star } from 'lucide-react';
+import ParkingList from '@/components/ParkingList';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { ArrowRight, ArrowUpRight, Info } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { homeDesign } from '@/translations/homeDesign';
+
+const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
+const googleReviewsUrl = "https://www.google.com/search?q=Dra+Fernanda+Kruger+Pediatra+Para%C3%ADso+avalia%C3%A7%C3%B5es";
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Rua Afonso de Freitas, 59, Paraíso, São Paulo - SP, 04006-050')}`;
+
+const WhatsAppIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-[18px] w-[18px] flex-none">
+    <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-.9 1.2-.2.2-.4.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 23.9 11.9a11.8 11.8 0 0 0-3.5-8.4Z" />
+  </svg>
+);
+
+const roseButton =
+  'inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-brand-rose px-7 py-3.5 text-[15px] font-semibold text-brand-btnInk shadow-[0_8px_20px_-12px_rgba(199,116,134,.7)] transition hover:-translate-y-0.5 hover:bg-brand-roseHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-tealDeep focus-visible:ring-offset-2';
 
 const Index = () => {
-  const { t } = useLanguage();
-  const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta.";
-
-  useEffect(() => {
-    // Carrega o script do Doctoralia
-    const script = document.createElement('script');
-    script.id = 'zl-widget-s';
-    script.src = '//platform.docplanner.com/js/widget.js';
-    document.body.appendChild(script);
-    return () => {
-      const s = document.getElementById('zl-widget-s');
-      if (s) s.remove();
-    };
-  }, []);
-
-  // Função para atualizar o carrossel da clínica
-  const updateClinicCarousel = (index: number) => {
-    const wrapper = document.querySelector('.clinic-carousel-wrapper');
-    const dots = document.querySelectorAll('.clinic-carousel-dot');
-    
-    if (wrapper && dots.length === 5) {
-      wrapper.style.transform = `translateX(-${index * 100}%)`;
-      
-      dots.forEach((dot, i) => {
-        if (i === index) {
-          dot.classList.remove('bg-gray-300');
-          dot.classList.add('bg-[#83b2ac]');
-        } else {
-          dot.classList.remove('bg-[#83b2ac]');
-          dot.classList.add('bg-gray-300');
-        }
-      });
-    }
-  };
-
-  useEffect(() => {
-    // Carrossel automático da clínica
-    let currentIndex = 0;
-    const totalSlides = 5;
-    
-    const interval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateClinicCarousel(currentIndex);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const { t, language } = useLanguage();
+  const d = homeDesign[language];
+  const s = t.pages.index.services;
 
   const services = [
-    {
-      icon: Sparkles,
-      title: t.pages.index.services.service6?.title || "Consulta Pediátrica Pré-Natal",
-      description: t.pages.index.services.service6?.description || "Acompanhamento durante a gestação para orientar sobre os cuidados com o bebê, preparação para o parto e primeiros dias de vida.",
-      link: "/consulta-pre-natal"
-    },
-    {
-      icon: Baby,
-      title: t.pages.index.services.service1.title,
-      description: t.pages.index.services.service1.description,
-      link: "/servicos"
-    },
-    {
-      icon: Heart,
-      title: t.pages.index.services.service2.title,
-      description: t.pages.index.services.service2.description,
-      link: "/servicos"
-    },
-    {
-      icon: Wind,
-      title: t.pages.index.services.service7?.title || "Consulta em Pneumologia Pediátrica",
-      description: t.pages.index.services.service7?.description || "Avaliação especializada em doenças respiratórias da infância, incluindo asma, bronquiolite, pneumonias e outras condições pulmonares.",
-      link: "/pneumologia"
-    },
-    {
-      icon: Moon,
-      title: t.pages.index.services.service3.title,
-      description: t.pages.index.services.service3.description,
-      link: "/consultoria-sono"
-    },
-    {
-      icon: Syringe,
-      title: t.pages.index.services.service4.title,
-      description: t.pages.index.services.service4.description,
-      link: "https://www.milvacinas.com.br/",
-      external: true
-    }
+    { who: d.services.who[0], title: s.service6?.title, description: s.service6?.description, to: '/consulta-pre-natal' },
+    { who: d.services.who[1], title: s.service1.title, description: s.service1.description, to: '/servicos' },
+    { who: d.services.who[2], title: s.service7?.title, description: s.service7?.description, to: '/pneumologia' },
+    { who: d.services.who[3], title: s.service3.title, description: s.service3.description, to: '/consultoria-sono' },
   ];
 
-  const googleReviewsUrl = "https://www.google.com/search?q=Dra+Fernanda+Kruger+Pediatra+Para%C3%ADso+avalia%C3%A7%C3%B5es";
+  const reviews = (t.pages.index.reviews?.items || []).slice(0, 3);
 
-  const reviews = (t.pages.index.reviews?.items || []).map((item) => ({ ...item, rating: 5 }));
-
-  const clinicImages = [
-    { src: "/images/clinic/video_optimized.mp4", alt: "Tour virtual do consultório", type: "video" },
-    { src: "/images/clinic/sala de espera3.jpg", alt: "Recepção Aconchegante", type: "image" },
-    { src: "/images/clinic/maca.jpg", alt: "Espaço Lúdico e Seguro", type: "image" },
-    { src: "/images/clinic/consultorio principal (2).jpeg", alt: "Consultório Moderno", type: "image" },
-    { src: "/images/clinic/diversao.jpg.jpeg", alt: "Cuidado em cada detalhe", type: "image" }
+  const clinicPhotos = [
+    { src: '/images/clinic/sala-de-espera-3.webp', w: 900, h: 1350 },
+    { src: '/images/clinic/consultorio-principal-2.webp', w: 900, h: 1200 },
+    { src: '/images/clinic/diversao.webp', w: 800, h: 1067 },
+    { src: '/images/clinic/maca.webp', w: 900, h: 1350 },
+    { src: '/images/clinic/parede-consultorio.webp', w: 800, h: 1067 },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-paper text-brand-ink">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-accent to-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] leading-tight">
-                {t.pages.index.hero.title} <span className="text-primary">{t.pages.index.hero.titleHighlight}</span>
+
+      <main>
+        {/* Topo clean: foto, frase curta e agendamento */}
+        <section className="overflow-hidden bg-gradient-to-b from-brand-sage to-brand-paper">
+          <div className="container mx-auto grid items-end gap-0 px-4 lg:min-h-[600px] lg:grid-cols-2 lg:gap-10 lg:px-12">
+            <div className="py-7 text-center lg:self-center lg:py-14 lg:text-left">
+              <h1>
+                <span className="eyebrow mb-2.5 block font-montserrat text-[11px] lg:mb-5 lg:text-xs">{d.hero.eyebrow}</span>
+                <span className="block text-[36px] font-normal leading-[1.06] text-brand-tealDeep lg:text-[60px]">
+                  {d.hero.phrase}{' '}
+                  <em className="italic text-brand-roseDeep" style={{ fontVariationSettings: '"SOFT" 100, "WONK" 1' }}>
+                    {d.hero.highlight}
+                  </em>
+                </span>
               </h1>
-              <h2 className="text-xl lg:text-2xl font-medium text-[#83b2ac]">
-                {t.pages.index.hero.subtitle}
-              </h2>
-              <p className="text-lg text-gray-600">
-                {t.pages.index.hero.description}
-              </p>
-              <p className="text-sm text-gray-500 font-medium">
-                {t.pages.index.hero.credentials}
-              </p>
-               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    {t.pages.index.hero.scheduleButton}
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/sobre-mim">{t.pages.index.hero.knowMyStory}</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <div className="p-4 bg-gradient-to-br from-[#83b2ac]/20 to-[#fdb4be]/20 rounded-2xl shadow-xl">
-                <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
-                  <img 
-                    src="/images/doctor/fer_hero.jpg" 
-                    alt="Dra. Fernanda Kruger"
-                    fetchPriority="high" 
-                    className="w-full max-w-md h-auto object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Preview Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="flex justify-center">
-                <div className="p-4 bg-gradient-to-br from-[#83b2ac]/20 to-[#fdb4be]/20 rounded-2xl shadow-xl">
-                  <div className="rounded-lg overflow-hidden shadow-lg border-4 border-white">
-                    <img 
-                      src="/images/doctor/fer_mesa.jpg" 
-                      alt="Dra. Fernanda"
-                      loading="lazy" 
-                      className="w-full max-w-md h-auto object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-extrabold text-[#83b2ac] mb-2">
-                {t.pages.index.about.title}
-              </h2>
-              <p className="text-gray-600 leading-relaxed text-lg mb-2">
-                {t.pages.index.about.paragraph1}
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg mb-2">
-                {t.pages.index.about.paragraph2}
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg font-semibold">
-                {t.pages.index.about.paragraph3}
-              </p>
-              {t.pages.index.about.paragraph4 && (
-                <p className="text-gray-600 leading-relaxed text-lg border-l-4 border-[#83b2ac] pl-4 py-1">
-                  {t.pages.index.about.paragraph4}
-                </p>
-              )}
-              <Button asChild className="bg-secondary hover:bg-secondary/90">
-                <Link to="/sobre-mim">{t.pages.index.about.knowMyStory}</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mil Cuidados Section - Destaque */}
-      <section className="py-20 bg-gradient-to-br from-[#83b2ac]/15 via-white to-[#fdb4be]/15">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex justify-center">
-                  <div className="rounded-lg overflow-hidden shadow-xl">
-                    <video 
-                      className="w-full h-auto max-w-md"
-                      controls
-                      autoPlay
-                      muted
-                      loop
-                      poster="/images/clinic/maca.jpg"
-                    >
-                      <source src="/images/clinic/milcuidados.mp4" type="video/mp4" />
-                      Seu navegador não suporta vídeos HTML5.
-                    </video>
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2 space-y-6">
-                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
-                  {t.pages.index.milCuidados?.title || "Programa Mil Cuidados"}
-                </h2>
-                <h3 className="text-2xl font-semibold text-[#fdb4be]">
-                  {t.pages.index.milCuidados?.subtitle || "Acompanhamento Completo para Todas as Fases"}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.index.milCuidados?.description || "Um programa especial de acompanhamento pediátrico desenvolvido para todas as fases da infância da sua criança. Inclui consultas regulares, monitoramento do crescimento e desenvolvimento, e pode incluir também vacinas incluídas no Programa Mil Cuidados."}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                    <Link to="/mil-cuidados">{t.pages.index.milCuidados?.knowProgram || "Conhecer o Programa"}</Link>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.milCuidados?.talkWhatsApp || "Falar no WhatsApp"}
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-4 tracking-tight">
-              {t.pages.index.services.title}
-            </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-              {t.pages.index.services.description}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {services.map((service, index) => {
-              const CardWrapper = service.link ? (service.external ? 'a' : Link) : 'div';
-              const cardProps = service.link 
-                ? (service.external 
-                    ? { href: service.link, target: '_blank', rel: 'noopener noreferrer', className: 'block h-full' }
-                    : { to: service.link, className: 'block h-full' })
-                : { className: 'block h-full' };
-              
-              return (
-                <CardWrapper key={index} {...cardProps}>
-                  <Card className="h-full bg-white/80 backdrop-blur border border-gray-100 hover:border-[#83b2ac]/30 hover:shadow-lg hover:shadow-[#83b2ac]/5 transition-all duration-300 cursor-pointer group overflow-hidden">
-                    <CardHeader className="pb-2">
-                      <div className="w-12 h-12 rounded-full bg-[#83b2ac]/10 flex items-center justify-center mb-4 group-hover:bg-[#83b2ac]/15 transition-colors">
-                        <service.icon className="w-6 h-6 text-[#83b2ac]" />
-                      </div>
-                      <CardTitle className="text-base font-semibold text-gray-800 group-hover:text-[#83b2ac] transition-colors">
-                        {service.title}
-                        {service.badge && (
-                          <Badge variant="secondary" className="ml-2 bg-[#fdb4be]/20 text-[#83b2ac] border-0">
-                            {service.badge}
-                          </Badge>
-                        )}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-gray-500 text-sm leading-relaxed">
-                        {service.description}
-                      </CardDescription>
-                      {service.link && (
-                        <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-[#83b2ac] group-hover:gap-2 transition-all">
-                          {service.external ? 'Abrir site' : 'Saiba mais'}
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
-                      )}
-                    </CardContent>
-                  </Card>
-                </CardWrapper>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Vaccination Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex justify-center">
-                  <div className="p-6 bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10 rounded-2xl shadow-xl">
-                    <img 
-                      src="/images/milvacinas.png" 
-                      alt="Mil Vacinas"
-                      loading="lazy" 
-                      className="w-full max-w-md h-auto object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="order-1 lg:order-2 space-y-6">
-                <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac]">
-                  {t.pages.index.vaccination.title}
-                </h2>
-                <h3 className="text-2xl font-semibold text-[#fdb4be]">
-                  {t.pages.index.vaccination.subtitle}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.index.vaccination.description}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                    <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.vaccination.knowMilVacinas}
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <a href="https://wa.me/5511973139542?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20vacina." target="_blank" rel="noopener noreferrer">
-                      {t.pages.index.vaccination.scheduleVaccine}
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Google Reviews Section */}
-      <section className="py-20 bg-accent/10">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.reviews?.title || 'O que dizem os pacientes'}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.reviews?.subtitle || 'Avaliações reais no Google'}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
-            {reviews.map((review, index) => (
-              <Card key={index} className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    "{review.text}"
-                  </p>
-                  <p className="text-sm font-medium text-[#83b2ac]">— {review.author}</p>
-                  <p className="text-xs text-gray-400 mt-1">Google</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center">
-            <Button asChild size="lg" variant="outline" className="border-[#83b2ac] text-[#83b2ac] hover:bg-[#83b2ac]/10">
-              <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer">
-                {t.pages.index.reviews?.seeAllReviews || 'Ver todas as avaliações no Google'}
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${roseButton} mt-6 w-full px-8 py-4 text-base sm:w-auto lg:mt-9`}>
+                {d.hero.button}
               </a>
-            </Button>
+            </div>
+            <figure className="relative order-first m-0 flex justify-center pt-5 lg:order-none lg:self-end lg:pt-9">
+              <span
+                aria-hidden="true"
+                className="absolute bottom-0 left-1/2 h-[86%] w-[92%] -translate-x-1/2 rounded-t-full lg:h-[88%] lg:w-[84%]"
+                style={{ background: 'linear-gradient(180deg, #FBE6EA, #F9DCE1)' }}
+              />
+              <img
+                src="/images/doctor/fer-hero-clean.webp"
+                alt={d.hero.photoAlt}
+                width={700}
+                height={1025}
+                fetchPriority="high"
+                className="relative block h-auto w-[76%] lg:w-[min(100%,440px)]"
+              />
+            </figure>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Doctoralia Calendar Section */}
-      <section className="py-20 bg-[#f0f4e3]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.doctoralia.title}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-              {t.pages.index.doctoralia.description}
-            </p>
-            <div className="flex justify-center">
-              <div style={{maxWidth: 420, width: '100%'}}>
+        {/* Fatos rápidos (inclui o aviso de atendimento particular) */}
+        <section className="border-y border-brand-line bg-brand-paper">
+          <div className="container mx-auto px-4 lg:px-12">
+            <dl className="grid grid-cols-2 lg:grid-cols-4">
+              {d.facts.map((fact, index) => (
                 <div
-                  dangerouslySetInnerHTML={{
-                    __html: `<a id=\"zl-url\" class=\"zl-url\" href=\"https://www.doctoralia.com.br/fernanda-favali-kruger/pediatra-pneumologista-pediatrico/sao-paulo\" rel=\"nofollow\" data-zlw-doctor=\"fernanda-favali-kruger\" data-zlw-type=\"big_with_calendar\" data-zlw-opinion=\"false\" data-zlw-hide-branding=\"true\" data-zlw-saas-only=\"true\" data-zlw-a11y-title=\"Widget de marcação de consultas médicas\">Fernanda Favali Kruger - Doctoralia.com.br</a>`
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Clinic Preview Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.clinic.title}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.clinic.description}
-            </p>
-          </div>
-
-          <div className="flex justify-center mb-8">
-            <div className="relative max-w-md w-full">
-              <div className="clinic-carousel-container overflow-hidden rounded-lg shadow-xl">
-                <div className="clinic-carousel-wrapper flex transition-transform duration-500 ease-in-out">
-                  {clinicImages.map((item, index) => (
-                    <div key={index} className="clinic-carousel-slide min-w-full relative bg-gray-50">
-                      {item.type === 'video' ? (
-                        <video 
-                          className="w-full h-[600px] object-contain"
-                          controls
-                          poster="/images/clinic/maca.jpg"
-                        >
-                          <source src={item.src} type="video/mp4" />
-                          Seu navegador não suporta vídeos HTML5.
-                        </video>
-                      ) : (
-                        <img 
-                          src={item.src} 
-                          alt={item.alt}
-                          loading="lazy"
-                          className="w-full h-[600px] object-contain"
-                        />
-                      )}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                        <h3 className="text-white text-lg font-semibold">{item.alt}</h3>
-                      </div>
-                    </div>
-                  ))}
+                  key={fact.label}
+                  className={`py-4 pr-4 lg:border-r lg:border-brand-line lg:py-5 lg:pl-6 ${index === 0 ? 'lg:pl-0' : ''} ${index === 3 ? 'lg:border-r-0' : ''} ${index < 2 ? 'border-b border-brand-line lg:border-b-0' : ''}`}
+                >
+                  <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-muted">{fact.label}</dt>
+                  <dd className="mt-0.5 text-sm font-semibold text-brand-ink">{fact.value}</dd>
                 </div>
+              ))}
+            </dl>
+            {t.pages.index.hero.privateOnly && (
+              <p className="flex items-center gap-1.5 border-t border-brand-line py-3 text-xs text-brand-muted sm:text-sm">
+                <Info className="h-3.5 w-3.5 flex-shrink-0 text-brand-tealDeep" />
+                {t.pages.index.hero.privateOnly}
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* Atendimentos */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-12">
+            <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:mb-11 lg:flex-row lg:items-end">
+              <div>
+                <span className="eyebrow">{d.services.eyebrow}</span>
+                <h2 className="mt-2.5 text-[32px] font-normal leading-[1.08] text-brand-tealDeep lg:text-[44px]">{d.services.title}</h2>
               </div>
-              
-              {/* Carousel Navigation */}
-              <div className="flex justify-center mt-4 space-x-2">
-                <button 
-                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-[#83b2ac] transition-all duration-300"
-                  onClick={() => updateClinicCarousel(0)}
-                ></button>
-                <button 
-                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
-                  onClick={() => updateClinicCarousel(1)}
-                ></button>
-                <button 
-                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
-                  onClick={() => updateClinicCarousel(2)}
-                ></button>
-                <button 
-                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
-                  onClick={() => updateClinicCarousel(3)}
-                ></button>
-                <button 
-                  className="clinic-carousel-dot w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
-                  onClick={() => updateClinicCarousel(4)}
-                ></button>
-              </div>
+              <p className="max-w-[28em] text-brand-muted">{d.services.subtitle}</p>
+            </div>
+
+            <div className="grid gap-7 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
+              <Link to="/mil-cuidados" className="group relative flex min-h-[380px] items-end overflow-hidden rounded-[28px] text-white lg:min-h-[520px]">
+                <img
+                  src="/images/doctor/fernanda-e-filho.webp"
+                  alt=""
+                  width={800}
+                  height={1066}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover object-[50%_30%] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <span aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(52,74,70,0) 18%, rgba(52,74,70,.86) 64%)' }} />
+                <div className="relative p-6 lg:p-8">
+                  <span className="inline-block rounded-full bg-brand-rose px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-btnInk">
+                    {d.services.tag}
+                  </span>
+                  <h3 className="font-display-soft mb-2 mt-3.5 text-[27px] leading-tight lg:text-[34px]">
+                    {t.pages.index.milCuidados?.title || 'Programa Mil Cuidados'}
+                  </h3>
+                  <p className="mb-4 max-w-[30em] text-white/90">{t.pages.index.milCuidados?.description}</p>
+                  <span className="inline-flex items-center gap-2 border-b-[1.5px] border-brand-rose pb-0.5 font-semibold">
+                    {t.pages.index.milCuidados?.knowProgram || 'Conhecer o Programa'} <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+
+              <ul className="border-t border-brand-line">
+                {services.map((service) => (
+                  <li key={service.to + service.title} className="border-b border-brand-line">
+                    <Link
+                      to={service.to}
+                      className="group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-1.5 py-5 transition-all hover:bg-brand-sage hover:px-4"
+                    >
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-roseText">{service.who}</span>
+                      <span className="font-display-soft col-start-1 text-xl leading-snug text-brand-tealDeep lg:text-[23px]">{service.title}</span>
+                      <span className="col-start-1 text-[14.5px] text-brand-muted">{service.description}</span>
+                      <span className="col-start-2 row-span-3 row-start-1 grid h-10 w-10 place-items-center rounded-full border border-brand-line text-brand-tealDeep transition-colors group-hover:border-brand-tealDeep group-hover:bg-brand-tealDeep group-hover:text-white">
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+                <li className="border-b border-brand-line">
+                  <a
+                    href="https://www.milvacinas.com.br/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 px-1.5 py-5 transition-all hover:bg-brand-sage hover:px-4"
+                  >
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand-roseText">{d.services.who[4]}</span>
+                    <span className="font-display-soft col-start-1 text-xl leading-snug text-brand-tealDeep lg:text-[23px]">{d.services.milVacinasTitle}</span>
+                    <span className="col-start-1 text-[14.5px] text-brand-muted">{d.services.milVacinasText}</span>
+                    <span className="col-start-2 row-span-3 row-start-1 grid h-10 w-10 place-items-center rounded-full border border-brand-line text-brand-tealDeep transition-colors group-hover:border-brand-tealDeep group-hover:bg-brand-tealDeep group-hover:text-white">
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
+        </section>
 
-          <div className="text-center">
-            <Button asChild className="bg-secondary hover:bg-secondary/90">
-              <Link to="/consultorio">{t.pages.index.clinic.knowOurSpace}</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Location Section */}
-      <section className="py-20 bg-accent/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-              {t.pages.index.location.title}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {t.pages.index.location.description}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  {t.pages.index.location.address.title}
-                </h3>
-                <p className="text-gray-600">
-                  {t.pages.index.location.address.street}<br />
-                  {t.pages.index.location.address.city}<br />
-                  {t.pages.index.location.address.zip}<br />
-                  {t.pages.index.location.address.building}
-                </p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Train className="w-5 h-5 text-secondary" />
-                  {t.pages.index.location.howToGet.title}
-                </h3>
-                <p className="text-gray-600">
-                  {t.pages.index.location.howToGet.metro}<br />
-                  {t.pages.index.location.howToGet.time}
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-yellow-600">🅿️</span>
-                  {t.pages.index.location.parking.title}
-                </h3>
-                <p className="text-gray-600">
-                  {t.pages.index.location.parking.description}
-                </p>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Rua+Afonso+de+Freitas,+59,+Paraíso,+São+Paulo,+SP,+04006-050"
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localização do Consultório - Dra. Fernanda Kruger"
-                className="w-full h-80"
-              ></iframe>
+        {/* Sobre mim com linha do tempo */}
+        <section className="bg-brand-sage py-16 lg:py-24">
+          <div className="container mx-auto grid items-start gap-8 px-4 lg:grid-cols-[.85fr_1.15fr] lg:gap-[72px] lg:px-12">
+            <img
+              src="/images/doctor/fer-mesa.webp"
+              alt="Dra. Fernanda à mesa do consultório"
+              width={800}
+              height={1200}
+              loading="lazy"
+              decoding="async"
+              className="block aspect-[4/3] w-full rounded-[28px] object-cover object-[50%_25%] lg:aspect-[3/4]"
+            />
+            <div>
+              <span className="eyebrow">{d.about.eyebrow}</span>
+              <h2 className="mb-4 mt-2.5 text-[32px] font-normal leading-[1.08] text-brand-tealDeep lg:text-[44px]">{t.pages.index.about.title}</h2>
+              <p className="mb-3.5 max-w-[36em]">{t.pages.index.about.paragraph1}</p>
+              <p className="max-w-[36em]">{t.pages.index.about.paragraph2}</p>
+              <ol className="my-7">
+                {d.about.timeline.map((item) => (
+                  <li key={item.year} className="grid grid-cols-[64px_1fr] gap-4 border-t border-[#DCE3D6] py-3">
+                    <span className="font-display-soft text-xl text-brand-roseText" style={{ fontVariantNumeric: 'lining-nums tabular-nums' }}>{item.year}</span>
+                    <span>
+                      <b className="font-semibold">{item.title}</b> <span className="text-sm text-brand-muted">· {item.detail}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <Link to="/sobre-mim" className="link-underline">
+                {t.pages.index.about.knowMyStory} <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact CTA Section */}
-      <section className="py-20 bg-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
-            {t.pages.index.cta.title}
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            {t.pages.index.cta.description}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
-              <a 
-                href={whatsappUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <span>📱</span>
-                {t.pages.index.cta.scheduleByWhatsApp}
+        {/* Avaliações */}
+        {reviews.length > 0 && (
+          <section className="bg-brand-roseWash py-16 lg:py-24">
+            <div className="container mx-auto px-4 lg:px-12">
+              <span className="eyebrow">{d.reviews.eyebrow}</span>
+              <h2 className="mb-8 mt-2.5 text-[32px] font-normal leading-[1.08] text-brand-tealDeep lg:mb-11 lg:text-[44px]">
+                {t.pages.index.reviews?.title}
+              </h2>
+              <div className="-mx-4 flex snap-x snap-mandatory gap-3.5 overflow-x-auto px-4 pb-2 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-7 lg:overflow-visible lg:px-0">
+                {reviews.map((review) => (
+                  <figure key={review.author} className="m-0 flex w-[85%] flex-none snap-start flex-col gap-4 rounded-[22px] bg-brand-paper px-7 py-7 lg:w-auto">
+                    <span aria-hidden="true" className="font-display-soft block text-[56px] leading-[0.6] text-brand-rose">“</span>
+                    <blockquote className="font-display-soft m-0 text-[17px] italic leading-relaxed text-brand-ink lg:text-[18px]">
+                      {review.text}
+                    </blockquote>
+                    <figcaption className="mt-auto text-[13px] text-brand-muted">
+                      <b className="text-brand-tealDeep">{review.author}</b> · Google
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div className="mt-8 flex justify-center">
+                <a href={googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="link-underline">
+                  {t.pages.index.reviews?.seeAllReviews} <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Consultório: mosaico de fotos */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-12">
+            <div className="mb-8 flex flex-col items-start justify-between gap-4 lg:mb-11 lg:flex-row lg:items-end">
+              <div>
+                <span className="eyebrow">{d.clinic.eyebrow}</span>
+                <h2 className="mt-2.5 text-[32px] font-normal leading-[1.08] text-brand-tealDeep lg:text-[44px]">{d.clinic.title}</h2>
+              </div>
+              <p className="max-w-[28em] text-brand-muted">{d.clinic.subtitle}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-[1.2fr_.8fr_.8fr] lg:grid-rows-[260px_260px] lg:gap-4">
+              {clinicPhotos.map((photo, index) => (
+                <figure
+                  key={photo.src}
+                  className={`group relative m-0 overflow-hidden rounded-[20px] ${index === 0 ? 'col-span-2 h-[220px] lg:col-span-1 lg:row-span-2 lg:h-auto' : 'h-[150px] lg:h-auto'}`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={d.clinic.captions[index]}
+                    width={photo.w}
+                    height={photo.h}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <figcaption className="absolute bottom-3 left-3 rounded-full bg-brand-paper/90 px-3 py-1 text-[12.5px] font-semibold text-brand-tealDeep">
+                    {d.clinic.captions[index]}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <div className="mt-7">
+              <Link to="/consultorio" className="link-underline">
+                {t.pages.index.clinic.knowOurSpace} <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Agendamento + como chegar */}
+        <section className="bg-brand-mist py-16 lg:py-24">
+          <div className="container mx-auto grid items-start gap-10 px-4 lg:grid-cols-2 lg:gap-16 lg:px-12">
+            <div>
+              <span className="eyebrow text-brand-roseText">{d.visit.eyebrow}</span>
+              <h2 className="mb-4 mt-2.5 text-[34px] font-normal leading-[1.05] text-brand-tealDeep lg:text-[48px]">{t.pages.index.cta.title}</h2>
+              <p className="mb-6 max-w-[30em] text-brand-muted">{t.pages.index.cta.description}</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={roseButton}>
+                <WhatsAppIcon /> {t.pages.index.cta.scheduleByWhatsApp}
               </a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a 
-                href="mailto:fernandafavalikruger@gmail.com"
-                className="flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4" />
-                {t.pages.index.cta.sendEmail}
-              </a>
-            </Button>
+              <p className="mt-3.5 text-sm font-semibold text-brand-tealDeep" style={{ fontVariantNumeric: 'tabular-nums' }}>(11) 99407-7447</p>
+            </div>
+            <dl className="border-t border-[#D6E0D5]">
+              <div className="grid gap-1 border-b border-[#D6E0D5] py-4 sm:grid-cols-[120px_1fr] sm:gap-4">
+                <dt className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-roseText">{d.visit.address}</dt>
+                <dd className="m-0">
+                  {t.pages.index.location.address.street}
+                  <small className="block text-[13px] text-brand-muted">
+                    {t.pages.index.location.address.city} · {t.pages.index.location.address.zip} · {t.pages.index.location.address.building}
+                  </small>
+                </dd>
+              </div>
+              <div className="grid gap-1 border-b border-[#D6E0D5] py-4 sm:grid-cols-[120px_1fr] sm:gap-4">
+                <dt className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-roseText">{d.visit.metro}</dt>
+                <dd className="m-0">
+                  {d.visit.metroValue}
+                  <small className="block text-[13px] text-brand-muted">{d.visit.metroDetail}</small>
+                </dd>
+              </div>
+              <div className="grid gap-1 border-b border-[#D6E0D5] py-4 sm:grid-cols-[120px_1fr] sm:gap-4">
+                <dt className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-roseText">{d.visit.parking}</dt>
+                <dd className="m-0">
+                  <ParkingList />
+                </dd>
+              </div>
+              <div className="grid gap-1 border-b border-[#D6E0D5] py-4 sm:grid-cols-[120px_1fr] sm:gap-4">
+                <dt className="pt-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-roseText">{d.visit.map}</dt>
+                <dd className="m-0">
+                  <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="link-underline">
+                    {d.visit.openMap} <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

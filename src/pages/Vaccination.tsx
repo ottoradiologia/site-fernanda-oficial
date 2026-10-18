@@ -54,10 +54,10 @@ const Vaccination = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl font-bold text-[#83b2ac] leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] leading-tight">
                 {t.pages.vaccination.hero.title}
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-medium text-[#fdb4be]">
+              <h2 className="text-2xl lg:text-3xl font-medium text-[#C77486]">
                 {t.pages.vaccination.hero.subtitle}
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -94,7 +94,7 @@ const Vaccination = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-4">
               {t.pages.vaccination.features.title}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -109,7 +109,7 @@ const Vaccination = () => {
                   <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="text-xl text-[#83b2ac]">
+                  <CardTitle className="text-xl text-[#4A7570]">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
@@ -128,7 +128,7 @@ const Vaccination = () => {
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-4">
               Vacinas para Todas as Idades
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -143,7 +143,7 @@ const Vaccination = () => {
                   <div className="mx-auto w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
                     <group.icon className="w-8 h-8 text-secondary" />
                   </div>
-                  <CardTitle className="text-xl text-[#fdb4be]">
+                  <CardTitle className="text-xl text-[#C77486]">
                     {group.title}
                   </CardTitle>
                 </CardHeader>
@@ -166,12 +166,12 @@ const Vaccination = () => {
               <div className="flex items-center justify-center mb-6">
                 <Syringe className="w-12 h-12 text-primary" />
               </div>
-              <h2 className="text-3xl font-bold text-[#83b2ac] text-center mb-6">
+              <h2 className="text-3xl font-bold text-[#4A7570] text-center mb-6">
                 Clínica Integrada ao Consultório
               </h2>
               <p className="text-gray-600 text-center text-lg leading-relaxed mb-8">
-                A <span className="font-semibold text-[#83b2ac]">Mil Vacinas</span> funciona de forma 
-                integrada ao consultório da <span className="font-semibold text-[#fdb4be]">Dra. Fernanda Kruger</span>, 
+                A <span className="font-semibold text-[#4A7570]">Mil Vacinas</span> funciona de forma 
+                integrada ao consultório da <span className="font-semibold text-[#C77486]">Dra. Fernanda Kruger</span>, 
                 oferecendo a praticidade de realizar consultas pediátricas e vacinação no mesmo local, 
                 com toda a segurança e qualidade que você merece.
               </p>
@@ -190,7 +190,7 @@ const Vaccination = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83b2ac] mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-4">
             Proteja Quem Você Ama
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

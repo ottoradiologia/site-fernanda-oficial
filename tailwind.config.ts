@@ -26,11 +26,11 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#fdb4be', // Rosa suave
-					foreground: '#ffffff'
+					DEFAULT: '#fdb4be', // Rosa suave (marca)
+					foreground: '#4A2F35' // texto escuro sobre o rosa (7,1:1)
 				},
 				secondary: {
-					DEFAULT: '#83b2ac', // Verde-água
+					DEFAULT: '#4A7570', // Verde suave escuro (botões secundários, 5,1:1 com branco)
 					foreground: '#ffffff'
 				},
 				accent: {
@@ -53,6 +53,23 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Paleta suave da Dra. Fernanda: ver PROPOSTA_DESIGN.md
+				brand: {
+					paper: '#FFFDF9',
+					sage: '#F3F5EA',
+					mist: '#EEF3EC',
+					teal: '#83B2AC',
+					tealDeep: '#4A7570',
+					ink: '#34413E',
+					muted: '#5E6D69',
+					rose: '#FDB4BE',
+					roseHover: '#FBA9B5',
+					roseWash: '#FCEEF0',
+					roseDeep: '#C77486',
+					roseText: '#A85A6C',
+					btnInk: '#4A2F35',
+					line: '#E3E8E0'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +84,7 @@ export default {
 			fontFamily: {
 				'sans': ['Montserrat', 'sans-serif'],
 				'montserrat': ['Montserrat', 'sans-serif'],
+				'display': ['Fraunces', 'Iowan Old Style', 'Georgia', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
