@@ -126,15 +126,15 @@ const Index = () => {
             <div className="grid gap-7 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
               <Link to="/mil-cuidados" className="group flex flex-col overflow-hidden rounded-[28px] bg-[#83B2AC] text-white">
                 {/* Foto em cima e texto embaixo, para não cobrir os rostos */}
-                <div className="relative h-96 overflow-hidden sm:h-[28rem] lg:h-auto lg:min-h-[420px] lg:flex-1">
+                <div className="relative h-96 overflow-hidden bg-brand-roseWash sm:h-[28rem] lg:h-auto lg:min-h-[420px] lg:flex-1">
                   <img
-                    src="/images/doctor/fernanda-e-filho.webp"
+                    src="/images/doctor/fernanda-e-filho-sem-fundo.webp"
                     alt="Dra. Fernanda examinando uma criança com o estetoscópio"
-                    width={800}
-                    height={1066}
+                    width={950}
+                    height={1200}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="absolute inset-0 h-full w-full object-contain object-bottom px-4 pt-5 transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="px-5 pb-5 pt-4 lg:px-7 lg:pb-6 lg:pt-5">

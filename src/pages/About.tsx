@@ -37,12 +37,18 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <img 
-                src="/images/doctor/fernanda e filho.jpg.jpeg" 
-                alt="Dra. Fernanda Kruger com seu filho"
-                loading="lazy"
-                className="w-full max-w-md mx-auto lg:mx-0 rounded-lg shadow-lg"
-              />
+              <div className="relative mx-auto w-full max-w-md lg:mx-0">
+                <span aria-hidden="true" className="absolute inset-x-2 bottom-0 top-[14%] rounded-t-full bg-brand-rose/35" />
+                <img
+                  src="/images/doctor/fernanda-e-filho-sem-fundo.webp"
+                  alt="Dra. Fernanda Kruger com seu filho"
+                  width={950}
+                  height={1200}
+                  loading="lazy"
+                  decoding="async"
+                  className="relative mx-auto h-auto w-full"
+                />
+              </div>
             </div>
             
             <div className="space-y-6">
