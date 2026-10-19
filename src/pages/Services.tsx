@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Clock, Heart, Shield, Stethoscope, Wind } from 'lucide-react';
+import { Heart, Shield, Stethoscope, Wind } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Services = () => {
@@ -105,23 +105,6 @@ const Services = () => {
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
                   Com formação em <span className="text-[#83B2AC] font-semibold">Pneumologia Pediátrica</span> pela UNICAMP, ofereço diagnóstico preciso e tratamento adequado para garantir a saúde respiratória do seu filho.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Follow-up Section */}
-            <Card className="mb-12">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-secondary" />
-                  </div>
-                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.services.followup.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.services.followup.paragraph2}
                 </p>
               </CardContent>
             </Card>
