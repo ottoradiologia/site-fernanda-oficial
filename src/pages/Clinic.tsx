@@ -152,20 +152,22 @@ const Clinic = () => {
               </div>
             </div>
 
-            {/* Map */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden h-96">
-              <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Rua+Afonso+de+Freitas,+59,+Paraíso,+São+Paulo,+SP,+04006-050"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
+            {/* Fachada do prédio (o mapa fica no rodapé) */}
+            <figure className="overflow-hidden rounded-lg bg-white shadow-md">
+              <img
+                src="/images/clinic/predio.webp"
+                alt="Fachada do Edifício Upside Paraíso, Rua Afonso de Freitas, 59"
+                width={842}
+                height={1280}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localização do Consultório - Dra. Fernanda Kruger"
-                className="w-full h-full"
-              ></iframe>
-            </div>
+                decoding="async"
+                className="h-96 w-full object-cover"
+                style={{ objectPosition: '50% 70%' }}
+              />
+              <figcaption className="px-4 py-2.5 text-center text-sm font-medium text-gray-700">
+                Edifício Upside Paraíso · Rua Afonso de Freitas, 59
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
