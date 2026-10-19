@@ -33,4 +33,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://site-fernanda-oficial.vercel.app/sitemap.xml
+Sitemap: https://drafernandapediatra.com.br/sitemap.xml

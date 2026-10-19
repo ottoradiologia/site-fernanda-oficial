@@ -181,7 +181,7 @@ export const en: Translations = {
         items: [
           'Medical degree from Universidade Sao Francisco (USF).',
           'Medical Residency in Pediatrics at Hospital Universitario Sao Francisco (HUSF), with Specialist Title from SBP and RQE 37669.',
-          'Medical Residency in Pediatric Intensive Care at Universidade Estadual de Campinas (UNICAMP), with RQE 37669-1.',
+          'Medical Residency in Pediatric Intensive Care at Universidade Estadual de Campinas (UNICAMP).',
           'In-Service Training Program in Pediatric Pulmonology at Universidade Estadual de Campinas (UNICAMP).',
           'Training in Baby Sleep and Routine at Faculdade Brasilia, taught by Dr. Ana Barbara Jannuzzi Lagoeiro.',
           'MBA in Human Immunization Management at Faculdade Focus, taught by Dr. Rafael Tavares da Hora.',

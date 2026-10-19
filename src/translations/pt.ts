@@ -181,7 +181,7 @@ export const pt: Translations = {
         items: [
           'Graduação em Medicina pela Universidade São Francisco (USF).',
           'Residência Médica em Pediatria pelo Hospital Universitário São Francisco (HUSF), com Título de Especialista pela SBP e RQE 37669.',
-          'Residência Médica em Terapia Intensiva Pediátrica pela Universidade Estadual de Campinas (UNICAMP), com RQE 37669-1.',
+          'Residência Médica em Terapia Intensiva Pediátrica pela Universidade Estadual de Campinas (UNICAMP).',
           'Programa de Treinamento em Serviço em Pneumologia Pediátrica pela Universidade Estadual de Campinas (UNICAMP).',
           'Capacitação em Sono e Rotina do Bebê pela Faculdade Brasília, ministrada pela Dra. Ana Bárbara Jannuzzi Lagoeiro.',
           'MBA em Gestão em Imunização Humana pela Faculdade Focus, ministrado pelo Dr. Rafael Tavares da Hora.',

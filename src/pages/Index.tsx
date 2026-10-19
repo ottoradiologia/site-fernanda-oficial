@@ -116,18 +116,20 @@ const Index = () => {
             </div>
 
             <div className="grid gap-7 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
-              <Link to="/mil-cuidados" className="group relative flex min-h-[380px] items-end overflow-hidden rounded-[28px] text-white lg:min-h-[520px]">
-                <img
-                  src="/images/doctor/fernanda-e-filho.webp"
-                  alt=""
-                  width={800}
-                  height={1066}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover object-[50%_30%] transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <span aria-hidden="true" className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(52,74,70,0) 18%, rgba(52,74,70,.86) 64%)' }} />
-                <div className="relative p-6 lg:p-8">
+              <Link to="/mil-cuidados" className="group flex flex-col overflow-hidden rounded-[28px] bg-[#344a46] text-white">
+                {/* Foto em cima e texto embaixo, para não cobrir os rostos */}
+                <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[340px]">
+                  <img
+                    src="/images/doctor/fernanda-e-filho.webp"
+                    alt="Dra. Fernanda examinando uma criança com o estetoscópio"
+                    width={800}
+                    height={1066}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-[50%_18%] transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="flex-1 p-6 lg:p-8">
                   <span className="inline-block rounded-full bg-brand-rose px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-btnInk">
                     {d.services.tag}
                   </span>

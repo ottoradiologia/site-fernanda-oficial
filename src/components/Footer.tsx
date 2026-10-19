@@ -13,7 +13,7 @@ const Footer = () => {
           <p className="font-display-soft text-[22px] leading-tight text-brand-tealDeep">Dra. Fernanda Favali Kruger</p>
           <p className="mt-2">
             Pediatra · CRM-SP 140.995 · RQE 37669<br />
-            Pneumopediatra · RQE 37669-1
+            Pneumopediatra
           </p>
           <p className="mt-3 max-w-[22em]">{t.common.footer.tagline}</p>
         </div>
