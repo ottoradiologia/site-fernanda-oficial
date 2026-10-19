@@ -104,7 +104,7 @@ const Index = () => {
               ))}
             </dl>
             {t.pages.index.hero.privateOnly && (
-              <p className="my-3 flex items-center justify-center gap-2 rounded-full bg-brand-rose px-4 py-3 text-center text-[15px] font-semibold text-brand-btnInk sm:text-base">
+              <p className="my-3 flex items-center justify-center gap-2 py-1 text-center text-[15px] font-semibold text-brand-tealDeep sm:text-base">
                 <Info className="h-5 w-5 flex-shrink-0" />
                 {t.pages.index.hero.privateOnly}
               </p>
@@ -190,15 +190,18 @@ const Index = () => {
         {/* Sobre mim com linha do tempo */}
         <section className="bg-brand-sage py-16 lg:py-24">
           <div className="container mx-auto grid items-start gap-8 px-4 lg:grid-cols-[.85fr_1.15fr] lg:gap-[72px] lg:px-12">
-            <img
-              src="/images/doctor/fer-sobre-mim.webp"
-              alt="Dra. Fernanda Kruger com o estetoscópio"
-              width={1000}
-              height={1500}
-              loading="lazy"
-              decoding="async"
-              className="mx-auto block aspect-[2/3] w-full max-w-[420px] rounded-[28px] object-cover object-[50%_22%] lg:max-w-none lg:aspect-[3/4]"
-            />
+            <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+              <span aria-hidden="true" className="absolute inset-x-3 bottom-0 top-[16%] rounded-t-full bg-brand-rose/35" />
+              <img
+                src="/images/doctor/fer-estetoscopio-sem-fundo.webp"
+                alt="Dra. Fernanda Kruger com o estetoscópio"
+                width={850}
+                height={1300}
+                loading="lazy"
+                decoding="async"
+                className="relative mx-auto block h-auto w-full"
+              />
+            </div>
             <div>
               <span className="eyebrow">{d.about.eyebrow}</span>
               <h2 className="mb-4 mt-2.5 text-[32px] font-normal leading-[1.08] text-brand-tealDeep lg:text-[44px]">{t.pages.index.about.title}</h2>
