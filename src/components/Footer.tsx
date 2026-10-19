@@ -10,8 +10,16 @@ const Footer = () => {
     <footer className="border-t border-brand-line bg-brand-paper text-sm text-brand-muted">
       <div className="container mx-auto grid gap-10 px-4 pb-10 pt-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr] lg:px-12 lg:pb-7">
         <div>
-          <p className="font-display-soft text-[22px] leading-tight text-brand-tealDeep">Dra. Fernanda Favali Kruger</p>
-          <p className="mt-2">
+          <img
+            src="/images/hero/logo-principal-recortado.webp"
+            alt="Dra. Fernanda Kruger – Pediatria"
+            width={900}
+            height={634}
+            loading="lazy"
+            className="h-auto w-[210px]"
+          />
+          <p className="mt-3 font-semibold text-brand-ink">Dra. Fernanda Favali Kruger</p>
+          <p className="mt-1">
             Pediatra · CRM-SP 140.995 · RQE 37669<br />
             Pneumopediatra
           </p>
@@ -21,6 +29,7 @@ const Footer = () => {
         <div>
           <h4 className="eyebrow mb-3.5 text-[11px]">{h.atendimento || h.services}</h4>
           <ul className="grid gap-2">
+            <li><Link to="/servicos" className="hover:text-brand-tealDeep">{h.pediatricConsultation || 'Consulta Pediátrica'}</Link></li>
             <li><Link to="/mil-cuidados" className="hover:text-brand-tealDeep">{h.milCuidados}</Link></li>
             <li><Link to="/consulta-pre-natal" className="hover:text-brand-tealDeep">{h.prenatalConsultation}</Link></li>
             <li><Link to="/pneumologia" className="hover:text-brand-tealDeep">{h.pneumopediatria}</Link></li>

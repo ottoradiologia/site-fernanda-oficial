@@ -66,13 +66,13 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-12">
           <div className="flex h-16 items-center justify-between gap-6 lg:h-[78px]">
             <Link to="/" className="flex items-center gap-3">
-              <span className="grid h-[42px] w-[42px] flex-shrink-0 place-items-center rounded-full bg-brand-rose">
-                <img
-                  src="/images/hero/logo-reduzido.png"
-                  alt=""
-                  className="h-[30px] w-[30px] object-contain brightness-0 invert"
-                />
-              </span>
+              <img
+                src="/images/hero/logo-k.webp"
+                alt="Logotipo Dra. Fernanda Kruger"
+                width={272}
+                height={300}
+                className="h-11 w-auto flex-shrink-0 lg:h-[52px]"
+              />
               <span className="leading-tight">
                 <span className="font-display-soft block whitespace-nowrap text-lg text-brand-tealDeep lg:text-[21px]">
                   Dra. Fernanda Kruger
