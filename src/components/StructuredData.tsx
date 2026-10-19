@@ -6,9 +6,9 @@ const StructuredData = () => {
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
       "name": "Dra. Fernanda Kruger - Pediatra e Pneumopediatra",
-      "image": "https://www.drafernandakruger.com.br/images/hero/logo-principal.png",
+      "image": "https://drafernandapediatra.com.br/images/hero/logo-principal.png",
       "description": "Pediatra e Pneumopediatra no Paraíso, São Paulo. Especialista em Consultoria do Sono e Vacinação Infantil (Mil Vacinas).",
-      "url": "https://www.drafernandakruger.com.br",
+      "url": "https://drafernandapediatra.com.br",
       "telephone": "+5511994077447",
       "address": {
         "@type": "PostalAddress",
@@ -43,7 +43,7 @@ const StructuredData = () => {
       "department": {
         "@type": "MedicalBusiness",
         "name": "Mil Vacinas - Clínica de Vacinação",
-        "image": "https://www.drafernandakruger.com.br/images/milvacinas.png",
+        "image": "https://drafernandapediatra.com.br/images/milvacinas.png",
         "description": "Clínica de Vacinação Integrada e Consultoria em Imunização"
       },
       "aggregateRating": {

@@ -12,15 +12,15 @@
 - Instagram: https://www.instagram.com/drafernandakruger/
 
 ## Serviços
-- [Consulta pediátrica e puericultura](https://site-fernanda-oficial.vercel.app/servicos)
-- [Pneumologia pediátrica](https://site-fernanda-oficial.vercel.app/pneumologia)
-- [Consultoria do sono infantil](https://site-fernanda-oficial.vercel.app/consultoria-sono)
-- [Consulta pediátrica pré-natal](https://site-fernanda-oficial.vercel.app/consulta-pre-natal)
-- [Programa Mil Cuidados](https://site-fernanda-oficial.vercel.app/mil-cuidados)
-- [Vacinação](https://site-fernanda-oficial.vercel.app/vacinacao)
+- [Consulta pediátrica e puericultura](https://drafernandapediatra.com.br/servicos)
+- [Pneumologia pediátrica](https://drafernandapediatra.com.br/pneumologia)
+- [Consultoria do sono infantil](https://drafernandapediatra.com.br/consultoria-sono)
+- [Consulta pediátrica pré-natal](https://drafernandapediatra.com.br/consulta-pre-natal)
+- [Programa Mil Cuidados](https://drafernandapediatra.com.br/mil-cuidados)
+- [Vacinação](https://drafernandapediatra.com.br/vacinacao)
 
 ## Mais
-- [Sobre a Dra. Fernanda](https://site-fernanda-oficial.vercel.app/sobre-mim)
-- [Dúvidas frequentes](https://site-fernanda-oficial.vercel.app/duvidas-frequentes)
-- [Consultório e como chegar](https://site-fernanda-oficial.vercel.app/consultorio)
-- [Contato](https://site-fernanda-oficial.vercel.app/contato)
+- [Sobre a Dra. Fernanda](https://drafernandapediatra.com.br/sobre-mim)
+- [Dúvidas frequentes](https://drafernandapediatra.com.br/duvidas-frequentes)
+- [Consultório e como chegar](https://drafernandapediatra.com.br/consultorio)
+- [Contato](https://drafernandapediatra.com.br/contato)

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Endereço público atual do site. Trocar aqui quando o domínio próprio estiver ativo.
-export const SITE_URL = 'https://site-fernanda-oficial.vercel.app';
+// Domínio oficial do site (Netlify).
+export const SITE_URL = 'https://drafernandapediatra.com.br';
 
 interface PageMeta {
   title: string;
