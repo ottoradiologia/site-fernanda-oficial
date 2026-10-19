@@ -88,7 +88,7 @@ const FAQ = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.faq.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -104,7 +104,7 @@ const FAQ = () => {
           <div className="max-w-4xl mx-auto">
             {faqData.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12">
-                <h2 className="text-2xl font-bold text-[#4A7570] mb-6 text-center">
+                <h2 className="text-2xl font-bold text-[#83B2AC] mb-6 text-center">
                   {category.category}
                 </h2>
                 

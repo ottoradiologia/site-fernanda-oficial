@@ -16,6 +16,7 @@ export interface Translations {
       pneumopediatria?: string;
       sleepConsulting?: string;
       prenatalConsultation?: string;
+      pediatricConsultation?: string;
       viewAllServices?: string;
     };
     footer: {

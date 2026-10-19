@@ -25,8 +25,8 @@ const Index = () => {
   const s = t.pages.index.services;
 
   const services = [
-    { who: d.services.who[0], title: s.service6?.title, description: s.service6?.description, to: '/consulta-pre-natal' },
     { who: d.services.who[1], title: s.service1.title, description: s.service1.description, to: '/servicos' },
+    { who: d.services.who[0], title: s.service6?.title, description: s.service6?.description, to: '/consulta-pre-natal' },
     { who: d.services.who[2], title: s.service7?.title, description: s.service7?.description, to: '/pneumologia' },
     { who: d.services.who[3], title: s.service3.title, description: s.service3.description, to: '/consultoria-sono' },
   ];
@@ -96,8 +96,8 @@ const Index = () => {
               ))}
             </dl>
             {t.pages.index.hero.privateOnly && (
-              <p className="flex items-center gap-1.5 border-t border-brand-line py-3 text-xs text-brand-muted sm:text-sm">
-                <Info className="h-3.5 w-3.5 flex-shrink-0 text-brand-tealDeep" />
+              <p className="my-3 flex items-center justify-center gap-2 rounded-2xl bg-brand-rose px-4 py-3 text-center text-[15px] font-semibold text-brand-btnInk sm:text-base">
+                <Info className="h-5 w-5 flex-shrink-0" />
                 {t.pages.index.hero.privateOnly}
               </p>
             )}
@@ -116,7 +116,7 @@ const Index = () => {
             </div>
 
             <div className="grid gap-7 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
-              <Link to="/mil-cuidados" className="group flex flex-col overflow-hidden rounded-[28px] bg-[#344a46] text-white">
+              <Link to="/mil-cuidados" className="group flex flex-col overflow-hidden rounded-[28px] bg-[#83B2AC] text-white">
                 {/* Foto em cima e texto embaixo, para não cobrir os rostos */}
                 <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[340px]">
                   <img

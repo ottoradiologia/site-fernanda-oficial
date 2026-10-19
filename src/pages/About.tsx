@@ -15,7 +15,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.about.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -73,7 +73,7 @@ const About = () => {
       {/* Qualifications Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] text-center mb-12">
             {t.pages.about.qualifications.title}
           </h2>
           
@@ -100,7 +100,7 @@ const About = () => {
       {/* Philosophy Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] text-center mb-12">
             {t.pages.about.philosophy.title}
           </h2>
           

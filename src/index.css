@@ -137,7 +137,7 @@
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #4A7570;
+    color: #83B2AC;
   }
 
   .font-display-soft {
@@ -151,7 +151,7 @@
     align-items: center;
     gap: 8px;
     font-weight: 600;
-    color: #4A7570;
+    color: #83B2AC;
     border-bottom: 1.5px solid #FDB4BE;
     padding-bottom: 2px;
   }

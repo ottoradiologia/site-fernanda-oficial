@@ -16,6 +16,7 @@ export const pt: Translations = {
       pneumopediatria: 'Pneumopediatria',
       sleepConsulting: 'Consultoria do Sono',
       prenatalConsultation: 'Consulta Pré-Natal',
+      pediatricConsultation: 'Consulta Pediátrica',
       viewAllServices: 'Ver Todos os Serviços',
     },
     footer: {
@@ -206,7 +207,7 @@ export const pt: Translations = {
         subtitle2: 'Aqui, cada atendimento é feito com carinho, atenção e respeito ao tempo de cada família.',
       },
       practice: {
-        title: 'Minha Prática Clínica: O que esperar da consulta',
+        title: 'Consulta Pediátrica: o que esperar da consulta',
         paragraph1: 'Consultas de rotina para acompanhar o crescimento, desenvolvimento e saúde geral das crianças.',
         paragraph2: 'Avaliação individualizada, atualização da carteira de vacinação, orientações sobre alimentação, sono e prevenção de doenças.',
         paragraph3: 'Aqui, cada consulta é feita sem pressa, com escuta ativa e acolhimento para toda a família.',
@@ -536,7 +537,6 @@ export const pt: Translations = {
           'Diagnóstico preciso das condições pulmonares',
           'Tratamento personalizado para cada criança',
           'Orientações para prevenção de crises e infecções',
-          'Acompanhamento contínuo via WhatsApp',
           'Integração com a puericultura e cuidados gerais',
         ],
       },
