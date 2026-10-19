@@ -43,15 +43,6 @@ const About = () => {
                 loading="lazy"
                 className="w-full max-w-md mx-auto lg:mx-0 rounded-lg shadow-lg"
               />
-              <img
-                src="/images/doctor/fer-sobre-mim-2.webp"
-                alt="Dra. Fernanda Favali Kruger, pediatra"
-                width={1000}
-                height={1500}
-                loading="lazy"
-                decoding="async"
-                className="w-full max-w-md mx-auto lg:mx-0 rounded-lg shadow-lg"
-              />
             </div>
             
             <div className="space-y-6">
@@ -93,8 +84,17 @@ const About = () => {
             {t.pages.about.qualifications.title}
           </h2>
           
-          <div className="max-w-4xl mx-auto">
-            <Card>
+          <div className="mx-auto grid max-w-6xl items-stretch gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
+            <img
+              src="/images/doctor/fer-sobre-mim-2.webp"
+              alt="Dra. Fernanda Favali Kruger, pediatra"
+              width={1000}
+              height={1500}
+              loading="lazy"
+              decoding="async"
+              className="mx-auto aspect-[4/5] w-full max-w-md rounded-[28px] object-cover object-[50%_55%] shadow-lg lg:max-w-none"
+            />
+            <Card className="self-center">
               <CardHeader>
                 <CardTitle className="text-xl text-center">{t.pages.about.qualifications.cardTitle}</CardTitle>
               </CardHeader>
