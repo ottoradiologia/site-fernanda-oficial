@@ -20,7 +20,7 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.contact.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -37,7 +37,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-[#4A7570] mb-8">
+                <h2 className="text-3xl font-bold text-[#83B2AC] mb-8">
                   Informações de Contato
                 </h2>
               </div>
@@ -99,7 +99,7 @@ const Contact = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <Stethoscope className="w-6 h-6 text-[#4A7570]" />
+                    <Stethoscope className="w-6 h-6 text-[#83B2AC]" />
                     Informações Profissionais
                   </CardTitle>
                 </CardHeader>
@@ -147,7 +147,7 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-20 bg-accent/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#4A7570] text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#83B2AC] text-center mb-12">
             Nossa Localização
           </h2>
           
@@ -155,7 +155,7 @@ const Contact = () => {
             {parking && (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <Car className="w-5 h-5 text-[#4A7570]" />
+                  <Car className="w-5 h-5 text-[#83B2AC]" />
                   {parking.title}
                 </h3>
                 <ParkingList />

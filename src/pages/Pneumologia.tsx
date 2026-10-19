@@ -40,7 +40,7 @@ const Pneumologia = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.pneumologia.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
@@ -63,7 +63,7 @@ const Pneumologia = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Stethoscope className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.pneumologia.consultation.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.pneumologia.consultation.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -81,7 +81,7 @@ const Pneumologia = () => {
 
             {/* Conditions Section */}
             <div className="mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] text-center mb-12">
                 {t.pages.pneumologia.conditions.title}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -91,7 +91,7 @@ const Pneumologia = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                         <condition.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <CardTitle className="text-lg text-[#4A7570]">
+                      <CardTitle className="text-lg text-[#83B2AC]">
                         {condition.title}
                       </CardTitle>
                     </CardHeader>
@@ -112,14 +112,14 @@ const Pneumologia = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.pneumologia.includes.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.pneumologia.includes.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
                   {t.pages.pneumologia.includes.items.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-[#4A7570] flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#83B2AC] flex-shrink-0 mt-1" />
                       <span className="text-gray-600 text-lg">{item}</span>
                     </li>
                   ))}
@@ -131,7 +131,7 @@ const Pneumologia = () => {
             <Card className="bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10">
               <CardContent className="pt-6">
                 <div className="text-center space-y-6">
-                  <h3 className="text-2xl font-bold text-[#4A7570]">
+                  <h3 className="text-2xl font-bold text-[#83B2AC]">
                     {t.pages.pneumologia.cta.title}
                   </h3>
                   <p className="text-gray-600 text-lg">
@@ -152,7 +152,7 @@ const Pneumologia = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] mb-8">
             {t.pages.pneumologia.cta.finalTitle}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

@@ -30,7 +30,7 @@ export default {
 					foreground: '#4A2F35' // texto escuro sobre o rosa (7,1:1)
 				},
 				secondary: {
-					DEFAULT: '#4A7570', // Verde suave escuro (botões secundários, 5,1:1 com branco)
+					DEFAULT: '#83B2AC', // Verde claro da paleta original
 					foreground: '#ffffff'
 				},
 				accent: {
@@ -59,7 +59,7 @@ export default {
 					sage: '#F3F5EA',
 					mist: '#EEF3EC',
 					teal: '#83B2AC',
-					tealDeep: '#4A7570',
+					tealDeep: '#83B2AC',
 					ink: '#34413E',
 					muted: '#5E6D69',
 					rose: '#FDB4BE',

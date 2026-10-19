@@ -16,6 +16,7 @@ export const en: Translations = {
       pneumopediatria: 'Pediatric Pulmonology',
       sleepConsulting: 'Sleep Consulting',
       prenatalConsultation: 'Prenatal Consultation',
+      pediatricConsultation: 'Pediatric Consultation',
       viewAllServices: 'View All Services',
     },
     footer: {
@@ -48,7 +49,7 @@ export const en: Translations = {
         credentials: 'Dr. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669',
         scheduleButton: 'Schedule an Appointment',
         knowMyStory: 'Get to Know Me',
-        privateOnly: 'We do not accept health insurance, private consultations only',
+        privateOnly: 'We do not accept health insurance',
       },
       about: {
         title: 'Hello! I\'m Dr. Fernanda',
@@ -206,7 +207,7 @@ export const en: Translations = {
         subtitle2: 'Here, each service is done with care, attention, and respect for each family\'s time.',
       },
       practice: {
-        title: 'My Clinical Practice: What to expect from the consultation',
+        title: 'Pediatric Consultation: what to expect',
         paragraph1: 'Routine consultations to monitor growth, development, and general health of children.',
         paragraph2: 'Individualized evaluation, vaccination card update, guidance on nutrition, sleep, and disease prevention.',
         paragraph3: 'Here, each consultation is done without rushing, with active listening and warmth for the whole family.',
@@ -536,7 +537,6 @@ export const en: Translations = {
           'Accurate diagnosis of lung conditions',
           'Personalized treatment for each child',
           'Guidance for crisis and infection prevention',
-          'Continuous follow-up via WhatsApp',
           'Integration with well-child care and general care',
         ],
       },

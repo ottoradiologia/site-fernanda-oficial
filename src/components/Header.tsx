@@ -21,6 +21,7 @@ const Header = () => {
   ];
 
   const servicesDropdown = [
+    { href: '/servicos', label: t.common.header.pediatricConsultation || 'Consulta Pediátrica' },
     { href: '/mil-cuidados', label: t.common.header.milCuidados || 'Programa Mil Cuidados' },
     { href: '/consulta-pre-natal', label: t.common.header.prenatalConsultation || 'Consulta Pré-Natal' },
     { href: '/pneumologia', label: t.common.header.pneumopediatria || 'Pneumopediatria' },

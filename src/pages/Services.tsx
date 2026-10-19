@@ -20,7 +20,7 @@ const Services = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#4A7570] mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.services.hero.title}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
@@ -43,7 +43,7 @@ const Services = () => {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                     <Stethoscope className="w-6 h-6 text-primary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.services.practice.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.services.practice.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -94,17 +94,17 @@ const Services = () => {
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-[#83b2ac]/10 rounded-full flex items-center justify-center">
-                    <Wind className="w-6 h-6 text-[#4A7570]" />
+                    <Wind className="w-6 h-6 text-[#83B2AC]" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">Consulta em Pneumologia Pediátrica</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">Consulta em Pneumologia Pediátrica</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  <span className="text-[#4A7570] font-semibold">Avaliação especializada</span> em doenças respiratórias da infância, incluindo asma, bronquiolite, pneumonias e outras condições pulmonares.
+                  <span className="text-[#83B2AC] font-semibold">Avaliação especializada</span> em doenças respiratórias da infância, incluindo asma, bronquiolite, pneumonias e outras condições pulmonares.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  Com formação em <span className="text-[#4A7570] font-semibold">Pneumologia Pediátrica</span> pela UNICAMP, ofereço diagnóstico preciso e tratamento adequado para garantir a saúde respiratória do seu filho.
+                  Com formação em <span className="text-[#83B2AC] font-semibold">Pneumologia Pediátrica</span> pela UNICAMP, ofereço diagnóstico preciso e tratamento adequado para garantir a saúde respiratória do seu filho.
                 </p>
               </CardContent>
             </Card>
@@ -116,13 +116,10 @@ const Services = () => {
                   <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
                     <Clock className="w-6 h-6 text-secondary" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.services.followup.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.services.followup.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.services.followup.paragraph1}
-                </p>
                 <p className="text-gray-600 leading-relaxed text-lg">
                   {t.pages.services.followup.paragraph2}
                 </p>
@@ -136,7 +133,7 @@ const Services = () => {
                   <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
                     <Shield className="w-6 h-6 text-yellow-600" />
                   </div>
-                  <CardTitle className="text-2xl text-[#4A7570]">{t.pages.services.vaccination.title}</CardTitle>
+                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.services.vaccination.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -151,7 +148,7 @@ const Services = () => {
                     <Button 
                       size="lg" 
                       variant="outline" 
-                      className="border-[#83b2ac] text-[#4A7570] hover:bg-[#83b2ac] hover:text-white" 
+                      className="border-[#83b2ac] text-[#83B2AC] hover:bg-[#83b2ac] hover:text-white" 
                       asChild
                     >
                       <a href="https://www.milvacinas.com.br/" target="_blank" rel="noopener noreferrer">
@@ -177,7 +174,7 @@ const Services = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#4A7570] mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] mb-8">
             {t.pages.services.cta.title}
           </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">

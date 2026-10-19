@@ -18,14 +18,14 @@ const ParkingList = ({ showNote = true }: { showNote?: boolean }) => {
           const [name, address = name] = item.split(' — ');
           return (
             <li key={item} className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-[#4A7570] flex-shrink-0 mt-0.5" />
+              <MapPin className="w-5 h-5 text-[#83B2AC] flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-medium text-gray-800">{name}</p>
                 <a
                   href={mapsUrl(address)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-[#4f7f78] underline underline-offset-2 hover:text-[#4A7570]"
+                  className="text-sm text-[#83B2AC] underline underline-offset-2 hover:text-[#83B2AC]"
                 >
                   {address}
                 </a>
