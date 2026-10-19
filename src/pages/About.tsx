@@ -85,15 +85,18 @@ const About = () => {
           </h2>
           
           <div className="mx-auto grid max-w-6xl items-stretch gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
-            <img
-              src="/images/doctor/fer-sobre-mim-2.webp"
-              alt="Dra. Fernanda Favali Kruger, pediatra"
-              width={1000}
-              height={1500}
-              loading="lazy"
-              decoding="async"
-              className="mx-auto aspect-[4/5] w-full max-w-md rounded-[28px] object-cover object-[50%_55%] shadow-lg lg:max-w-none"
-            />
+            <div className="relative mx-auto w-full max-w-[420px] self-center">
+              <span aria-hidden="true" className="absolute inset-x-4 bottom-0 top-[18%] rounded-t-full bg-brand-rose/35" />
+              <img
+                src="/images/doctor/fer-sentada-sem-fundo.webp"
+                alt="Dra. Fernanda Favali Kruger, pediatra"
+                width={823}
+                height={1200}
+                loading="lazy"
+                decoding="async"
+                className="relative mx-auto h-auto w-full"
+              />
+            </div>
             <Card className="self-center">
               <CardHeader>
                 <CardTitle className="text-xl text-center">{t.pages.about.qualifications.cardTitle}</CardTitle>
