@@ -126,7 +126,7 @@ const Index = () => {
             <div className="grid gap-7 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
               <Link to="/mil-cuidados" className="group flex flex-col overflow-hidden rounded-[28px] bg-[#83B2AC] text-white">
                 {/* Foto em cima e texto embaixo, para não cobrir os rostos */}
-                <div className="relative h-72 overflow-hidden sm:h-80 lg:h-[340px]">
+                <div className="relative h-96 overflow-hidden sm:h-[28rem] lg:h-auto lg:min-h-[420px] lg:flex-1">
                   <img
                     src="/images/doctor/fernanda-e-filho.webp"
                     alt="Dra. Fernanda examinando uma criança com o estetoscópio"
@@ -137,15 +137,15 @@ const Index = () => {
                     className="absolute inset-0 h-full w-full object-cover object-[50%_18%] transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
-                <div className="flex-1 p-6 lg:p-8">
+                <div className="px-5 pb-5 pt-4 lg:px-7 lg:pb-6 lg:pt-5">
                   <span className="inline-block rounded-full bg-brand-rose px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-btnInk">
                     {d.services.tag}
                   </span>
-                  <h3 className="font-display-soft mb-2 mt-3.5 text-[27px] leading-tight lg:text-[34px]">
+                  <h3 className="font-display-soft mb-1.5 mt-2.5 text-[24px] leading-tight lg:text-[28px]">
                     {t.pages.index.milCuidados?.title || 'Programa Mil Cuidados'}
                   </h3>
-                  <p className="mb-4 max-w-[30em] text-white/90">{t.pages.index.milCuidados?.description}</p>
-                  <span className="inline-flex items-center gap-2 border-b-[1.5px] border-brand-rose pb-0.5 font-semibold">
+                  <p className="mb-3 max-w-[34em] text-sm leading-relaxed text-white/90">{t.pages.index.milCuidados?.description}</p>
+                  <span className="inline-flex items-center gap-2 border-b-[1.5px] border-brand-rose pb-0.5 text-sm font-semibold">
                     {t.pages.index.milCuidados?.knowProgram || 'Conhecer o Programa'} <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
