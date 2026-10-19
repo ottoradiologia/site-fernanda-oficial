@@ -1,170 +1,133 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Wind, Heart, Stethoscope, Shield, CheckCircle, Baby } from 'lucide-react';
+import { Wind, Heart, Shield, Baby, Check } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const roseButton =
+  'inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-brand-rose px-7 py-3.5 text-[15px] font-semibold text-brand-btnInk shadow-[0_8px_20px_-12px_rgba(199,116,134,.7)] transition hover:-translate-y-0.5 hover:bg-brand-roseHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-tealDeep focus-visible:ring-offset-2';
+
 const Pneumologia = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const whatsappUrl = "https://wa.me/5511994077447?text=Olá!%20Eu%20vim%20pelo%20site%20da%20Dra%20Fernanda.%20Gostaria%20de%20agendar%20uma%20consulta%20de%20Pneumologia%20Pediátrica.";
+  const p = t.pages.pneumologia;
+  const pt = language === 'pt';
 
   const conditions = [
-    {
-      icon: Wind,
-      title: t.pages.pneumologia.conditions.condition1.title,
-      description: t.pages.pneumologia.conditions.condition1.description
-    },
-    {
-      icon: Baby,
-      title: t.pages.pneumologia.conditions.condition2.title,
-      description: t.pages.pneumologia.conditions.condition2.description
-    },
-    {
-      icon: Shield,
-      title: t.pages.pneumologia.conditions.condition3.title,
-      description: t.pages.pneumologia.conditions.condition3.description
-    },
-    {
-      icon: Heart,
-      title: t.pages.pneumologia.conditions.condition4.title,
-      description: t.pages.pneumologia.conditions.condition4.description
-    }
+    { icon: Wind, ...p.conditions.condition1 },
+    { icon: Baby, ...p.conditions.condition2 },
+    { icon: Shield, ...p.conditions.condition3 },
+    { icon: Heart, ...p.conditions.condition4 },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-paper text-brand-ink">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-accent to-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
-              {t.pages.pneumologia.hero.title}
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-              <span className="font-semibold text-[#C77486]">{t.pages.pneumologia.hero.subtitle}</span>
-            </p>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {t.pages.pneumologia.hero.description}
-            </p>
+
+      <main>
+        {/* Abertura */}
+        <section className="overflow-hidden bg-gradient-to-b from-brand-sage to-brand-paper">
+          <div className="container mx-auto grid items-center gap-10 px-4 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16 lg:px-12 lg:py-20">
+            <div className="text-center lg:text-left">
+              <span className="eyebrow">{pt ? 'Asma · bronquiolite · chiado' : 'Asthma · bronchiolitis · wheezing'}</span>
+              <h1 className="mt-3 text-[34px] font-normal leading-[1.08] text-brand-tealDeep lg:text-[52px]">
+                {p.hero.title}
+              </h1>
+              <p
+                className="mt-4 text-[22px] italic leading-snug text-brand-roseDeep lg:text-[28px]"
+                style={{ fontFamily: "'Fraunces', Georgia, serif", fontVariationSettings: '"SOFT" 100, "WONK" 1' }}
+              >
+                {p.hero.subtitle}
+              </p>
+              <p className="mx-auto mt-5 max-w-[32em] text-lg text-brand-muted lg:mx-0">{p.hero.description}</p>
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${roseButton} mt-7`}>
+                {p.cta.button}
+              </a>
+            </div>
+            <div className="relative mx-auto w-full max-w-[400px]">
+              <span aria-hidden="true" className="absolute inset-x-3 bottom-0 top-[16%] rounded-t-full bg-brand-rose/35" />
+              <img
+                src="/images/doctor/fer-estetoscopio-sem-fundo.webp"
+                alt="Dra. Fernanda Kruger com o estetoscópio"
+                width={850}
+                height={1300}
+                fetchPriority="high"
+                className="relative mx-auto block h-auto w-full"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Main Content */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="mb-12">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Stethoscope className="w-6 h-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.pneumologia.consultation.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.pneumologia.consultation.paragraph1}
-                </p>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.pneumologia.consultation.paragraph2}
-                </p>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {t.pages.pneumologia.consultation.paragraph3}
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Conditions Section */}
-            <div className="mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] text-center mb-12">
-                {t.pages.pneumologia.conditions.title}
+        {/* A consulta */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-12">
+            <div>
+              <span className="eyebrow">{pt ? 'Formação pela UNICAMP' : 'Trained at UNICAMP'}</span>
+              <h2 className="mb-5 mt-2.5 text-[30px] font-normal leading-[1.1] text-brand-tealDeep lg:text-[42px]">
+                {p.consultation.title}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {conditions.map((condition, index) => (
-                  <Card key={index} className="h-full hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                        <condition.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <CardTitle className="text-lg text-[#83B2AC]">
-                        {condition.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 text-sm">
-                        {condition.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="space-y-4 text-[17px] leading-relaxed text-brand-muted">
+                <p>{p.consultation.paragraph1}</p>
+                <p>{p.consultation.paragraph3}</p>
               </div>
             </div>
-
-            {/* What's Included Section */}
-            <Card className="mb-12">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-yellow-600" />
-                  </div>
-                  <CardTitle className="text-2xl text-[#83B2AC]">{t.pages.pneumologia.includes.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-4">
-                  {t.pages.pneumologia.includes.items.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-6 h-6 text-[#83B2AC] flex-shrink-0 mt-1" />
-                      <span className="text-gray-600 text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* CTA Section */}
-            <Card className="bg-gradient-to-br from-[#83b2ac]/10 to-[#fdb4be]/10">
-              <CardContent className="pt-6">
-                <div className="text-center space-y-6">
-                  <h3 className="text-2xl font-bold text-[#83B2AC]">
-                    {t.pages.pneumologia.cta.title}
-                  </h3>
-                  <p className="text-gray-600 text-lg">
-                    {t.pages.pneumologia.cta.description}
-                  </p>
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700" asChild>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      {t.pages.pneumologia.cta.button}
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="self-center rounded-[28px] bg-brand-roseWash p-7 lg:p-10">
+              <span className="eyebrow text-brand-roseText">{pt ? 'Quando procurar' : 'When to come'}</span>
+              <p className="mt-3 text-[18px] leading-relaxed text-brand-ink lg:text-[20px]">{p.consultation.paragraph2}</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#83B2AC] mb-8">
-            {t.pages.pneumologia.cta.finalTitle}
-          </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            {t.pages.pneumologia.cta.finalDescription}
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              {t.pages.pneumologia.cta.finalButton}
+        {/* Condições tratadas */}
+        <section className="bg-brand-sage py-16 lg:py-24">
+          <div className="container mx-auto px-4 lg:px-12">
+            <h2 className="mb-8 text-center text-[30px] font-normal leading-[1.1] text-brand-tealDeep lg:mb-12 lg:text-[42px]">
+              {p.conditions.title}
+            </h2>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {conditions.map((condition) => (
+                <div key={condition.title} className="rounded-[24px] border border-brand-line bg-white p-6">
+                  <span className="mb-4 grid h-11 w-11 place-items-center rounded-full bg-brand-mist">
+                    <condition.icon className="h-5 w-5 text-brand-tealDeep" />
+                  </span>
+                  <h3 className="font-display-soft mb-2 text-[22px] leading-tight text-brand-tealDeep">{condition.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-brand-muted">{condition.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* O que está incluído */}
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto max-w-4xl px-4">
+            <h2 className="mb-8 text-[30px] font-normal leading-[1.1] text-brand-tealDeep lg:mb-10 lg:text-[42px]">
+              {p.includes.title}
+            </h2>
+            <ul className="grid gap-3 md:grid-cols-2">
+              {p.includes.items.map((item) => (
+                <li key={item} className="flex items-start gap-3 rounded-2xl border border-brand-line bg-white px-5 py-4">
+                  <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-tealDeep" />
+                  <span className="text-[16px]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Chamada final */}
+        <section className="bg-brand-mist py-16 text-center lg:py-20">
+          <div className="container mx-auto px-4">
+            <span className="eyebrow">{p.cta.title}</span>
+            <h2 className="mx-auto mt-3 max-w-[20em] text-[30px] font-normal leading-[1.1] text-brand-tealDeep lg:text-[42px]">
+              {p.cta.finalTitle}
+            </h2>
+            <p className="mx-auto mb-7 mt-3 max-w-[34em] text-brand-muted">{p.cta.finalDescription}</p>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={roseButton}>
+              {p.cta.finalButton}
             </a>
-          </Button>
-        </div>
-      </section>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>
@@ -172,5 +135,3 @@ const Pneumologia = () => {
 };
 
 export default Pneumologia;
-
-
