@@ -197,7 +197,7 @@ const Index = () => {
               height={1500}
               loading="lazy"
               decoding="async"
-              className="block aspect-[4/3] w-full rounded-[28px] object-cover object-[50%_22%] lg:aspect-[3/4]"
+              className="mx-auto block aspect-[2/3] w-full max-w-[420px] rounded-[28px] object-cover object-[50%_22%] lg:max-w-none lg:aspect-[3/4]"
             />
             <div>
               <span className="eyebrow">{d.about.eyebrow}</span>
