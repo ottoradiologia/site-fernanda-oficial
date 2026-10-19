@@ -16,7 +16,7 @@ const DEFAULT_META: PageMeta = {
 };
 
 // Título e descrição de cada rota (o Google usa os valores renderizados)
-const ROUTE_META: Record<string, PageMeta> = {
+export const ROUTE_META: Record<string, PageMeta> = {
   '/': DEFAULT_META,
   '/sobre-mim': {
     title: 'Dra. Fernanda Favali Kruger – CRM-SP 140.995, RQE 37669',

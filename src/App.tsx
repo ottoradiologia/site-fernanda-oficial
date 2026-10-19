@@ -21,33 +21,39 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+// Conteúdo do site sem o roteador, para reutilizar no navegador (BrowserRouter)
+// e na pré-renderização do build (StaticRouter em entry-server.tsx).
+export const AppContent = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <LanguageProvider>
-          <ScrollToTop />
-          <SEOHead />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/sobre-mim" element={<About />} />
-            <Route path="/servicos" element={<Services />} />
-            <Route path="/vacinacao" element={<Vaccination />} />
-            <Route path="/mil-cuidados" element={<MilCuidados />} />
-            <Route path="/consultoria-sono" element={<ConsultoriaSono />} />
-            <Route path="/pneumologia" element={<Pneumologia />} />
-            <Route path="/consulta-pre-natal" element={<ConsultaPreNatal />} />
-            <Route path="/consultorio" element={<Clinic />} />
-            <Route path="/contato" element={<Contact />} />
-            <Route path="/duvidas-frequentes" element={<FAQ />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </LanguageProvider>
-      </BrowserRouter>
+      <LanguageProvider>
+        <ScrollToTop />
+        <SEOHead />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/sobre-mim" element={<About />} />
+          <Route path="/servicos" element={<Services />} />
+          <Route path="/vacinacao" element={<Vaccination />} />
+          <Route path="/mil-cuidados" element={<MilCuidados />} />
+          <Route path="/consultoria-sono" element={<ConsultoriaSono />} />
+          <Route path="/pneumologia" element={<Pneumologia />} />
+          <Route path="/consulta-pre-natal" element={<ConsultaPreNatal />} />
+          <Route path="/consultorio" element={<Clinic />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/duvidas-frequentes" element={<FAQ />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
+);
+
+const App = () => (
+  <BrowserRouter>
+    <AppContent />
+  </BrowserRouter>
 );
 
 export default App;
