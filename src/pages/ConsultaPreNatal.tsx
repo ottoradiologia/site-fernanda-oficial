@@ -46,14 +46,14 @@ const ConsultaPreNatal = () => {
               </a>
             </div>
             <div className="relative mx-auto w-full max-w-[420px]">
-              <span aria-hidden="true" className="absolute -inset-3 rounded-t-full rounded-b-[32px] bg-brand-rose/30" />
+              <span aria-hidden="true" className="absolute inset-x-3 bottom-0 top-[14%] rounded-t-full bg-brand-rose/35" />
               <img
-                src="/images/doctor/fer-mesa.webp"
-                alt="Dra. Fernanda Kruger no consultório"
-                width={800}
-                height={1200}
+                src="/images/doctor/fer-gravida.webp"
+                alt="Dra. Fernanda Kruger grávida"
+                width={933}
+                height={1400}
                 fetchPriority="high"
-                className="relative block aspect-[4/5] w-full rounded-t-full rounded-b-[28px] object-cover object-[50%_30%]"
+                className="relative mx-auto block h-auto w-full"
               />
             </div>
           </div>
