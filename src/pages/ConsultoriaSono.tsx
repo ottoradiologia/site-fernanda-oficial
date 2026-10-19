@@ -53,12 +53,20 @@ const ConsultoriaSono = () => {
               </a>
             </div>
 
-            <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[400px]">
+            <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[420px]">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#CFE0DC] via-[#E6EEF2] to-brand-roseWash shadow-[0_40px_80px_-50px_rgba(52,65,62,.6)]" />
-              <div className="absolute inset-[18%] rounded-full bg-white/50 backdrop-blur-sm" />
-              <div className="absolute inset-0 grid place-items-center">
-                <Moon className="h-[38%] w-[38%] fill-brand-rose text-brand-roseDeep" strokeWidth={1.2} />
-              </div>
+              <div className="absolute inset-[5%] rounded-full border-[6px] border-white/90" />
+              <img
+                src="/images/clinic/bebe-dormindo.webp"
+                alt=""
+                width={1000}
+                height={1319}
+                fetchPriority="high"
+                className="absolute left-1/2 top-[8%] h-[86%] w-auto -translate-x-1/2"
+              />
+              <span className="absolute -left-1 bottom-[10%] grid h-16 w-16 place-items-center rounded-full bg-white shadow-[0_14px_30px_-18px_rgba(52,65,62,.5)] lg:h-20 lg:w-20">
+                <Moon className="h-8 w-8 fill-brand-rose text-brand-roseDeep lg:h-9 lg:w-9" strokeWidth={1.3} />
+              </span>
               {stars.map((s, i) => (
                 <Sparkles
                   key={i}
