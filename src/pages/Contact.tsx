@@ -161,18 +161,6 @@ const Contact = () => {
                 <ParkingList />
               </div>
             )}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <iframe
-                title="Mapa do Google"
-                src="https://www.google.com/maps?q=Rua+Afonso+de+Freitas,+59,+Para%C3%ADso,+S%C3%A3o+Paulo+-+SP&output=embed"
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
           </div>
         </div>
       </section>
