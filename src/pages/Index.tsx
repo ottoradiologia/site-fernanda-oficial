@@ -50,6 +50,14 @@ const Index = () => {
         <section className="overflow-hidden bg-gradient-to-b from-brand-sage to-brand-paper">
           <div className="container mx-auto grid items-end gap-0 px-4 lg:min-h-[600px] lg:grid-cols-2 lg:gap-10 lg:px-12">
             <div className="py-7 text-center lg:self-center lg:py-14 lg:text-left">
+              <img
+                src="/images/hero/logo-principal-recortado.webp"
+                alt="Dra. Fernanda Kruger – Pediatria"
+                width={900}
+                height={634}
+                fetchPriority="high"
+                className="mx-auto mb-5 h-auto w-[190px] lg:mx-0 lg:mb-7 lg:w-[250px]"
+              />
               <h1>
                 <span className="eyebrow mb-2.5 block font-montserrat text-[11px] lg:mb-5 lg:text-xs">{d.hero.eyebrow}</span>
                 <span className="block text-[36px] font-normal leading-[1.06] text-brand-tealDeep lg:text-[60px]">

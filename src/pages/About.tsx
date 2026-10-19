@@ -15,6 +15,13 @@ const About = () => {
       <section className="bg-gradient-to-br from-accent to-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
+            <img
+              src="/images/hero/logo-principal-recortado.webp"
+              alt="Dra. Fernanda Kruger – Pediatria"
+              width={900}
+              height={634}
+              className="mx-auto mb-6 h-auto w-[200px] lg:w-[240px]"
+            />
             <h1 className="text-4xl lg:text-5xl font-bold text-[#83B2AC] mb-4">
               {t.pages.about.hero.title}
             </h1>
