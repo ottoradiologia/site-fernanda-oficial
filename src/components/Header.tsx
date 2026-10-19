@@ -64,8 +64,8 @@ const Header = () => {
       {/* O botão flutuante de WhatsApp do Phonetrack (index.html) já cobre o celular; sem barra fixa própria para não sobrepor */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-brand-paper/95 backdrop-blur">
         <div className="container mx-auto px-4 lg:px-12">
-          <div className="flex h-16 items-center justify-between gap-6 lg:h-[78px]">
-            <Link to="/" className="flex items-center gap-3">
+          <div className="flex h-16 items-center justify-between gap-8 lg:h-[78px]">
+            <Link to="/" className="flex flex-shrink-0 items-center gap-3">
               <img
                 src="/images/hero/logo-k.webp"
                 alt="Logotipo Dra. Fernanda Kruger"
@@ -83,7 +83,7 @@ const Header = () => {
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex" aria-label="Menu principal">
+            <nav className="hidden items-center gap-5 xl:flex 2xl:gap-7" aria-label="Menu principal">
               {menuItems.map((item) =>
                 item.hasDropdown ? (
                   <div
@@ -128,7 +128,7 @@ const Header = () => {
               )}
             </nav>
 
-            <div className="hidden items-center gap-5 lg:flex">
+            <div className="hidden flex-shrink-0 items-center gap-5 xl:flex">
               <LanguageSwitch />
               <a
                 href={whatsappUrl}
@@ -142,7 +142,7 @@ const Header = () => {
 
             <button
               type="button"
-              className="grid h-10 w-10 place-items-center rounded-full border border-brand-line text-brand-ink lg:hidden"
+              className="grid h-10 w-10 place-items-center rounded-full border border-brand-line text-brand-ink xl:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={isMenuOpen}
@@ -152,7 +152,7 @@ const Header = () => {
           </div>
 
           {isMenuOpen && (
-            <div className="border-t border-brand-line py-4 lg:hidden">
+            <div className="border-t border-brand-line py-4 xl:hidden">
               <nav className="flex flex-col gap-1" aria-label="Menu principal">
                 <Link
                   to="/"
