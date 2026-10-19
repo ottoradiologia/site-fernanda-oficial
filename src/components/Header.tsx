@@ -64,8 +64,8 @@ const Header = () => {
       {/* O botão flutuante de WhatsApp do Phonetrack (index.html) já cobre o celular; sem barra fixa própria para não sobrepor */}
       <header className="sticky top-0 z-50 border-b border-brand-line bg-brand-paper/95 backdrop-blur">
         <div className="container mx-auto px-4 lg:px-12">
-          <div className="flex h-16 items-center justify-between gap-8 lg:h-[78px]">
-            <Link to="/" className="flex flex-shrink-0 items-center gap-3">
+          <div className="flex h-16 items-center justify-between gap-3 sm:gap-8 lg:h-[78px]">
+            <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3 xl:flex-shrink-0">
               <img
                 src="/images/hero/logo-k.webp"
                 alt="Logotipo Dra. Fernanda Kruger"
@@ -77,7 +77,7 @@ const Header = () => {
                 <span className="font-display-soft block whitespace-nowrap text-lg text-brand-tealDeep lg:text-[21px]">
                   Dra. Fernanda Kruger
                 </span>
-                <span className="block whitespace-nowrap text-[10.5px] uppercase tracking-[0.14em] text-brand-muted">
+                <span className="block whitespace-nowrap text-[9.5px] uppercase tracking-[0.06em] text-brand-muted sm:text-[10.5px] sm:tracking-[0.14em]">
                   Pediatra · CRM-SP 140.995 · RQE 37669
                 </span>
               </span>
