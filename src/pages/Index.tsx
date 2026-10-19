@@ -191,13 +191,13 @@ const Index = () => {
         <section className="bg-brand-sage py-16 lg:py-24">
           <div className="container mx-auto grid items-start gap-8 px-4 lg:grid-cols-[.85fr_1.15fr] lg:gap-[72px] lg:px-12">
             <img
-              src="/images/doctor/fer-mesa.webp"
-              alt="Dra. Fernanda à mesa do consultório"
-              width={800}
-              height={1200}
+              src="/images/doctor/fer-sobre-mim.webp"
+              alt="Dra. Fernanda Kruger com o estetoscópio"
+              width={1000}
+              height={1500}
               loading="lazy"
               decoding="async"
-              className="block aspect-[4/3] w-full rounded-[28px] object-cover object-[50%_25%] lg:aspect-[3/4]"
+              className="block aspect-[4/3] w-full rounded-[28px] object-cover object-[50%_22%] lg:aspect-[3/4]"
             />
             <div>
               <span className="eyebrow">{d.about.eyebrow}</span>
