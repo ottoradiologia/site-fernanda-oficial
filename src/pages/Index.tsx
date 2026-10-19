@@ -134,7 +134,7 @@ const Index = () => {
                     height={1066}
                     loading="lazy"
                     decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover object-[50%_18%] transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="px-5 pb-5 pt-4 lg:px-7 lg:pb-6 lg:pt-5">
