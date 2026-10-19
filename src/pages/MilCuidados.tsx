@@ -16,14 +16,14 @@ const MilCuidados = () => {
 
   const facts = pt
     ? [
-        { label: 'Para quem', value: 'Do bebê ao adolescente' },
-        { label: 'Duração', value: 'A partir de 3 meses' },
+        { label: 'Início', value: 'Desde o nascimento' },
+        { label: 'Duração', value: '6 meses ou 1 ano' },
         { label: 'Consultas', value: 'Sem pressa, regulares' },
         { label: 'Vacinas', value: 'Podem entrar no pacote' },
       ]
     : [
-        { label: 'For', value: 'From babies to teens' },
-        { label: 'Duration', value: 'From 3 months' },
+        { label: 'Starts', value: 'From birth' },
+        { label: 'Duration', value: '6 months or 1 year' },
         { label: 'Consultations', value: 'Unhurried, regular' },
         { label: 'Vaccines', value: 'Can be included' },
       ];

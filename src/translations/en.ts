@@ -469,9 +469,9 @@ export const en: Translations = {
       },
       whatIs: {
         title: 'What is the Mil Cuidados Program?',
-        paragraph1: 'The Mil Cuidados Program is a special pediatric follow-up program designed for all phases of your child\'s childhood, from baby to teenager.',
+        paragraph1: 'The Mil Cuidados Program is a special pediatric follow-up program designed to care for your child from birth.',
         paragraph2: 'This program offers complete and personalized follow-up, including regular well-child consultations, growth and development monitoring, and can also include vaccines.',
-        paragraph3: 'The program duration can vary from a minimum of 3 months to the entire childhood, adapting to your family\'s needs.',
+        paragraph3: 'The program starts from birth and lasts 6 months or 1 year, depending on the package chosen by the family.',
         paragraph4: 'With the Mil Cuidados Program, you ensure that your child receives the preventive and continuous care necessary for healthy development.',
       },
       benefits: {

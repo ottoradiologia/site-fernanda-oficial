@@ -469,9 +469,9 @@ export const pt: Translations = {
       },
       whatIs: {
         title: 'O que é o Programa Mil Cuidados?',
-        paragraph1: 'O Programa Mil Cuidados é um programa especial de acompanhamento pediátrico desenvolvido para todas as fases da infância da sua criança, do bebê ao adolescente.',
+        paragraph1: 'O Programa Mil Cuidados é um programa especial de acompanhamento pediátrico desenvolvido para acompanhar a sua criança desde o nascimento.',
         paragraph2: 'Este programa oferece um acompanhamento completo e personalizado, incluindo consultas regulares de puericultura, monitoramento do crescimento e desenvolvimento, e pode incluir também vacinas.',
-        paragraph3: 'A duração do programa pode variar de no mínimo 3 meses até toda a infância, adaptando-se às necessidades da sua família.',
+        paragraph3: 'O programa começa desde o nascimento e tem duração de 6 meses ou 1 ano, conforme o pacote escolhido pela família.',
         paragraph4: 'Com o Programa Mil Cuidados, você garante que seu filho receba o cuidado preventivo e contínuo necessário para um desenvolvimento saudável.',
       },
       benefits: {
