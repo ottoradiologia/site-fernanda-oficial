@@ -46,10 +46,10 @@ const Pneumologia = () => {
             <div className="relative mx-auto w-full max-w-[400px]">
               <span aria-hidden="true" className="absolute inset-x-3 bottom-0 top-[16%] rounded-t-full bg-brand-rose/35" />
               <img
-                src="/images/doctor/fer-estetoscopio-sem-fundo.webp"
-                alt="Dra. Fernanda Kruger com o estetoscópio"
-                width={850}
-                height={1300}
+                src="/images/doctor/fer-espacador.webp"
+                alt="Dra. Fernanda Kruger demonstrando o espaçador para bombinha de asma"
+                width={930}
+                height={1400}
                 fetchPriority="high"
                 className="relative mx-auto block h-auto w-full"
               />
