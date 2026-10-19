@@ -18,7 +18,8 @@ const translations: Record<Language, Translations> = {
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem('language') as Language;
+    // localStorage não existe na pré-renderização do build
+    const saved = (typeof window !== 'undefined' ? window.localStorage.getItem('language') : null) as Language;
     return saved && (saved === 'pt' || saved === 'en') ? saved : 'pt';
   });
 
