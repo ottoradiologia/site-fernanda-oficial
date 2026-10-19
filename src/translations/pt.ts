@@ -49,7 +49,7 @@ export const pt: Translations = {
         credentials: 'Dra. Fernanda Favali Kruger - CRM-SP 140.995 | RQE 37669',
         scheduleButton: 'Agende uma Consulta',
         knowMyStory: 'Conheça minha história',
-        privateOnly: 'Não atendemos convênio, somente consulta particular',
+        privateOnly: 'Não atendemos convênio',
       },
       about: {
         title: 'Olá! Sou a Dra. Fernanda',

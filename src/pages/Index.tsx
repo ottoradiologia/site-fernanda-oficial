@@ -96,7 +96,7 @@ const Index = () => {
               ))}
             </dl>
             {t.pages.index.hero.privateOnly && (
-              <p className="my-3 flex items-center justify-center gap-2 rounded-2xl bg-brand-rose px-4 py-3 text-center text-[15px] font-semibold text-brand-btnInk sm:text-base">
+              <p className="my-3 flex items-center justify-center gap-2 rounded-full bg-brand-rose px-4 py-3 text-center text-[15px] font-semibold text-brand-btnInk sm:text-base">
                 <Info className="h-5 w-5 flex-shrink-0" />
                 {t.pages.index.hero.privateOnly}
               </p>
